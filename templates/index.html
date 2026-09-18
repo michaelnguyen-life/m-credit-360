@@ -429,49 +429,50 @@
   <div class="flex-1 flex flex-col h-screen overflow-hidden">
     
     <!-- TOP HEADER -->
-    <header class="h-14 bg-white border-b border-[#E6EAF0] px-6 flex items-center justify-between flex-shrink-0 z-20">
-      <div class="flex items-center space-x-3">
-        <span class="text-base font-black tracking-tight text-[#0B1739]">M-CREDIT <span class="text-[#FF5A00]">360</span></span>
-        <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">v3.0 Unified</span>
-        <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] border border-[#A6F4C5] inline-flex items-center gap-1.5">
+    <header class="h-14 bg-white border-b border-[#E6EAF0] flex items-center justify-between px-4 lg:px-6 flex-shrink-0 z-20">
+      <!-- Left Side: Logo + Badges -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <span class="text-base font-black tracking-tight text-[#0B1739] whitespace-nowrap">M-CREDIT <span class="text-[#FF5A00]">360</span></span>
+        <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap">v3.0 Unified</span>
+        <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] border border-[#A6F4C5] inline-flex items-center gap-1.5 whitespace-nowrap hidden sm:inline-flex">
           <span class="w-1.5 h-1.5 rounded-full bg-[#12B76A] animate-pulse"></span> GreenNode AgentBase Live
         </span>
-        <span class="hidden xl:inline text-[11px] text-[#667085] border-l border-slate-200 pl-3">
+        <span class="hidden xl:inline text-[11px] text-[#667085] border-l border-slate-200 pl-3 whitespace-nowrap">
           Team 22 Hattrick • Leader Michael Nguyen • MSB AI Hackathon 2026
         </span>
       </div>
 
-      <!-- Right Header Actions -->
-      <div class="flex items-center space-x-3">
+      <!-- Right Side: Actions -->
+      <div class="flex items-center gap-2 lg:gap-3 flex-shrink-0">
         <!-- Search bar -->
-        <div class="relative hidden sm:block">
-          <input type="text" id="global-search-input" placeholder="Tìm kiếm khách hàng, mã hồ sơ..." class="w-56 lg:w-64 bg-slate-50 border border-[#D0D5DD] rounded-lg pl-8 pr-8 py-1.5 text-xs text-[#0B1739] placeholder-[#98A2B3] outline-none focus:border-[#FF5A00] transition" />
-          <i data-lucide="search" class="w-3.5 h-3.5 text-[#98A2B3] absolute left-2.5 top-2.5"></i>
-           <span class="text-[10px] text-[#98A2B3] font-mono border border-slate-200 rounded px-1 absolute right-2 top-2">Ctrl+K</span>
+        <div class="relative flex-1 min-w-0 max-w-xs lg:max-w-sm">
+          <input type="text" id="global-search-input" placeholder="Tìm kiếm khách hàng, mã hồ sơ..." class="w-full bg-slate-50 border border-[#D0D5DD] rounded-lg pl-8 pr-8 py-1.5 text-xs text-[#0B1739] placeholder-[#98A2B3] outline-none focus:border-[#FF5A00] transition truncate" />
+          <i data-lucide="search" class="w-3.5 h-3.5 text-[#98A2B3] absolute left-2.5 top-2.5 pointer-events-none"></i>
+           <span class="text-[10px] text-[#98A2B3] font-mono border border-slate-200 rounded px-1 absolute right-2 top-2 select-none">Ctrl+K</span>
         </div>
 
         <!-- Notification Bell -->
-        <button onclick="openNotifications()" class="relative p-2 rounded-lg hover:bg-slate-100 text-[#667085] transition">
+        <button onclick="openNotifications()" class="relative p-2 rounded-lg hover:bg-slate-100 text-[#667085] transition flex-shrink-0">
           <i data-lucide="bell" class="w-4 h-4"></i>
           <span class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-[#E53935] text-white text-[9px] font-bold flex items-center justify-center">3</span>
         </button>
 
         <!-- User Profile -->
-        <div class="flex items-center space-x-2 pl-2 border-l border-slate-200">
-          <div class="w-7 h-7 rounded-full bg-[#FF5A00] text-white font-black flex items-center justify-center text-[10px] shadow-sm">
+        <div class="flex items-center gap-2 pl-2 border-l border-slate-200 flex-shrink-0">
+          <div class="w-7 h-7 rounded-full bg-[#FF5A00] text-white font-black flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">
             22
           </div>
           <div class="hidden md:block text-left">
-            <span class="font-bold text-xs text-[#0B1739] block leading-tight">Team 22 Hattrick</span>
-            <span class="text-[10px] text-[#667085] block leading-tight">MSB AI Hackathon 2026</span>
+            <span class="font-bold text-xs text-[#0B1739] block leading-tight whitespace-nowrap">Team 22 Hattrick</span>
+            <span class="text-[10px] text-[#667085] block leading-tight whitespace-nowrap">MSB AI Hackathon 2026</span>
           </div>
-          <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-[#98A2B3]"></i>
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-[#98A2B3] flex-shrink-0"></i>
         </div>
       </div>
     </header>
 
     <!-- WORKSPACE SCROLLABLE CONTENT -->
-    <div class="flex-1 overflow-y-auto px-8 py-6 space-y-6">
+    <div class="flex-1 overflow-y-auto flex flex-col w-full max-w-full px-4 lg:px-8 py-6 space-y-6">
 
       <!-- ==================== HERO AREA ==================== -->
       <div class="executive-card p-3.5 relative overflow-hidden border border-[#E6EAF0] shadow-sm min-h-[88px]">
@@ -560,7 +561,7 @@
       </div>
 
       <!-- ==================== MAIN 3-COLUMN WORKSPACE (EB) ==================== -->
-      <div id="section-eb" class="grid grid-cols-1 xl:grid-cols-12 gap-4">
+      <div id="section-eb" class="grid grid-cols-1 xl:grid-cols-12 gap-4 w-full">
 
         <!-- COLUMN 1: COMPANY DATA (approx 31%) -->
         <div class="xl:col-span-4 executive-card p-4 space-y-3.5">
@@ -803,9 +804,10 @@
                 Chưa có tài liệu nào được upload.<br>Sử dụng nút "Upload hồ sơ" để tải lên.
               </div>
             </div>
-              </div>
-            </div>
+          </div>
 
+          <!-- Upload Quick Action Card -->
+          <div class="executive-card p-3.5 space-y-3">
             <button onclick="openUploadDrawer()" class="w-full py-2 rounded-lg border border-dashed border-[#D0D5DD] hover:border-[#FF5A00] hover:text-[#FF5A00] text-[#667085] transition text-xs font-semibold flex items-center justify-center gap-1.5">
               <i data-lucide="plus" class="w-3.5 h-3.5"></i>
               <span>+ Thêm hồ sơ</span>
