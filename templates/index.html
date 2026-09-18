@@ -426,29 +426,26 @@
   </aside>
 
   <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
-  <div class="flex-1 flex flex-col h-screen overflow-hidden">
+  <main class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
     
     <!-- TOP HEADER -->
-    <header class="h-14 bg-white border-b border-[#E6EAF0] flex items-center justify-between px-4 lg:px-6 flex-shrink-0 z-20">
+    <header class="h-14 bg-white border-b border-[#E6EAF0] flex items-center justify-between px-3 sm:px-4 lg:px-6 flex-shrink-0 z-20">
       <!-- Left Side: Logo + Badges -->
-      <div class="flex items-center gap-3 flex-shrink-0">
+      <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
         <span class="text-base font-black tracking-tight text-[#0B1739] whitespace-nowrap">M-CREDIT <span class="text-[#FF5A00]">360</span></span>
-        <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap">v3.0 Unified</span>
-        <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] border border-[#A6F4C5] inline-flex items-center gap-1.5 whitespace-nowrap hidden sm:inline-flex">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#12B76A] animate-pulse"></span> GreenNode AgentBase Live
-        </span>
+        <span class="text-[10px] sm:text-[11px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap">v3.0 Unified</span>
         <span class="hidden xl:inline text-[11px] text-[#667085] border-l border-slate-200 pl-3 whitespace-nowrap">
-          Team 22 Hattrick • Leader Michael Nguyen • MSB AI Hackathon 2026
+          Team 22 Hattrick • MSB AI Hackathon 2026
         </span>
       </div>
 
       <!-- Right Side: Actions -->
-      <div class="flex items-center gap-2 lg:gap-3 flex-shrink-0">
-        <!-- Search bar -->
-        <div class="relative flex-1 min-w-0 max-w-xs lg:max-w-sm">
+      <div class="flex items-center gap-1 sm:gap-2 lg:gap-3 flex-shrink-0">
+        <!-- Search bar (flexible width) -->
+        <div class="relative flex-1 min-w-[160px] sm:min-w-[240px] max-w-xs lg:max-w-sm">
           <input type="text" id="global-search-input" placeholder="Tìm kiếm khách hàng, mã hồ sơ..." class="w-full bg-slate-50 border border-[#D0D5DD] rounded-lg pl-8 pr-8 py-1.5 text-xs text-[#0B1739] placeholder-[#98A2B3] outline-none focus:border-[#FF5A00] transition truncate" />
           <i data-lucide="search" class="w-3.5 h-3.5 text-[#98A2B3] absolute left-2.5 top-2.5 pointer-events-none"></i>
-           <span class="text-[10px] text-[#98A2B3] font-mono border border-slate-200 rounded px-1 absolute right-2 top-2 select-none">Ctrl+K</span>
+           <span class="hidden sm:block text-[10px] text-[#98A2B3] font-mono border border-slate-200 rounded px-1 absolute right-2 top-2 select-none">Ctrl+K</span>
         </div>
 
         <!-- Notification Bell -->
@@ -458,13 +455,12 @@
         </button>
 
         <!-- User Profile -->
-        <div class="flex items-center gap-2 pl-2 border-l border-slate-200 flex-shrink-0">
+        <div class="flex items-center gap-1.5 sm:gap-2 pl-1 sm:pl-2 border-l border-slate-200 flex-shrink-0">
           <div class="w-7 h-7 rounded-full bg-[#FF5A00] text-white font-black flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">
             22
           </div>
           <div class="hidden md:block text-left">
-            <span class="font-bold text-xs text-[#0B1739] block leading-tight whitespace-nowrap">Team 22 Hattrick</span>
-            <span class="text-[10px] text-[#667085] block leading-tight whitespace-nowrap">MSB AI Hackathon 2026</span>
+            <span class="font-bold text-xs text-[#0B1739] block leading-tight whitespace-nowrap">Team 22</span>
           </div>
           <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-[#98A2B3] flex-shrink-0"></i>
         </div>
@@ -472,17 +468,17 @@
     </header>
 
     <!-- WORKSPACE SCROLLABLE CONTENT -->
-    <div class="flex-1 overflow-y-auto flex flex-col w-full max-w-full px-4 lg:px-8 py-6 space-y-6">
+    <div class="flex-1 overflow-y-auto flex flex-col min-w-0 w-full max-w-full px-4 lg:px-8 py-6 space-y-6">
 
       <!-- ==================== HERO AREA ==================== -->
-      <div class="executive-card p-3.5 relative overflow-hidden border border-[#E6EAF0] shadow-sm min-h-[88px]">
+      <div class="executive-card p-3.5 relative overflow-hidden border border-[#E6EAF0] shadow-sm min-h-[88px] w-full">
         <!-- City Skyline Background Image -->
         <img src="/static/hinh_thanh_pho.jpg" alt="MSB Skyline" class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none z-0" />
         <!-- Soft gradient overlay ensuring ultra-crisp typography -->
         <div class="absolute inset-0 pointer-events-none z-0" style="background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.91) 48%, rgba(255,255,255,0.45) 80%, rgba(255,255,255,0.18) 100%);"></div>
 
-        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <div class="max-w-2xl">
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-3 w-full">
+          <div class="w-full max-w-2xl">
             <span class="text-[11px] font-bold text-[#FF5A00] uppercase tracking-wider block mb-0.5">
               TRỢ LÝ THẨM ĐỊNH TÍN DỤNG TOÀN DIỆN MSB
             </span>
@@ -497,7 +493,7 @@
       </div>
 
       <!-- ==================== PRIMARY WORKFLOW ACTION BAR ==================== -->
-      <div class="executive-card p-3 flex flex-wrap items-center justify-between gap-3 bg-white">
+      <div class="executive-card p-3 flex flex-wrap items-center justify-between gap-3 bg-white w-full">
         
         <!-- Left: Workflow Ingestion Buttons -->
         <div class="flex items-center space-x-2">
@@ -564,7 +560,7 @@
       <div id="section-eb" class="grid grid-cols-1 xl:grid-cols-12 gap-4 w-full">
 
         <!-- COLUMN 1: COMPANY DATA (approx 31%) -->
-        <div class="xl:col-span-4 executive-card p-4 space-y-3.5">
+        <div class="xl:col-span-4 w-full executive-card p-4 space-y-3.5">
           <div class="flex items-center justify-between border-b border-[#E6EAF0] pb-2.5">
             <h2 class="text-xs font-bold text-[#0B1739] flex items-center gap-1.5 uppercase tracking-wide">
               <i data-lucide="file-spreadsheet" class="w-4 h-4 text-[#FF5A00]"></i>
@@ -672,7 +668,7 @@
         </div>
 
         <!-- COLUMN 2: ANALYSIS & UNDERWRITING (approx 44%) -->
-        <div class="xl:col-span-5 space-y-3.5">
+        <div class="xl:col-span-5 w-full space-y-3.5">
           
           <!-- Intelligent Empty State (Visible only when session is reset) -->
           <div id="eb-empty-state" class="hidden executive-card p-8 text-center border-dashed border-2 border-slate-300 space-y-3">
@@ -786,7 +782,7 @@
         </div>
 
         <!-- COLUMN 3: RIGHT PANEL (HỒ SƠ KH & AI INSIGHT) (approx 25%) -->
-        <div class="xl:col-span-3 space-y-3.5">
+        <div class="xl:col-span-3 w-full space-y-3.5">
 
           <!-- Box 1: Hồ sơ khách hàng -->
           <div class="executive-card p-3.5 space-y-2.5">
@@ -862,8 +858,8 @@
       </div>
 
       <!-- ==================== TAB 2: RETAIL BANKING (RB) ==================== -->
-      <div id="section-rb" class="hidden space-y-4">
-        <div class="executive-card p-4 flex flex-wrap items-center justify-between gap-3">
+      <div id="section-rb" class="hidden space-y-4 w-full">
+        <div class="executive-card p-4 flex flex-wrap items-center justify-between gap-3 w-full">
           <div class="flex items-center gap-2 text-xs font-semibold">
             <span class="text-[#667085] flex items-center gap-1"><i data-lucide="database" class="w-3.5 h-3.5"></i> Hồ sơ mẫu KHCN:</span>
             <button onclick="loadSampleRB('rb_good_1')" class="px-3 py-1.5 rounded-lg bg-[#ECFDF3] hover:bg-[#D1FADF] text-[#027A48] border border-[#A6F4C5] flex items-center gap-1.5 transition text-[11px]">
@@ -885,8 +881,8 @@
           </button>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <div class="lg:col-span-5 executive-card p-4 space-y-3">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 w-full">
+          <div class="lg:col-span-5 w-full executive-card p-4 space-y-3">
             <h2 class="text-xs font-bold text-[#0B1739] uppercase border-b border-[#E6EAF0] pb-2">Hồ sơ khách hàng cá nhân</h2>
             <div class="space-y-2 text-xs">
               <div class="grid grid-cols-2 gap-2">
@@ -940,7 +936,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-7 space-y-3">
+          <div class="lg:col-span-7 w-full space-y-3">
             <div id="rb-decision-banner" class="executive-card p-4 border border-[#A6F4C5] bg-[#ECFDF3] flex items-center justify-between">
               <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#00A86B] shadow-sm">
@@ -1008,30 +1004,30 @@
     </div>
 
     <!-- ==================== BOTTOM SEGMENT SWITCHER & DRAFT STATUS ==================== -->
-    <footer class="h-12 bg-white border-t border-[#E6EAF0] px-6 flex items-center justify-between flex-shrink-0 z-20">
+    <footer class="h-12 bg-white border-t border-[#E6EAF0] flex items-center justify-between w-full px-3 sm:px-4 lg:px-6 flex-shrink-0 z-20">
       <!-- Segment Switcher Tabs -->
-      <div class="flex items-center space-x-1.5">
-        <button id="btn-tab-eb" onclick="switchTab('eb')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-[#FFF4EB] text-[#FF5A00] border border-orange-200">
+      <div class="flex items-center gap-1 sm:gap-1.5">
+        <button id="btn-tab-eb" onclick="switchTab('eb')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-[#FFF4EB] text-[#FF5A00] border border-orange-200 whitespace-nowrap">
           <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
           <span>Doanh nghiệp (EB)</span>
         </button>
-        <button id="btn-tab-rb" onclick="switchTab('rb')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-[#667085] hover:text-[#0B1739]">
+        <button id="btn-tab-rb" onclick="switchTab('rb')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-[#667085] hover:text-[#0B1739] whitespace-nowrap">
           <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
           <span>Cá nhân / Hộ KD (RB)</span>
         </button>
-        <button id="btn-tab-zalo" onclick="switchTab('zalo')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-[#667085] hover:text-[#0B1739]">
+        <button id="btn-tab-zalo" onclick="switchTab('zalo')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-[#667085] hover:text-[#0B1739] whitespace-nowrap hidden sm:flex">
           <i data-lucide="qr-code" class="w-3.5 h-3.5"></i>
-          <span>Zalo Bot Mobile</span>
+          <span>Zalo Bot</span>
         </button>
       </div>
 
       <!-- Draft Status & Save Draft Button -->
-      <div class="flex items-center space-x-3 text-xs">
-        <span class="text-[#00A86B] flex items-center gap-1 text-[11px] font-medium">
+      <div class="flex items-center gap-2 sm:gap-3 text-xs flex-shrink-0">
+        <span class="text-[#00A86B] flex items-center gap-1 text-[11px] font-medium whitespace-nowrap">
           <span class="w-1.5 h-1.5 rounded-full bg-[#00A86B]"></span>
           <span>Đã lưu nháp 11:05</span>
         </span>
-        <button onclick="saveDraftNotification()" class="px-3 py-1.5 rounded-lg bg-[#FF5A00] hover:bg-[#EA4E00] text-white font-bold text-xs flex items-center gap-1 shadow-sm transition">
+        <button onclick="saveDraftNotification()" class="px-3 py-1.5 rounded-lg bg-[#FF5A00] hover:bg-[#EA4E00] text-white font-bold text-xs flex items-center gap-1 shadow-sm transition whitespace-nowrap">
           <i data-lucide="save" class="w-3.5 h-3.5"></i>
           <span>Lưu nháp</span>
         </button>
