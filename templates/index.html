@@ -773,46 +773,11 @@
                   <span>Cơ hội Bán chéo & Tối ưu hóa dòng tiền (Cross-sell Alert)</span>
                 </span>
                 <span id="eb-cross-total" class="text-[10px] px-2 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] border border-[#A6F4C5] font-mono font-bold">
-                  Deal Size ước tính: 45,0 Tỷ
+                  0 cơ hội
                 </span>
               </div>
 
               <div id="eb-cross-list" class="flex flex-col gap-2 text-xs">
-                <div class="p-2.5 rounded-lg bg-slate-50 border border-[#E6EAF0] flex flex-col justify-between">
-                  <div>
-                    <div class="flex items-center justify-between mb-1">
-                      <span class="font-bold text-[#0B1739] text-[11px]">Tài trợ Phải thu (QĐ 039)</span>
-                      <span class="text-[8px] px-1 rounded bg-orange-100 text-[#FF5A00] font-bold">P1 • 80%</span>
-                    </div>
-                    <p class="text-[10px] text-[#667085] leading-tight">Tối ưu dòng tiền từ khoản phải thu</p>
-                    <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ 25,0 Tỷ</span>
-                  </div>
-                  <a href="#cross-sell" class="text-[10px] text-[#2563EB] hover:underline font-medium mt-2 flex items-center gap-0.5">Xem chi tiết &rarr;</a>
-                </div>
-
-                <div class="p-2.5 rounded-lg bg-slate-50 border border-[#E6EAF0] flex flex-col justify-between">
-                  <div>
-                    <div class="flex items-center justify-between mb-1">
-                      <span class="font-bold text-[#0B1739] text-[11px]">Tài trợ SCF / L/C Nhập khẩu</span>
-                      <span class="text-[8px] px-1 rounded bg-emerald-100 text-[#027A48] font-bold">P2 • High</span>
-                    </div>
-                    <p class="text-[10px] text-[#667085] leading-tight">Hỗ trợ chuỗi cung ứng</p>
-                    <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ 15,0 Tỷ</span>
-                  </div>
-                  <a href="#cross-sell" class="text-[10px] text-[#2563EB] hover:underline font-medium mt-2 flex items-center gap-0.5">Xem chi tiết &rarr;</a>
-                </div>
-
-                <div class="p-2.5 rounded-lg bg-slate-50 border border-[#E6EAF0] flex flex-col justify-between">
-                  <div>
-                    <div class="flex items-center justify-between mb-1">
-                      <span class="font-bold text-[#0B1739] text-[11px]">Bảo lãnh & TT Quốc tế</span>
-                      <span class="text-[8px] px-1 rounded bg-blue-100 text-[#2563EB] font-bold">P3 • Medium</span>
-                    </div>
-                    <p class="text-[10px] text-[#667085] leading-tight">Gia tăng dịch vụ phí tín dụng</p>
-                    <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ 5,0 Tỷ</span>
-                  </div>
-                  <a href="#cross-sell" class="text-[10px] text-[#2563EB] hover:underline font-medium mt-2 flex items-center gap-0.5">Xem chi tiết &rarr;</a>
-                </div>
               </div>
             </div>
 
@@ -1265,7 +1230,7 @@
       <div class="overflow-y-auto space-y-2 text-xs flex-1">
         <div class="p-2.5 rounded-lg bg-slate-50 border border-[#E6EAF0] grid grid-cols-2 gap-2">
           <div><span class="text-[#667085] block text-[10px]">Tên Doanh Nghiệp:</span><strong id="modal-company-name" class="text-[#0B1739] text-xs">CÔNG TY CỔ PHẦN TẬP ĐOÀN ALPHA</strong></div>
-          <div><span class="text-[#667085] block text-[10px]">Mã số thuế (MST):</span><strong id="modal-tax-id" class="text-[#0B1739] font-mono text-xs">0311807068</strong></div>
+          <div><span class="text-[#667085] block text-[10px]">Mã số thuế (MST):</span><strong id="modal-tax-id-display" class="text-[#0B1739] font-mono text-xs">0311807068</strong></div>
           <div><span class="text-[#667085] block text-[10px]">Doanh thu thuần:</span><strong id="modal-revenue" class="text-[#0B1739] font-mono text-xs">318.000.000.000 VND</strong></div>
           <div><span class="text-[#667085] block text-[10px]">EBIT:</span><strong id="modal-ebit" class="text-[#0B1739] font-mono text-xs">18.500.000.000 VND</strong></div>
           <div><span class="text-[#667085] block text-[10px]">Tài sản ngắn hạn:</span><strong id="modal-assets" class="text-[#0B1739] font-mono text-xs">120.000.000.000 VND</strong></div>
@@ -1559,7 +1524,37 @@
       lucide.createIcons();
     }
     function closeUploadDrawer() {
-      document.getElementById('upload-drawer').classList.add('hidden');
+      // Hide the drawer
+      const drawer = document.getElementById('upload-drawer');
+      if (drawer) drawer.classList.add('hidden');
+      
+      // Reset file input & clear stale file list
+      const fileInput = document.getElementById('file-input');
+      if (fileInput) fileInput.value = '';
+      
+      const rowsContainer = document.getElementById('upload-file-rows');
+      if (rowsContainer) {
+        rowsContainer.innerHTML = '<div id="empty-upload-msg" class="text-center py-8 text-[#98A2B3] text-xs">Chưa có tài liệu nào được tải lên</div>';
+      }
+      
+      // Clear AI processing states
+      const aiBox = document.getElementById('ai-processing-box');
+      if (aiBox) aiBox.classList.add('hidden');
+      
+      const aiModal = document.getElementById('ai-processing-modal');
+      if (aiModal) aiModal.classList.add('hidden');
+      
+      const progressBar = document.getElementById('ai-progress-bar');
+      if (progressBar) progressBar.style.width = '0%';
+      const progressText = document.getElementById('ai-progress-text');
+      if (progressText) progressText.textContent = '0%';
+      
+      // Reset source tag to default
+      const sourceTag = document.getElementById('eb-source-tag');
+      if (sourceTag) sourceTag.textContent = 'Nguồn: Chưa có dữ liệu';
+      
+      // Reset current uploaded filename tracker
+      currentUploadedFileName = '';
     }
     function handleFileSelect(e) {
       const files = e.target.files;
@@ -2591,7 +2586,7 @@
       const d = dataMap[currentExtractedType] || dataMap['alpha'];
       
       document.getElementById('modal-company-name').textContent = d.name;
-      document.getElementById('modal-tax-id').textContent = d.tax;
+      document.getElementById('modal-tax-id-display').textContent = d.tax;
       document.getElementById('modal-revenue').textContent = d.rev + ' VND';
       document.getElementById('modal-ebit').textContent = d.ebit + ' VND';
       document.getElementById('modal-assets').textContent = d.assets + ' VND';
@@ -2690,6 +2685,38 @@
       document.getElementById('eb-equity').value = Math.round(equity / 1000000000).toLocaleString('vi-VN');
       document.getElementById('eb-interest').value = Math.round(interest / 1000000000).toLocaleString('vi-VN');
       document.getElementById('eb-principal').value = Math.round(principal / 1000000000).toLocaleString('vi-VN');
+      
+      // Derived fields: net-profit (EBIT - approximate tax @20%)
+      const netProfit = Math.round(ebit * 0.8);
+      if (document.getElementById('eb-net-profit')) {
+        document.getElementById('eb-net-profit').value = Math.round(netProfit / 1000000000).toLocaleString('vi-VN');
+      }
+      
+      // Derived fields: business segment based on revenue tiers
+      let segment = 'SME';
+      let status = 'Hoạt động bình thường';
+      if (rev >= 1000e9) { segment = 'Doanh nghiệp lớn'; status = 'Khách hàng VIP'; }
+      else if (rev >= 200e9) { segment = 'Trung bình'; status = 'Khách hàng thân thiết'; }
+      if (document.getElementById('eb-segment')) document.getElementById('eb-segment').value = segment;
+      if (document.getElementById('eb-status')) document.getElementById('eb-status').value = status;
+      
+      // CIF (Mã số doanh nghiệp) from taxId format validation
+      if (document.getElementById('eb-cif')) {
+        const tax = taxId || '';
+        if (/^\d{10,13}$/.test(tax)) {
+          document.getElementById('eb-cif').value = tax.length === 10 ? '0' + tax : tax;
+        } else {
+          document.getElementById('eb-cif').value = tax;
+        }
+      }
+      
+      // Industry & Legal Rep defaults - to be populated by API enrichment
+      if (document.getElementById('eb-industry') && !document.getElementById('eb-industry').value) {
+        document.getElementById('eb-industry').value = 'Chưa phân loại (chờ enrich API)';
+      }
+      if (document.getElementById('eb-legal-rep') && !document.getElementById('eb-legal-rep').value) {
+        document.getElementById('eb-legal-rep').value = 'Chưa cập nhật (chờ enrich API)';
+      }
       
       // Update status indicators
       document.getElementById('session-status-badge').textContent = "Đang thẩm định";
@@ -2937,6 +2964,13 @@
                 document.getElementById('eb-flags-count').className = 'text-[10px] px-2 py-0.5 rounded-full bg-[#FEF3F2] text-[#B42318] border border-[#FECDCA] font-semibold';
             } else {
                 document.getElementById('eb-flags-count').className = 'text-[10px] px-2 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] border border-[#A6F4C5] font-semibold';
+                if (flagsContainer && flagsContainer.children.length === 0) {
+                    flagsContainer.innerHTML = `<div class="p-3 rounded-lg bg-slate-50 border border-[#E6EAF0] text-center">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-[#00A86B] mx-auto mb-1"></i>
+                        <p class="text-[10px] text-[#667085] leading-relaxed">Hồ sơ sạch - không phát hiện cảnh báo rủi ro trong các chỉ tiêu thẩm định.</p>
+                    </div>`;
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                }
             }
 
             // Map Cross-Sell from swot_analysis.opportunities
