@@ -1,0 +1,40 @@
+{
+  "assessment_id": "EB-DEMO-2026-001",
+  "company": {"name": "Cong ty CP Demo", "tax_id": "0101234567"},
+  "reporting_period": "FY2025",
+  "financial_statement_date": "2025-12-31",
+  "financial_statement_valid_until": "2026-12-31",
+  "currency": "VND million",
+  "financials": {
+    "BS_CURRENT_ASSETS": 450000,
+    "BS_CURRENT_LIABILITIES": 510000,
+    "BS_TRADE_RECEIVABLES": 280000,
+    "BS_INVENTORY": 150000,
+    "BS_TRADE_PAYABLES": 80000,
+    "BS_SHORT_TERM_DEBT": 380000,
+    "BS_TOTAL_LIABILITIES": 600000,
+    "BS_EQUITY": 170000,
+    "IS_EBIT": 26000,
+    "IS_INTEREST_EXPENSE": 20000,
+    "IS_REVENUE": 1200000,
+    "CF_OPERATING_CASH_FLOW": -15000,
+    "CF_INVESTING_CASH_FLOW": -30000,
+    "CF_FINANCING_CASH_FLOW": 40000,
+    "PRINCIPAL_DUE": 30000
+  },
+  "dsp": {"revenue": 1070000, "trade_receivables": 260000},
+  "product_039": {
+    "customer_operating_years": 8,
+    "customer_equity": "mười tỷ",
+    "buyer_operating_years": 5,
+    "buyer_revenue_year_1": "60 tỷ",
+    "buyer_revenue_year_2": "70,000,000,000",
+    "buyer_avg_revenue_2y": "65 tỷ",
+    "contract_value": "20 tỷ",
+    "loan_request_amount": "15 tỷ"
+  },
+  "raw_documents": {
+    "financial_statement_excerpt": "BCTC FY2025: doanh thu, chi phí và lưu chuyển tiền tệ đã được cung cấp.",
+    "principle_contract_excerpt": "Hợp đồng nguyên tắc: giá trị hợp đồng 20 tỷ đồng."
+  }
+}

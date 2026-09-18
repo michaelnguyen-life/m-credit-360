@@ -1,0 +1,15 @@
+                        <span class="text-[8px] px-1 rounded bg-blue-100 text-[#175CD3] font-bold">P3</span>
+                      </div>
+                      <p class="text-[10px] text-[#667085] leading-tight">Giao dịch xuyên biên giới</p>
+                      <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ ${cs3} Tỷ</span>
+                    </div>`;
+                }
+            } catch(e) { console.error("Cross-sell update failed:", e); }
+
+                    document.getElementById('eb-results-container')?.classList.remove('hidden');
+                }
+                
+                const setVal = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+                const setTxt = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
+                
+                setVal('eb-tax-id', draft.taxId);

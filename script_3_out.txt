@@ -1,0 +1,6 @@
+// Global fallback data guaranteeing 100% offline & robust loading
+    const CLIENT_FALLBACK_ALPHA = {
+  "assessment_id": "EB-ALPHA-2025-001",
+  "company": {
+    "name": "CÔNG TY CỔ PHẦN TẬP ĐOÀN ĐẦU 
+... (truncated)

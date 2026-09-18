@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  zalo-bot-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.zalo
+    image: vcr.vngcloud.vn/111480-abp114553/zalo-bot-gateway:v1
+    container_name: mcredit360-zalo-gateway
+    restart: always
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ZALO_BOT_TOKEN=${ZALO_BOT_TOKEN}
+      - GREENNODE_API_KEY=${GREENNODE_API_KEY}
+      - GREENNODE_MAAS_URL=https://maas-llm-aiplatform-hcm.api.vngcloud.vn/v1/chat/completions
+      - URL_ASSESS=https://endpoint-532eb3d4-0d9d-4b19-93c1-2ebc3060bca4.agentbase-runtime.aiplatform.vngcloud.vn/assess
+      - URL_MEMO=https://endpoint-05361e8d-12de-4860-8c26-d6e637d5aa42.agentbase-runtime.aiplatform.vngcloud.vn/build-memo-docx

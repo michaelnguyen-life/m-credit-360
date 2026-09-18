@@ -1,0 +1,3 @@
+function saveDraftNotification() {
+      alert("✓ Đã lưu nháp phiên làm việc hiện tại thành công vào bộ nhớ tạm MSB!");
+    }

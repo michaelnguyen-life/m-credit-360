@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "assessment_id": "EB-ALPHA-2025-002",
+  "company": {
+    "name": "CTY DAU TU GROUP (MOCK AN DANH)",
+    "tax_id": "0318999888",
+    "cif": "CIF-ALPHA-2025",
+    "industry": "Dau tu & Xay lap Bat dong san / Thuong mai",
+    "operating_years": 8,
+    "legal_rep": "NGUYEN VAN ALPHA",
+    "customer_status": "Moi",
+    "customer_segment": "SME",
+    "registered_address": "LK 10-16, Q.1, TP.HCM"
+  },
+  "reporting_period": "FY2025",
+  "currency": "VND",
+  "financial_statement_date": "2025-12-31",
+  "source": {
+    "type": "pdf_extracted",
+    "documents": [
+      "BCTC 2025 (1).pdf",
+      "SP_8888999966_*.pdf (12 months)"
+    ],
+    "extraction_method": "pymupdf"
+  },
+  "financials": {
+    "BS_CURRENT_ASSETS": 293369838619.0,
+    "BS_CURRENT_LIABILITIES": 165307940854.0,
+    "BS_EQUITY": 580965107518.0,
+    "BS_INVENTORY": 13676836829.0,
+    "BS_LONG_TERM_DEBT": 123801251677.0,
+    "BS_SHORT_TERM_DEBT": 78810636239.0,
+    "BS_TOTAL_ASSETS": 870074300049.0,
+    "BS_TOTAL_LIABILITIES": 289109192531.0,
+    "BS_TRADE_PAYABLES": 1440085191.0,
+    "BS_TRADE_RECEIVABLES": 1030523666.0,
+    "IS_REVENUE": 90105893754,
+    "IS_GROSS_PROFIT": 16764962136,
+    "IS_EBIT": 12405554008,
+    "IS_INTEREST_EXPENSE": 8579629925,
+    "IS_NET_PROFIT": 23267766,
+    "CF_OPERATING_CASH_FLOW": 8624346207,
+    "CF_INVESTING_CASH_FLOW": -3920000000,
+    "CF_FINANCING_CASH_FLOW": -4105345786,
+    "PRINCIPAL_DUE": 15000000000
+  },
+  "product_039": {
+    "contract_value": 20000000000,
+    "loan_request_amount": 15000000000,
+    "buyer_operating_years": 5,
+    "buyer_revenue_year_1": 60000000000,
+    "buyer_revenue_year_2": 70000000000
+  },
+  "supply_chain": {
+    "top_suppliers": [
+      {
+        "name": "CTY CP MOCK SUPPLIER 1",
+        "amount": 4500000000,
+        "ratio": 0.35,
+        "payment_terms": "30 ngay",
+        "relationship_years": 5
+      },
+      {
+        "name": "CTY CP MOCK SUPPLIER 2",
+        "amount": 3200000000,
+        "ratio": 0.25,
+        "payment_terms": "45 ngay",
+        "relationship_years": 4
+      },
+      {
+        "name": "CTY CP MOCK SUPPLIER 3",
+        "amount": 1800000000,
+        "ratio": 0.14,
+        "payment_terms": "30 ngay",
+        "relationship_years": 3
+      },
+      {
+        "name": "CTY CP MOCK SUPPLIER 4",
+        "amount": 1200000000,
+        "ratio": 0.09,
+        "payment_terms": "15 ngay",
+        "relationship_years": 2
+      },
+      {
+        "name": "MOCK SUPPLIER 5",
+        "amount": 800000000,
+        "ratio": 0.06,
+        "payment_terms": "30 ngay",
+        "relationship_years": 3
+      }
+    ],
+    "top_buyers": [
+      {
+        "name": "CTY CP DT BETA",
+        "amount": 20000000000,
+        "ratio": 0.22,
+        "payment_terms": "60 ngay",
+        "relationship_years": 3
+      },
+      {
+        "name": "CTY CP BAT DONG SAN GAMMA",
+        "amount": 15000000000,
+        "ratio": 0.17,
+        "payment_terms": "45 ngay",
+        "relationship_years": 2
+      },
+      {
+        "name": "CTY CP XAY DUNG DELTA",
+        "amount": 12000000000,
+        "ratio": 0.13,
+        "payment_terms": "30 ngay",
+        "relationship_years": 4
+      },
+      {
+        "name": "CTY CP DAU TU EPSILON",
+        "amount": 8000000000,
+        "ratio": 0.09,
+        "payment_terms": "60 ngay",
+        "relationship_years": 1
+      },
+      {
+        "name": "CTY CP NHA DAT ZETA",
+        "amount": 6000000000,
+        "ratio": 0.07,
+        "payment_terms": "45 ngay",
+        "relationship_years": 2
+      }
+    ]
+  },
+  "statement_analysis": {
+    "total_inflow": 18620000000000,
+    "total_outflow": 18580000000000,
+    "average_monthly_balance": 15000000000,
+    "months_analyzed": 12,
+    "anomalies": [
+      {
+        "code": "ANM01_LARGE_CASH_WITHDRAWAL",
+        "title": "Rut tien mat lon",
+        "triggered": true,
+        "severity": "high",
+        "count": 3,
+        "total_amount": 50000000000,
+        "evidence": "3 lan rut tien mat > 10 ty trong 12 thang"
+      },
+      {
+        "code": "ANM02_RAPID_MOVEMENT",
+        "title": "Dong tien ra-vao nhanh",
+        "triggered": true,
+        "severity": "medium",
+        "count": 7,
+        "total_amount": 35000000000,
+        "evidence": "7 cap giao dich ra-vao trong 24h"
+      },
+      {
+        "code": "ANM03_ROUND_AMOUNT",
+        "title": "So tien chan",
+        "triggered": true,
+        "severity": "low",
+        "count": 15,
+        "total_amount": 45000000000,
+        "evidence": "15 giao dich so chan"
+      },
+      {
+        "code": "ANM04_AFTER_HOURS",
+        "title": "Giao dich ngoai gio",
+        "triggered": false,
+        "severity": "none",
+        "count": 0,
+        "total_amount": 0,
+        "evidence": "Khong phat hien"
+      },
+      {
+        "code": "ANM05_SENSITIVE_KEYWORDS",
+        "title": "Tu khoa nhay cam",
+        "triggered": false,
+        "severity": "none",
+        "count": 0,
+        "total_amount": 0,
+        "evidence": "Khong phat hien"
+      }
+    ]
+  },
+  "credit_terms": {
+    "requested_limit": 15000000000,
+    "tenor_months": 12,
+    "interest_rate": 0.095,
+    "purpose": "Tai tro von luu dong theo Hop dong dau ra (Product 039)"
+  },
+  "financial_history": [
+    {
+      "fiscal_year": "FY2024",
+      "revenue": 78000000000,
+      "net_profit": 18000000,
+      "total_assets": 784059852763,
+      "equity": 580941839752
+    },
+    {
+      "fiscal_year": "FY2025",
+      "revenue": 90105893754,
+      "net_profit": 23267766,
+      "total_assets": 870074300049,
+      "equity": 580965107518
+    }
+  ],
+  "cic": {
+    "status": "clean",
+    "existing_loans": [],
+    "overdue_days": 0,
+    "credit_score": "N/A - New customer"
+  },
+  "collateral": {
+    "type": "Tin chap theo HDDR (Product 039)",
+    "estimated_value": 20000000000,
+    "coverage_ratio": 1.33
+  },
+  "legal": {
+    "business_license": "Valid",
+    "tax_registration": "0318999888",
+    "legal_rep_id": "079088001234",
+    "ownership_verified": true
+  }
+}

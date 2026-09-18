@@ -1,0 +1,50 @@
+                ...(window.pendingEBData?.product_039 || {}),
+                contract_value: parseNum('eb-p039-contract'),
+                loan_request_amount: parseNum('eb-p039-loan'),
+                customer_equity: parseNum('eb-equity')
+            }
+        };
+    }
+
+    async function runEBAssessment() {
+        const btn = document.getElementById('btn-run-eb');
+        if (btn.disabled) return;
+        
+        btn.disabled = true;
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i><span>Đang xử lý...</span>';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        try {
+            const taxId = document.getElementById('eb-tax-id').value;
+            if (!taxId) {
+                showToast('Lỗi: Cần nhập Mã số thuế trước khi thẩm định', 'error');
+                return;
+            }
+            const payload = buildEBPayload();
+            const res = await fetch('/assess',  {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            
+            if (!res.ok) throw new Error('HTTP Error ' + res.status);
+            const data = await res.json();
+            
+            // Map Decision
+            const outcomeMap = {
+                'manual_review_required': 'Cảnh báo đỏ (Từ chối/Bổ sung)',
+                'enhanced_due_diligence': 'Tái thẩm định đặc biệt',
+                'conditional_review': 'Thẩm định có điều kiện',
+                'no_rule_based_red_flag': 'Không phát hiện cảnh báo'
+            };
+            const decisionStr = data.preliminary_decision?.outcome;
+            document.getElementById('eb-decision-text').textContent = outcomeMap[decisionStr] || 'Hoàn tất phân tích';
+            
+            if (decisionStr === 'manual_review_required') {
+                document.getElementById('eb-decision-text').className = 'text-base font-black text-[#E53935]';
+                document.getElementById('eb-decision-icon').className = 'w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-[#E53935] shadow-sm flex-shrink-0';
+                document.getElementById('eb-decision-icon').innerHTML = '<i data-lucide="alert-triangle" class="w-6 h-6"></i>';
+                document.getElementById('eb-decision-banner').className = 'executive-card p-4 border border-[#FECDCA] bg-[#FEF3F2] flex items-center justify-between transition-all';
+            } else {
+                document.getElementById('eb-decision-text').className = 'text-base font-black text-[#027A48]';

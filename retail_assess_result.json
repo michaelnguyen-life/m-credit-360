@@ -1,0 +1,421 @@
+﻿{
+    "schema_version":  "2.0",
+    "product":  "M-Credit360 Retail",
+    "assessment_id":  "RB-TIKTOK-TOP3-001",
+    "assessed_at":  "2026-09-13T12:03:42.188785+00:00",
+    "language":  "vi",
+    "data_classification":  "SYNTHETIC",
+    "customer_profile":  {
+                             "customer_profile":  {
+                                                      "customer_id":  "KH01",
+                                                      "name":  "NGUYỄN VĂN A",
+                                                      "segment":  "individual_business_owner",
+                                                      "business_channel":  "TikTok Shop",
+                                                      "business_tenure_months":  24
+                                                  },
+                             "document_inventory":  [
+                                                        {
+                                                            "document_type":  "identity",
+                                                            "present":  true,
+                                                            "source":  "documents.identity",
+                                                            "confidence":  1.0
+                                                        },
+                                                        {
+                                                            "document_type":  "income_proof",
+                                                            "present":  true,
+                                                            "source":  "documents.income_proof",
+                                                            "confidence":  1.0
+                                                        },
+                                                        {
+                                                            "document_type":  "cic",
+                                                            "present":  true,
+                                                            "source":  "documents.cic",
+                                                            "confidence":  1.0
+                                                        },
+                                                        {
+                                                            "document_type":  "business_registration",
+                                                            "present":  true,
+                                                            "source":  "documents.business_registration",
+                                                            "confidence":  1.0
+                                                        },
+                                                        {
+                                                            "document_type":  "platform_evidence",
+                                                            "present":  true,
+                                                            "source":  "documents.platform_evidence",
+                                                            "confidence":  1.0
+                                                        },
+                                                        {
+                                                            "document_type":  "collateral_valuation",
+                                                            "present":  false,
+                                                            "source":  "documents.collateral_valuation",
+                                                            "confidence":  0.0
+                                                        }
+                                                    ],
+                             "missing_core_documents":  [
+
+                                                        ],
+                             "extraction_mode":  "structured_facts_demo",
+                             
+                             
+                         },
+    "credit_assessment":  {
+                              "schema_version":  "1.0",
+                              "assessment_id":  "RB-TIKTOK-TOP3-001",
+                              "assessed_at":  "2026-09-13T12:03:42.183416+00:00",
+                              "data_classification":  "SYNTHETIC",
+                              "customer":  {
+                                               "customer_id":  "KH01",
+                                               "name":  "NGUYỄN VĂN A",
+                                               "segment":  "individual_business_owner",
+                                               "business_channel":  "TikTok Shop",
+                                               "business_tenure_months":  24
+                                           },
+                              "income":  {
+                                             "gross_monthly_income":  2919000000,
+                                             "verified_eligible_income":  233520000,
+                                             "unverified_eligible_income":  0,
+                                             "eligible_monthly_income":  233520000,
+                                             "breakdown":  [
+                                                               {
+                                                                   "type":  "business",
+                                                                   "monthly_amount":  2919000000,
+                                                                   "verification_status":  "verified",
+                                                                   "eligible_percent":  0.08,
+                                                                   "eligible_amount":  233520000
+                                                               }
+                                                           ]
+                                         },
+                              "debt":  {
+                                           "existing_monthly_obligation":  35000000,
+                                           "new_loan_estimated_payment":  14300167.88,
+                                           "total_monthly_obligation":  49300167.88,
+                                           "breakdown":  [
+                                                             {
+                                                                 "type":  "long_term_loan",
+                                                                 "outstanding":  2700000000,
+                                                                 "monthly_payment":  30000000
+                                                             },
+                                                             {
+                                                                 "type":  "short_term_loan",
+                                                                 "outstanding":  39000000,
+                                                                 "monthly_payment":  5000000
+                                                             }
+                                                         ]
+                                       },
+                              "ratios":  {
+                                             "dti":  0.21,
+                                             "disposable_income":  184219832.12,
+                                             "unverified_income_share":  0
+                                         },
+                              "loan":  {
+                                           "product":  "unsecured_working_capital_demo",
+                                           "amount":  450000000,
+                                           "annual_interest_rate":  0.225,
+                                           "tenor_months":  48,
+                                           "secured":  false,
+                                           "purpose":  "Bổ sung vốn lưu động nhập khẩu trang y tế"
+                                       },
+                              "missing_documents":  [
+
+                                                    ],
+                              "red_flags":  [
+                                                {
+                                                    "code":  "RF01_DTI",
+                                                    "title":  "DTI vượt ngưỡng demo",
+                                                    "triggered":  false,
+                                                    "severity":  "none",
+                                                    "observed_value":  0.21,
+                                                    "threshold":  0.55,
+                                                    "evidence":  "Total monthly debt / eligible monthly income."
+                                                },
+                                                {
+                                                    "code":  "RF02_LOW_DISPOSABLE",
+                                                    "title":  "Thu nhập tích lũy thấp",
+                                                    "triggered":  false,
+                                                    "severity":  "none",
+                                                    "observed_value":  184219832.12,
+                                                    "threshold":  5000000,
+                                                    "evidence":  "Eligible income minus monthly debt obligation."
+                                                },
+                                                {
+                                                    "code":  "RF03_UNVERIFIED_INCOME",
+                                                    "title":  "Tỷ trọng thu nhập chưa xác minh cao",
+                                                    "triggered":  false,
+                                                    "severity":  "none",
+                                                    "observed_value":  0,
+                                                    "threshold":  0.35,
+                                                    "evidence":  "Share of eligible income derived from not-yet-verified sources."
+                                                }
+                                            ],
+                              "preliminary_recommendation":  {
+                                                                 "outcome":  "PROCEED_FOR_HUMAN_REVIEW",
+                                                                 "is_automated_credit_decision":  false,
+                                                                 "human_in_the_loop":  true
+                                                             },
+                              "rules_applied":  {
+                                                    "max_dti":  0.55,
+                                                    "min_disposable_income":  5000000,
+                                                    "max_card_utilization":  0.8,
+                                                    "max_unverified_income_share":  0.35,
+                                                    "min_statement_months":  3
+                                                },
+                              "warnings":  [
+
+                                           ],
+                              "credit_memo":  "# M-Credit360 — Personal Credit Memo\n**Khách hàng:** NGUYỄN VĂN A  \n**Customer ID:** KH01  \n**Kết quả sơ bộ:** PROCEED_FOR_HUMAN_REVIEW\n\n## Khả năng trả nợ\n- Thu nhập đủ điều kiện: 233520000\n- Nghĩa vụ nợ hiện hữu: 35000000\n- Nghĩa vụ khoản vay mới ước tính: 14300167.88\n- DTI: 0.21\n- Thu nhập tích lũy: 184219832.12\n\n## Điểm cần lưu ý\n- Không phát hiện red flag theo bộ quy tắc demo.\n\n## Hồ sơ cần bổ sung\n- Không có theo checklist demo.\n\n## Disclaimer\nBộ quy tắc mặc định chỉ phục vụ Hackathon/UAT, không phải chính sách MSB chính thức. AI chuẩn bị. Con người quyết định.\n"
+                          },
+    "statement_analysis":  {
+                               "schema_version":  "1.0",
+                               "assessment_id":  "STMT-KH01-001",
+                               "assessed_at":  "2026-09-13T12:03:42.188703+00:00",
+                               "status":  "completed",
+                               "account":  {
+                                               "customer_id":  "KH01"
+                                           },
+                               "source":  {
+                                              "type":  "transactions",
+                                              "transaction_count":  7
+                                          },
+                               "monthly_cash_flow":  [
+                                                         {
+                                                             "month":  "2026-06",
+                                                             "total_inflow":  400000000.0,
+                                                             "total_outflow":  120000000.0,
+                                                             "net_cash_flow":  280000000.0,
+                                                             "transaction_count":  3,
+                                                             "average_balance":  486666666.6666667,
+                                                             "minimum_balance":  420000000.0,
+                                                             "maximum_balance":  580000000.0
+                                                         },
+                                                         {
+                                                             "month":  "2026-07",
+                                                             "total_inflow":  230000000.0,
+                                                             "total_outflow":  150000000.0,
+                                                             "net_cash_flow":  80000000.0,
+                                                             "transaction_count":  2,
+                                                             "average_balance":  525000000.0,
+                                                             "minimum_balance":  450000000.0,
+                                                             "maximum_balance":  600000000.0
+                                                         },
+                                                         {
+                                                             "month":  "2026-08",
+                                                             "total_inflow":  240000000.0,
+                                                             "total_outflow":  160000000.0,
+                                                             "net_cash_flow":  80000000.0,
+                                                             "transaction_count":  2,
+                                                             "average_balance":  570000000.0,
+                                                             "minimum_balance":  490000000.0,
+                                                             "maximum_balance":  650000000.0
+                                                         }
+                                                     ],
+                               "net_eligible_income":  {
+                                                           "eligible_inflow":  870000000.0,
+                                                           "eligible_outflow":  430000000.0,
+                                                           "net_eligible_income":  440000000.0,
+                                                           "methodology":  "Eligible inflow excludes loan/debt and internal-transfer descriptions; eligible outflow excludes identified internal transfers."
+                                                       },
+                               "excluded_transactions":  [
+
+                                                         ],
+                               "suspicious_transactions":  [
+
+                                                           ],
+                               "risk_summary":  {
+                                                    "total_suspicious_transactions":  0,
+                                                    "by_risk_tag":  {
+                                                                        "CRITICAL":  0,
+                                                                        "HIGH":  0,
+                                                                        "MEDIUM":  0
+                                                                    },
+                                                    "manual_review_required":  false
+                                                },
+                               "rules_applied":  {
+                                                     "large_cash_withdrawal":  100000000.0,
+                                                     "cash_withdrawal_share":  0.3,
+                                                     "rapid_movement_window_hours":  24,
+                                                     "rapid_movement_share":  0.9,
+                                                     "round_amount_unit":  50000000.0,
+                                                     "round_amount_min_count":  3,
+                                                     "round_amount_window_days":  30,
+                                                     "after_hours_start":  23,
+                                                     "after_hours_end":  5,
+                                                     "loan_keywords":  [
+                                                                           "vay",
+                                                                           "tra no",
+                                                                           "dao han",
+                                                                           "borrow",
+                                                                           "loan repayment"
+                                                                       ],
+                                                     "internal_transfer_keywords":  [
+                                                                                        "chuyen noi bo",
+                                                                                        "noi bo",
+                                                                                        "tai khoan cua toi",
+                                                                                        "internal transfer",
+                                                                                        "own account"
+                                                                                    ],
+                                                     "sensitive_keywords":  [
+                                                                                "vay",
+                                                                                "tra no",
+                                                                                "dao han",
+                                                                                "cam do",
+                                                                                "tai xiu",
+                                                                                "crypto",
+                                                                                "tien ao"
+                                                                            ]
+                                                 },
+                               "warnings":  [
+
+                                            ],
+                               "errors":  [
+
+                                          ],
+                               "statement_assessment_report":  "# Statement Assessment Report\n**Assessment ID:** STMT-KH01-001  \n**Transactions analyzed:** 7\n\n## Monthly Cash Flow\n| Month | Inflow | Outflow | Net Flow | Avg. Balance | Min / Max Balance |\n|---|---:|---:|---:|---:|---:|\n| 2026-06 | 400000000.0 | 120000000.0 | 280000000.0 | 486666666.6666667 | 420000000.0 / 580000000.0 |\n| 2026-07 | 230000000.0 | 150000000.0 | 80000000.0 | 525000000.0 | 450000000.0 / 600000000.0 |\n| 2026-08 | 240000000.0 | 160000000.0 | 80000000.0 | 570000000.0 | 490000000.0 / 650000000.0 |\n\n## Net Eligible Income\n- Eligible inflow: 870000000.0\n- Eligible outflow: 430000000.0\n- **Net Eligible Income: 440000000.0**\n\n## Suspicious Transactions\n- No rule-based anomalies detected.\n\n## Review Note\nThis report supports credit assessment only. A credit officer must validate source statements and transaction context before making any credit decision.\n"
+                           },
+    "policy_eligibility":  {
+                               "policy_name":  "QĐ.RB.129 DEMO MAPPING — NOT OFFICIAL",
+                               "policy_version":  "V1.0-LIVE",
+                               "outcome":  "MATCH_SUBJECT_TO_HUMAN_REVIEW",
+                               "summary":  {
+                                               "PASS":  3,
+                                               "FAIL":  0,
+                                               "NEED_MORE_DATA":  0
+                                           },
+                               "results":  [
+                                               {
+                                                   "rule_id":  "RB129-DEMO-01",
+                                                   "title":  "Thời gian hoạt động tối thiểu",
+                                                   "field":  "customer.business_tenure_months",
+                                                   "operator":  "gte",
+                                                   "expected":  12,
+                                                   "actual":  24,
+                                                   "status":  "PASS",
+                                                   "evidence":  null,
+                                                   "source_reference":  "PLACEHOLDER — replace with verified QĐ.RB.129 clause"
+                                               },
+                                               {
+                                                   "rule_id":  "RB129-DEMO-02",
+                                                   "title":  "Có chứng từ CIC",
+                                                   "field":  "documents.cic",
+                                                   "operator":  "eq",
+                                                   "expected":  true,
+                                                   "actual":  true,
+                                                   "status":  "PASS",
+                                                   "evidence":  null,
+                                                   "source_reference":  "PLACEHOLDER — replace with verified QĐ.RB.129 clause"
+                                               },
+                                               {
+                                                   "rule_id":  "RB129-DEMO-03",
+                                                   "title":  "DTI demo threshold",
+                                                   "field":  "ratios.dti",
+                                                   "operator":  "lte",
+                                                   "expected":  0.55,
+                                                   "actual":  0.21,
+                                                   "status":  "PASS",
+                                                   "evidence":  null,
+                                                   "source_reference":  "DEMO threshold — not official MSB policy"
+                                               }
+                                           ],
+                               "is_automated_credit_decision":  false,
+                               
+                           },
+    "credit_readiness":  {
+                             "score":  100,
+                             "status":  "GOOD",
+                             "deductions":  [
+
+                                            ],
+                             "methodology":  "Demo/UAT scoring. Not an MSB approval score."
+                         },
+    "recommendation":  "PROCEED_FOR_HUMAN_REVIEW",
+    "explainability":  {
+                           "evidence":  [
+                                            {
+                                                "claim":  "eligible_monthly_income",
+                                                "value":  233520000,
+                                                "source":  "income[] + eligible_percent",
+                                                "confidence":  1.0
+                                            },
+                                            {
+                                                "claim":  "dti",
+                                                "value":  0.21,
+                                                "source":  "deterministic credit engine",
+                                                "confidence":  1.0
+                                            },
+                                            {
+                                                "claim":  "document:identity",
+                                                "value":  true,
+                                                "source":  "documents.identity",
+                                                "confidence":  1.0
+                                            },
+                                            {
+                                                "claim":  "document:income_proof",
+                                                "value":  true,
+                                                "source":  "documents.income_proof",
+                                                "confidence":  1.0
+                                            },
+                                            {
+                                                "claim":  "document:cic",
+                                                "value":  true,
+                                                "source":  "documents.cic",
+                                                "confidence":  1.0
+                                            },
+                                            {
+                                                "claim":  "document:business_registration",
+                                                "value":  true,
+                                                "source":  "documents.business_registration",
+                                                "confidence":  1.0
+                                            },
+                                            {
+                                                "claim":  "document:platform_evidence",
+                                                "value":  true,
+                                                "source":  "documents.platform_evidence",
+                                                "confidence":  1.0
+                                            },
+                                            {
+                                                "claim":  "policy:RB129-DEMO-01",
+                                                "value":  "PASS",
+                                                "source":  "PLACEHOLDER — replace with verified QĐ.RB.129 clause",
+                                                "actual":  24,
+                                                "expected":  12
+                                            },
+                                            {
+                                                "claim":  "policy:RB129-DEMO-02",
+                                                "value":  "PASS",
+                                                "source":  "PLACEHOLDER — replace with verified QĐ.RB.129 clause",
+                                                "actual":  true,
+                                                "expected":  true
+                                            },
+                                            {
+                                                "claim":  "policy:RB129-DEMO-03",
+                                                "value":  "PASS",
+                                                "source":  "DEMO threshold — not official MSB policy",
+                                                "actual":  0.21,
+                                                "expected":  0.55
+                                            },
+                                            {
+                                                "claim":  "statement_risk_summary",
+                                                "value":  {
+                                                              "total_suspicious_transactions":  0,
+                                                              "by_risk_tag":  {
+                                                                                  "CRITICAL":  0,
+                                                                                  "HIGH":  0,
+                                                                                  "MEDIUM":  0
+                                                                              },
+                                                              "manual_review_required":  false
+                                                          },
+                                                "source":  "statement transactions",
+                                                "confidence":  1.0
+                                            }
+                                        ],
+                           "why_supported":  true,
+                           "calculation_engine":  "deterministic_python",
+                           "policy_traceable":  true
+                       },
+    "human_in_the_loop":  {
+                              "required":  true,
+                              "notice_vi":  "AI chuẩn bị. Con người quyết định.",
+                              "notice_en":  "AI prepares. Human decides."
+                          },
+    "decision_ready_memo":  "# M-Credit360 Retail — Decision-Ready Credit Memo\n**Khách hàng:** NGUYỄN VĂN A\n**Credit Readiness:** 100/100 — GOOD\n**Recommendation:** PROCEED_FOR_HUMAN_REVIEW\n\n## Capacity\n- Eligible income: 233520000\n- Total monthly obligation: 49300167.88\n- DTI: 0.21\n- Disposable income: 184219832.12\n\n## Risk flags\n- None under demo rules.\n\n## Missing documents\n- None under demo checklist.\n\n## Policy eligibility\n- Outcome: MATCH_SUBJECT_TO_HUMAN_REVIEW\n- PASS/FAIL/NEED_MORE_DATA: {\u0027PASS\u0027: 3, \u0027FAIL\u0027: 0, \u0027NEED_MORE_DATA\u0027: 0}\n\n## Explainability\nEvery material conclusion is traceable to an input, deterministic calculation, statement finding, or policy rule reference.\n\n## Disclaimer\nSynthetic/UAT data and demo rules only. Not a final MSB credit approval. AI prepares. Human decides.\n"
+}
+

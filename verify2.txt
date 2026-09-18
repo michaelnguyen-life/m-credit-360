@@ -1,0 +1,30 @@
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'To_Trinh_MB02a_' + taxId + '.docx';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            showToast('Tạo tờ trình thành công');
+        } catch (err) {
+            showToast('Lỗi tạo tờ trình: ' + err.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalHtml;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+    }
+
+    // 11. Run RB Assessment API
+    async function runRBAssessment() {
+      if (window.pendingRBData) {
+          const d = window.pendingRBData;
+          document.getElementById('rb-customer-id').value = d.customer?.customer_id || '';
+          document.getElementById('rb-name').value = d.customer?.name || '';
+          document.getElementById('rb-channel').value = d.customer?.business_channel || '';
+          
+          const inc = d.income?.[0] || {};
+          document.getElementById('rb-gross-income').value = (inc.monthly_amount) ? inc.monthly_amount.toLocaleString('vi-VN') : '';
+          document.getElementById('rb-eligible-pct').value = (inc.eligible_percent) ? (inc.eligible_percent * 100) : '';
+          
+          const debts = d.existing_debts || [];
+          const totalOut = debts.reduce((acc, x) => acc + (x.outstanding || 0), 0);

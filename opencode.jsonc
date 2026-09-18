@@ -1,0 +1,35 @@
+{
+  "model": "greennode/z-ai/glm-5.2-hackathon",
+  "provider": {
+    "greennode": {
+      "name": "GreenNode (5M Credits)",
+      "options": {
+        "baseURL": "https://maas-llm-aiplatform-hcm.api.vngcloud.vn/v1",
+        "apiKey": "vn-_gWfSl72C6qp1Z-qvEGv5Ua4ae16ffa17a447a947fbb2c08baacceDlbvUJ3OXxmybnUe_B_xZ0-0001bf792de9195d"
+      },
+      "models": {
+        "z-ai/glm-5.2-hackathon": {
+          "name": "GLM 5.2 Hackathon (GreenNode)",
+          "limit": {
+            "context": 128000,
+            "output": 4096
+          }
+        },
+        "qwen/qwen3.6-flash": {
+          "name": "Qwen 3.6 Flash (GreenNode)",
+          "limit": {
+            "context": 128000,
+            "output": 4096
+          }
+        },
+        "google/gemma-4-31b-it": {
+          "name": "Google Gemma 4 31B (GreenNode)",
+          "limit": {
+            "context": 128000,
+            "output": 4096
+          }
+        }
+      }
+    }
+  }
+}

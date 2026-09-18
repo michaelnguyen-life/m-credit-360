@@ -1,0 +1,59 @@
+{
+  "assessment_id": "RB-TIKTOK-001",
+  "data_classification": "SYNTHETIC",
+  "customer": {
+    "customer_id": "KH01",
+    "name": "PHẠM THANH BÌNH",
+    "segment": "individual_business_owner",
+    "business_channel": "TikTok Shop",
+    "business_tenure_months": 24
+  },
+  "income": [
+    {
+      "type": "business",
+      "monthly_amount": 2919000000,
+      "verification_status": "verified",
+      "eligible_percent": 0.08,
+      "source": "synthetic tax / platform evidence"
+    }
+  ],
+  "existing_debts": [
+    {
+      "type": "long_term_loan",
+      "outstanding": 2700000000,
+      "monthly_payment": 30000000
+    },
+    {
+      "type": "short_term_loan",
+      "outstanding": 39000000,
+      "monthly_payment": 5000000
+    }
+  ],
+  "credit_cards": [
+    {
+      "limit": 250000000,
+      "balance": 108000000
+    }
+  ],
+  "loan": {
+    "product": "unsecured_working_capital_demo",
+    "amount": 450000000,
+    "annual_interest_rate": 0.225,
+    "tenor_months": 48,
+    "secured": false,
+    "purpose": "Bổ sung vốn lưu động nhập khẩu trang y tế"
+  },
+  "documents": {
+    "identity": true,
+    "income_proof": true,
+    "cic": true,
+    "business_registration": true,
+    "platform_evidence": true
+  },
+  "rules": {
+    "max_dti": 0.55,
+    "min_disposable_income": 5000000,
+    "max_card_utilization": 0.8,
+    "max_unverified_income_share": 0.35
+  }
+}

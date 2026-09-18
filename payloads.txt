@@ -1,0 +1,220 @@
+            
+            const parseNum = (id) => {
+                const el = document.getElementById(id);
+                if (!el || !el.value) return null;
+                const v = el.value.replace(/[^0-9-]/g, '');
+                return v ? parseFloat(v) : null;
+            };
+
+            const payload = {
+                assessment_id: "EB-" + Date.now(),
+                    loan_request_amount: parseNum('eb-p039-loan'),
+                    customer_equity: parseNum('eb-equity')
+                }
+            };
+
+            const res = await fetch('/assess', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            
+            if (!res.ok) throw new Error('HTTP Error ' + res.status);
+            const data = await res.json();
+            
+            // Map Decision
+            const outcomeMap = {
+                'manual_review_required': 'Cảnh báo đỏ (Từ chối/Bổ sung)',
+                'enhanced_due_diligence': 'Tái thẩm định đặc biệt',
+                'conditional_review': 'Thẩm định có điều kiện',
+                'no_rule_based_red_flag': 'Không phát hiện cảnh báo'
+            };
+            const decisionStr = data.preliminary_decision?.outcome;
+            document.getElementById('eb-decision-text').textContent = outcomeMap[decisionStr] || 'Hoàn tất phân tích';
+            
+            if (decisionStr === 'manual_review_required') {
+                document.getElementById('eb-decision-text').className = 'text-base font-black text-[#E53935]';
+                document.getElementById('eb-decision-icon').className = 'w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-[#E53935] shadow-sm flex-shrink-0';
+                document.getElementById('eb-decision-icon').innerHTML = '<i data-lucide="alert-triangle" class="w-6 h-6"></i>';
+                document.getElementById('eb-decision-banner').className = 'executive-card p-4 border border-[#FECDCA] bg-[#FEF3F2] flex items-center justify-between transition-all';
+            } else {
+                document.getElementById('eb-decision-text').className = 'text-base font-black text-[#027A48]';
+                document.getElementById('eb-decision-icon').className = 'w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#00A86B] shadow-sm flex-shrink-0';
+                document.getElementById('eb-decision-icon').innerHTML = '<i data-lucide="check-circle" class="w-6 h-6"></i>';
+                document.getElementById('eb-decision-banner').className = 'executive-card p-4 border border-[#A6F4C5] bg-[#ECFDF3] flex items-center justify-between transition-all';
+            }
+            
+            // Map Ratios
+            const fmtVND = (v) => v ? (v / 1000000000).toFixed(2).replace('.', ',') + ' Tỷ' : 'N/A';
+            const fmtRatio = (v) => v ? v.toFixed(2) + 'x' : 'N/A';
+            const fmtPct = (v) => v ? (v * 100).toFixed(1) + '%' : 'N/A';
+            
+            document.getElementById('kpi-nwc').textContent = fmtVND(data.ratios?.nwc);
+            document.getElementById('kpi-dscr').textContent = fmtRatio(data.ratios?.dscr);
+            document.getElementById('kpi-icr').textContent = fmtRatio(data.ratios?.icr);
+            document.getElementById('kpi-p039').textContent = fmtPct(data.product_039_evaluation?.eligibility_ratio);
+            
+            // Map Red Flags
+            const flagsContainer = document.getElementById('eb-flags-list');
+            const flags = data.red_flags || [];
+            flagsContainer.innerHTML = '';
+            let triggerCount = 0;
+            
+            flags.forEach(f => {
+                if (!f.triggered) return;
+                triggerCount++;
+                const isCrit = f.severity === 'high';
+                const fClass = isCrit ? 'bg-[#FEF3F2] border-[#FECDCA] text-[#B42318]' : 'bg-[#FFF9F2] border-[#FFE6CC] text-[#B54708]';
+                const tagClass = isCrit ? 'bg-red-100 text-[#B42318]' : 'bg-amber-100 text-[#B54708]';
+                const iconColor = isCrit ? 'text-[#E53935]' : 'text-[#F59E0B]';
+                const flagTitle = f.title || 'Cảnh báo';
+                const flagEvidence = f.evidence || 'Thiếu mô tả chi tiết';
+                const flagObserved = (f.observed_value !== null && f.observed_value !== undefined) 
+                    ? (Math.abs(f.observed_value) >= 1e9 ? (f.observed_value/1e9).toFixed(2).replace('.',',') + ' Tỷ' : f.observed_value.toFixed(2) + 'x')
+                    : null;
+                const flagThreshold = (f.threshold !== null && f.threshold !== undefined)
+                    ? (typeof f.threshold === 'number' ? (f.threshold >= 1e9 ? (f.threshold/1e9).toFixed(0) + ' Tỷ' : f.threshold.toFixed(2) + 'x') : f.threshold)
+                    : null;
+                flagsContainer.innerHTML += `
+                <div class="p-2.5 rounded-lg ${fClass} border flex items-start gap-2.5 mb-2">
+                  <i data-lucide="alert-circle" class="w-4 h-4 ${iconColor} mt-0.5 flex-shrink-0"></i>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold">${flagTitle}</span>
+                      <span class="text-[9px] px-1.5 py-0.5 rounded uppercase font-bold ${tagClass}">${f.severity || 'medium'}</span>
+                    </div>
+                    <p class="opacity-80 text-[11px] mt-0.5">${flagEvidence}</p>
+                    ${(flagObserved || flagThreshold) ? `<p class="text-[10px] mt-1 font-mono opacity-70">Giá trị: <b>${flagObserved || 'N/A'}</b> | Ngưỡng: <b>${flagThreshold || 'N/A'}</b></p>` : ''}
+                  </div>
+                </div>`;
+            });
+            
+            document.getElementById('eb-flags-count').textContent = triggerCount + ' Cảnh báo kích hoạt';
+            if (triggerCount > 0) {
+                document.getElementById('eb-flags-count').className = 'text-[10px] px-2 py-0.5 rounded-full bg-[#FEF3F2] text-[#B42318] border border-[#FECDCA] font-semibold';
+            } else {
+                document.getElementById('eb-flags-count').className = 'text-[10px] px-2 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] border border-[#A6F4C5] font-semibold';
+            }
+
+            // Map Cross-Sell from swot_analysis.opportunities
+            const crossContainer = document.getElementById('eb-cross-list');
+            const crossTotal = document.getElementById('eb-cross-total');
+            if (crossContainer) {
+                const opportunities = (data.swot_analysis && data.swot_analysis.opportunities) || [];
+                crossContainer.innerHTML = '';
+                if (opportunities.length > 0) {
+                    if (crossTotal) crossTotal.textContent = opportunities.length + ' cơ hội phát hiện';
+                    const priorities = ['P1', 'P2', 'P3'];
+                    const colors = ['bg-orange-100 text-[#FF5A00]', 'bg-emerald-100 text-[#027A48]', 'bg-blue-100 text-[#2563EB]'];
+                    opportunities.forEach((opp, idx) => {
+                        const pTag = priorities[idx] || 'P' + (idx+1);
+                        const cTag = colors[idx] || colors[0];
+                        crossContainer.innerHTML += `
+                        <div class="p-2.5 rounded-lg bg-slate-50 border border-[#E6EAF0] flex flex-col justify-between">
+                          <div>
+                            <div class="flex items-center justify-between mb-1">
+                              <span class="font-bold text-[#0B1739] text-[11px]">${opp.length > 60 ? opp.substring(0, 57) + '...' : opp}</span>
+                              <span class="text-[8px] px-1 rounded ${cTag} font-bold">${pTag}</span>
+                            </div>
+                            <p class="text-[10px] text-[#667085] leading-tight">Cơ hội bán chéo từ phân tích AI</p>
+                          </div>
+                        </div>`;
+                    });
+                } else {
+                    if (crossTotal) crossTotal.textContent = '0 cơ hội';
+                    crossContainer.innerHTML = `<p class="text-xs text-[#667085] col-span-3 text-center py-3">Chưa phát hiện cơ hội bán chéo phù hợp với hồ sơ hiện tại.</p>`;
+                }
+            }
+
+            showToast('Thẩm định AI thành công');
+            
+        } catch (err) {
+            showToast('Lỗi thẩm định AI: ' + err.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalHtml;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+    }
+
+    async function exportDocxMemo() {
+        const btn = document.getElementById('btn-export-docx');
+        if (btn.disabled) return;
+        
+        btn.disabled = true;
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i><span>Đang xử lý...</span>';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        try {
+            const taxId = document.getElementById('eb-tax-id').value || "mock";
+            
+            const parseNum = (id) => {
+                const el = document.getElementById(id);
+                if (!el || !el.value) return null;
+                const v = el.value.replace(/[^0-9-]/g, '');
+                return v ? parseFloat(v) : null;
+            };
+
+            const payload = {
+                assessment_id: "EB-" + Date.now(),
+                company: {
+                    tax_id: taxId,
+                    name: document.getElementById('eb-company-name').value
+                },
+                financials: {
+                    IS_REVENUE: parseNum('eb-revenue'),
+                    IS_EBIT: parseNum('eb-ebit'),
+                    BS_CURRENT_ASSETS: parseNum('eb-ca'),
+                    BS_CURRENT_LIABILITIES: parseNum('eb-cl'),
+                    BS_TRADE_RECEIVABLES: parseNum('eb-ar'),
+                    BS_INVENTORY: parseNum('eb-inv'),
+                    BS_TRADE_PAYABLES: parseNum('eb-ap'),
+                    BS_EQUITY: parseNum('eb-equity'),
+                    IS_INTEREST_EXPENSE: parseNum('eb-interest')
+                },
+                debt_service: {
+                    principal_due: parseNum('eb-principal')
+                },
+                product_039: {
+                    contract_value: parseNum('eb-p039-contract'),
+                    loan_request_amount: parseNum('eb-p039-loan'),
+                    customer_equity: parseNum('eb-equity')
+                }
+            };
+
+            const res = await fetch('/build-memo-docx', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            
+            if (!res.ok) throw new Error('HTTP Error ' + res.status);
+            
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'To_Trinh_MB02a_' + taxId + '.docx';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            showToast('Tạo tờ trình thành công');
+        } catch (err) {
+            showToast('Lỗi tạo tờ trình: ' + err.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalHtml;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+    }
+
+    // 11. Run RB Assessment API
+    async function runRBAssessment() {
+      if (window.pendingRBData) {
+          const d = window.pendingRBData;
+          document.getElementById('rb-customer-id').value = d.customer?.customer_id || '';
+          document.getElementById('rb-name').value = d.customer?.name || '';
+          document.getElementById('rb-channel').value = d.customer?.business_channel || '';
+          

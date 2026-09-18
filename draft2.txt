@@ -1,0 +1,80 @@
+    function loadDraft() {
+        const saved = localStorage.getItem('mcredit_draft');
+        if (saved) {
+            try {
+                const draft = JSON.parse(saved);
+                if (draft.taxId) {
+                    document.getElementById('eb-empty-state')?.classList.add('hidden');
+
+            
+
+                if (csContainer) {
+                    csContainer.innerHTML = `
+                    <div class="p-2.5 rounded-lg bg-orange-50 border border-orange-100 relative overflow-hidden group hover:shadow-md transition">
+                      <div class="absolute right-0 top-0 bg-orange-200 text-[#FF5A00] text-[8px] px-1.5 py-0.5 rounded-bl-lg font-bold">HOT</div>
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-[#0B1739] text-[11px]">Tài trợ Phải thu (QĐ.039)</span>
+                        <span class="text-[8px] px-1 rounded bg-orange-100 text-[#FF5A00] font-bold">P1</span>
+                      </div>
+                      <p class="text-[10px] text-[#667085] leading-tight">Tối ưu dòng tiền phải thu</p>
+                      <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ ${cs1} Tỷ</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-100 relative hover:shadow-md transition">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-[#0B1739] text-[11px]">Tài trợ SCF / LC</span>
+                        <span class="text-[8px] px-1 rounded bg-emerald-100 text-[#027A48] font-bold">P2</span>
+                      </div>
+                      <p class="text-[10px] text-[#667085] leading-tight">Thanh toán chuỗi cung ứng</p>
+                      <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ ${cs2} Tỷ</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-blue-50 border border-blue-100 relative hover:shadow-md transition">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-[#0B1739] text-[11px]">Bảo lãnh Quốc tế</span>
+                        <span class="text-[8px] px-1 rounded bg-blue-100 text-[#175CD3] font-bold">P3</span>
+                      </div>
+                      <p class="text-[10px] text-[#667085] leading-tight">Giao dịch xuyên biên giới</p>
+                      <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ ${cs3} Tỷ</span>
+                    </div>`;
+                }
+            } catch(e) { console.error("Cross-sell update failed:", e); }
+
+                    document.getElementById('eb-results-container')?.classList.remove('hidden');
+                }
+                
+                const setVal = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+                const setTxt = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
+                
+                setVal('eb-tax-id', draft.taxId);
+                setVal('eb-company-name', draft.companyName);
+                setVal('eb-period', draft.period);
+                setVal('eb-revenue', draft.revenue);
+                setVal('eb-ebit', draft.ebit);
+                setVal('eb-ca', draft.ca);
+                setVal('eb-cl', draft.cl);
+                setVal('eb-ar', draft.ar);
+                setVal('eb-inv', draft.inv);
+                setVal('eb-ap', draft.ap);
+                setVal('eb-equity', draft.equity);
+                setVal('eb-interest', draft.interest);
+                setVal('eb-principal', draft.principal);
+                setVal('eb-p039-contract', draft.p039_contract);
+                setVal('eb-p039-loan', draft.p039_loan);
+                
+                setTxt('kpi-nwc', draft.kpi_nwc);
+                setTxt('kpi-dscr', draft.kpi_dscr);
+                setTxt('kpi-icr', draft.kpi_icr);
+                setTxt('kpi-p039', draft.kpi_p039);
+                if (draft.decision) {
+                    setTxt('eb-decision-text', draft.decision);
+                }
+            } catch (e) {
+                console.error("Draft load error", e);
+            }
+        }
+    }
+
+    // Replace old saveDraftNotification if it exists in another script block
+    window.saveDraftNotification = saveDraftNotification;
+
+    
+    function setupSidebar() {

@@ -1,0 +1,70 @@
+                  <i data-lucide="alert-circle" class="w-4 h-4 ${iconColor} mt-0.5 flex-shrink-0"></i>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold">${flagTitle}</span>
+                      <span class="text-[9px] px-1.5 py-0.5 rounded uppercase font-bold ${tagClass}">${f.severity || 'medium'}</span>
+                    </div>
+                    <p class="opacity-80 text-[11px] mt-0.5">${flagEvidence}</p>
+                    ${(flagObserved || flagThreshold) ? `<p class="text-[10px] mt-1 font-mono opacity-70">Giá trị: <b>${flagObserved || 'N/A'}</b> | Ngưỡng: <b>${flagThreshold || 'N/A'}</b></p>` : ''}
+                  </div>
+                </div>`;
+            });
+            
+            document.getElementById('eb-flags-count').textContent = triggerCount + ' Cảnh báo kích hoạt';
+            if (triggerCount > 0) {
+                document.getElementById('eb-flags-count').className = 'text-[10px] px-2 py-0.5 rounded-full bg-[#FEF3F2] text-[#B42318] border border-[#FECDCA] font-semibold';
+            } else {
+                document.getElementById('eb-flags-count').className = 'text-[10px] px-2 py-0.5 rounded-full bg-[#ECFDF3] text-[#027A48] border border-[#A6F4C5] font-semibold';
+            }
+
+            // Map Cross-Sell from swot_analysis.opportunities
+            const crossContainer = document.getElementById('eb-cross-list');
+            const crossTotal = document.getElementById('eb-cross-total');
+            if (crossContainer) {
+                const opportunities = (data.swot_analysis && data.swot_analysis.opportunities) || [];
+                crossContainer.innerHTML = '';
+                if (opportunities.length > 0) {
+                    if (crossTotal) crossTotal.textContent = opportunities.length + ' cơ hội phát hiện';
+                    const priorities = ['P1', 'P2', 'P3'];
+                    const colors = ['bg-orange-100 text-[#FF5A00]', 'bg-emerald-100 text-[#027A48]', 'bg-blue-100 text-[#2563EB]'];
+                    opportunities.forEach((opp, idx) => {
+                        const pTag = priorities[idx] || 'P' + (idx+1);
+                        const cTag = colors[idx] || colors[0];
+                        crossContainer.innerHTML += `
+                        <div class="p-2.5 rounded-lg bg-slate-50 border border-[#E6EAF0] flex flex-col justify-between">
+                          <div>
+                            <div class="flex items-center justify-between mb-1">
+                              <span class="font-bold text-[#0B1739] text-[11px]">${opp.length > 60 ? opp.substring(0, 57) + '...' : opp}</span>
+                              <span class="text-[8px] px-1 rounded ${cTag} font-bold">${pTag}</span>
+                            </div>
+                            <p class="text-[10px] text-[#667085] leading-tight">Cơ hội bán chéo từ phân tích AI</p>
+                          </div>
+                        </div>`;
+                    });
+                } else {
+                    if (crossTotal) crossTotal.textContent = '0 cơ hội';
+                    crossContainer.innerHTML = `<p class="text-xs text-[#667085] col-span-3 text-center py-3">Chưa phát hiện cơ hội bán chéo phù hợp với hồ sơ hiện tại.</p>`;
+                }
+            }
+
+            showToast('Thẩm định AI thành công');
+            
+        } catch (err) {
+            showToast('Lỗi thẩm định AI: ' + err.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalHtml;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+    }
+
+    async function exportDocxMemo() {
+        const btn = document.getElementById('btn-export-docx');
+        if (btn.disabled) return;
+        
+        btn.disabled = true;
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i><span>Đang xử lý...</span>';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        try {

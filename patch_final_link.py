@@ -1,0 +1,23 @@
+﻿import subprocess
+import requests
+
+token = subprocess.check_output(['C:\\Program Files\\Git\\bin\\bash.exe', 'C:\\Users\\finan\\AppData\\Local\\Temp\\opencode\\get_token.sh']).decode().strip()
+url = 'https://agentbase.api.vngcloud.vn/runtime/agent-runtimes/runtime-920ea8b2-8ae4-4df2-99ea-ed0ea67de3c9'
+headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+body = {
+    'imageUrl': 'vcr.vngcloud.vn/111480-abp114553/m-credit-360:final_v16',
+    'description': 'M-Credit 360 Omni-Butler V16 (Final Layout Fix)',
+    'environmentVariables': {
+        'ENABLE_ZALO_BOT': 'true',
+        'ZALO_BOT_TOKEN': '1594214031862095447:dNzbsXIUJIsmbInvjIHyzhZekmVhCymQZmQXtQVYFwKkTyoRXRIjmkZresuZFFCI',
+        'GREENNODE_API_KEY': 'vn-_gWfSl72C6qp1Z-qvEGv5Ua4ae16ffa17a447a947fbb2c08baacceDlbvUJ3OXxmybnUe_B_xZ0-0001bf792de9195d',
+        'GREENNODE_MAAS_URL': 'https://maas-llm-aiplatform-hcm.api.vngcloud.vn/v1/chat/completions',
+        'URL_ASSESS': 'http://localhost:8080/assess',
+        'URL_MEMO': 'http://localhost:8080/build-memo-docx',
+        'PORT': '8080',
+        'PYTHONUNBUFFERED': '1'
+    }
+}
+r = requests.patch(url, headers=headers, json=body)
+print(r.status_code)
+print(r.text)

@@ -1,0 +1,31 @@
+# ========================================================
+# M-CREDIT 360 - ZALO BOT GATEWAY DOCKER CONTAINER
+# Team: Hattrick (Team 22 - MSB AI Hackathon 2026)
+# Target: GreenNode AI Cloud (VNG Cloud VCR / AgentBase)
+# ========================================================
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+
+# Install python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application source code & data
+COPY . .
+
+# Unbuffer python output for real-time Cloud logging
+ENV PYTHONUNBUFFERED=1
+
+# Pre-configured GreenNode & Zalo Credentials
+ENV ZALO_BOT_TOKEN=""
+ENV GREENNODE_API_KEY=""
+ENV GREENNODE_MAAS_URL="https://maas-llm-aiplatform-hcm.api.vngcloud.vn/v1/chat/completions"
+ENV URL_ASSESS="http://localhost:8080/assess"
+ENV URL_MEMO="http://localhost:8080/build-memo-docx"
+
+# Launch Zalo Bot Service 24/7
+CMD ["python", "-u", "zalo_bot_service.py"]

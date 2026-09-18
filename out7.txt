@@ -1,0 +1,39 @@
+@app.post('/assess')
+def assess_credit(payload: dict):
+    """Enterprise Credit Assessment Endpoint"""
+    try:
+        return CreditAssessment().assess(payload)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post('/rb/assess')
+def assess_retail_credit(payload: dict):
+    """Retail Credit Assessment Endpoint"""
+    try:
+        return RetailCreditAssessment().assess(payload)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post('/policy/evaluate')
+def evaluate_policy(payload: dict):
+    """Policy Eligibility Endpoint"""
+    try:
+        return PolicyEligibility().evaluate(payload)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post('/build-memo-docx')
+def build_memo_docx(payload: dict):
+    """Generates MSB MB02a DOCX Credit Proposal and returns as download"""
+    try:
+        builder = CreditMemoBuilder(output_dir=os.path.join(BASE_DIR, 'output_memos'))
+        res = builder.build(payload)
+        fp = res.get('file_path')
+        if fp and os.path.exists(fp):
+            return FileResponse(
+                path=fp,
+                filename=os.path.basename(fp),
+                media_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            )
+        return res
+    except Exception as e:

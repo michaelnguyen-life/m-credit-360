@@ -1,0 +1,43 @@
+﻿{
+  "policy_name": "QÄ.RB.129 â€” Quy tắc Đánh giá Tín dụng Cá nhân Tích hợp",
+  "policy_version": "DEMO-NOT-OFFICIAL",
+  "case": {
+    "customer": {
+      "business_tenure_months": 24,
+      "segment": "individual_business_owner"
+    },
+    "loan": {
+      "amount": 450000000
+    },
+    "documents": {
+      "business_registration": true,
+      "platform_evidence": true
+    }
+  },
+  "policy_rules": [
+    {
+      "rule_id": "DEMO01",
+      "title": "Thá»i gian hoáº¡t Ä‘á»™ng tá»‘i thiá»ƒu",
+      "field": "customer.business_tenure_months",
+      "op": "gte",
+      "value": 12,
+      "source_reference": "REPLACE_WITH_APPROVED_QD_RB_129_CLAUSE"
+    },
+    {
+      "rule_id": "DEMO02",
+      "title": "CÃ³ báº±ng chá»©ng hoáº¡t Ä‘á»™ng kinh doanh",
+      "field": "documents.platform_evidence",
+      "op": "eq",
+      "value": true,
+      "source_reference": "REPLACE_WITH_APPROVED_QD_RB_129_CLAUSE"
+    },
+    {
+      "rule_id": "DEMO03",
+      "title": "Giá»›i háº¡n khoáº£n vay demo",
+      "field": "loan.amount",
+      "op": "lte",
+      "value": 500000000,
+      "source_reference": "DEMO_ONLY"
+    }
+  ]
+}

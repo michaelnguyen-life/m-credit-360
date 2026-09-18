@@ -1,0 +1,47 @@
+﻿{
+  "assessment_id": "RB-TIKTOK-TOP3-001",
+  "language": "vi",
+  "data_classification": "SYNTHETIC",
+  "customer": {
+    "customer_id": "KH01",
+    "name": "NGUYá»„N VÄ‚N A",
+    "segment": "individual_business_owner",
+    "business_channel": "TikTok Shop",
+    "business_tenure_months": 24
+  },
+  "income": [
+    {"type":"business","monthly_amount":2919000000,"verification_status":"verified","eligible_percent":0.08,"source":"synthetic tax/platform evidence"}
+  ],
+  "existing_debts": [
+    {"type":"long_term_loan","outstanding":2700000000,"monthly_payment":30000000},
+    {"type":"short_term_loan","outstanding":39000000,"monthly_payment":5000000}
+  ],
+  "credit_cards": [{"limit":250000000,"balance":108000000}],
+  "loan": {"product":"unsecured_working_capital_demo","amount":450000000,"annual_interest_rate":0.225,"tenor_months":48,"secured":false,"purpose":"Bá»• sung vá»‘n lÆ°u Ä‘á»™ng nháº­p kháº©u trang y táº¿"},
+  "documents": {"identity":true,"income_proof":true,"cic":true,"business_registration":true,"platform_evidence":true,"collateral_valuation":false},
+  "statement": {
+    "assessment_id":"STMT-KH01-001",
+    "account":{"customer_id":"KH01"},
+    "transactions":[
+      {"occurred_at":"01/06/2026 09:00","inflow":210000000,"outflow":0,"balance":420000000,"description":"TikTok Shop settlement June A"},
+      {"occurred_at":"08/06/2026 10:00","inflow":190000000,"outflow":0,"balance":580000000,"description":"TikTok Shop settlement June B"},
+      {"occurred_at":"10/06/2026 11:00","inflow":0,"outflow":120000000,"balance":460000000,"description":"Thanh toan nha cung cap khau trang"},
+      {"occurred_at":"01/07/2026 09:00","inflow":230000000,"outflow":0,"balance":600000000,"description":"TikTok Shop settlement July A"},
+      {"occurred_at":"12/07/2026 15:00","inflow":0,"outflow":150000000,"balance":450000000,"description":"Thanh toan nha cung cap"},
+      {"occurred_at":"01/08/2026 09:00","inflow":240000000,"outflow":0,"balance":650000000,"description":"TikTok Shop settlement August A"},
+      {"occurred_at":"03/08/2026 15:00","inflow":0,"outflow":160000000,"balance":490000000,"description":"Nhap hang khau trang"}
+    ]
+  },
+  "policy": {
+    "policy_name":"QÄ.RB.129 DEMO MAPPING â€” NOT OFFICIAL",
+    "policy_version":"V1.0-LIVE",
+    "policy_rules":[
+      {"rule_id":"RB129-DEMO-01","title":"Thá»i gian hoáº¡t Ä‘á»™ng tá»‘i thiá»ƒu","field":"customer.business_tenure_months","op":"gte","value":12,"source_reference":"PLACEHOLDER â€” replace with verified QÄ.RB.129 clause"},
+      {"rule_id":"RB129-DEMO-02","title":"CÃ³ chá»©ng tá»« CIC","field":"documents.cic","op":"eq","value":true,"source_reference":"PLACEHOLDER â€” replace with verified QÄ.RB.129 clause"},
+      {"rule_id":"RB129-DEMO-03","title":"DTI demo threshold","field":"ratios.dti","op":"lte","value":0.55,"source_reference":"DEMO threshold â€” not official MSB policy"}
+    ]
+  },
+  "rules":{"max_dti":0.55,"min_disposable_income":5000000,"max_card_utilization":0.80,"max_unverified_income_share":0.35}
+}
+
+

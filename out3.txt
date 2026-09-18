@@ -1,0 +1,24 @@
+                </div>
+                <div>
+                  <label class="block text-[#667085] text-[10px] mb-0.5">Phải thu KH (BS003)</label>
+                  <input id="eb-ar" type="text" value="65.000.000.000" class="executive-input w-full px-2 py-1 text-xs font-mono" />
+                </div>
+                <div>
+                  <label class="block text-[#667085] text-[10px] mb-0.5">Hàng tồn kho (BS004)</label>
+
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="font-bold text-[#0B1739] text-[11px]">Tài trợ Phải thu (QĐ 039)</span>
+                      <span class="text-[8px] px-1 rounded bg-orange-100 text-[#FF5A00] font-bold">P1 • 80%</span>
+                    </div>
+                    <p class="text-[10px] text-[#667085] leading-tight">Tối ưu dòng tiền từ khoản phải thu</p>
+                    <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ 25,0 Tỷ</span>
+
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="font-bold text-[#0B1739] text-[11px]">Tài trợ SCF / L/C Nhập khẩu</span>
+                      <span class="text-[8px] px-1 rounded bg-emerald-100 text-[#027A48] font-bold">P2 • High</span>
+                    </div>
+                    <p class="text-[10px] text-[#667085] leading-tight">Hỗ trợ chuỗi cung ứng</p>
+                    <span class="font-black text-xs text-[#0B1739] font-mono block mt-1.5">~ 15,0 Tỷ</span>
+
