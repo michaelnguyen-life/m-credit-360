@@ -1,8 +1,0 @@
-729: <span class="text-[10px] text-[#667085] block mt-0.5">Xem chi tiết các chỉ số và cảnh báo.</span>
-768: <span>Cảnh báo rủi ro (Red Flags)</span>
-771: 1 Cảnh báo kích hoạt
-1963: 'manual_review_required': 'Cảnh báo đỏ (Từ chối/Bổ sung)',
-1966: 'no_rule_based_red_flag': 'Cho phép cấp tín dụng'
-2006: const flagTitle = f.title || 'Cảnh báo';
-2028: document.getElementById('eb-flags-count').textContent = triggerCount + ' Cảnh báo kích hoạt';
-2260: <span>3. Kết luận & Đề xuất cấp tín dụng</span>

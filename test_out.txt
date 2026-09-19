@@ -1,9 +1,0 @@
-function handleFileSelect(e) {
-      const files = e.target.files;
-      if (!files.length) return;
-      currentUploadedFileName = files[0].name || "BCTC_Uploaded.pdf";
-
-      const sourceTag = document.getElementById('eb-source-tag');
-      if (sourceTag) {
-        sourceTag.textContent = "Nguồn: " + currentUploadedFileName + " (Đang bóc tách AI)";
-      }

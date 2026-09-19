@@ -246,62 +246,57 @@ async def zalo_webhook(request: Request):
 async def invoke_agent(request: Request):
     """
     Standard Single Unified Endpoint for GreenNode AgentBase.
-    Automatically handles and routes:
-    1. Corporate / Enterprise Banking (EB)
-    2. Retail / Personal Banking (RB)
-    3. Credit Memo MB02a (.docx) Builder
-    4. Statement Analyzer
-    5. Policy Eligibility
     """
     try:
-        body = await request.json()
-    except Exception:
-        body = {}
-        
-    action = body.get('action')
-    payload = body.get('payload', body)
-    if isinstance(payload, dict) and 'action' in payload and not action:
-        action = payload.get('action')
-
-    # 1. Explicit Action Handling
-    if action in ['build_docx', 'build_memo', 'mb02a']:
-        builder = CreditMemoBuilder(output_dir=os.path.join(BASE_DIR, 'output_memos'))
-        return builder.build(payload)
-        
-    if action == 'analyze_statement':
-        txs = payload.get('transactions', [])
-        return StatementAnalyzer(transactions=txs).analyze()
-        
-    if action in ['evaluate_policy', 'policy']:
-        return PolicyEligibility().evaluate(payload)
-        
-    if action in ['rb_assess', 'retail', 'personal']:
-        return RetailCreditAssessment().assess(payload)
-        
-    if action in ['eb_assess', 'corporate', 'enterprise']:
-        return CreditAssessment().assess(payload)
-
-    # 2. Intelligent Auto-Routing
-    is_rb = (
-        payload.get('segment') in ['RB', 'retail', 'personal', 'individual_business_owner'] or
-        'applicant' in payload or
-        ('customer' in payload and isinstance(payload['customer'], dict) and (
-            payload['customer'].get('segment') in ['individual', 'individual_business_owner'] or
-            'business_channel' in payload['customer'] or
-            'customer_id' in payload['customer']
-        )) or
-        ('income' in payload and isinstance(payload['income'], list)) or
-        'existing_debts' in payload or
-        'credit_cards' in payload
-    )
-
-    if is_rb:
         try:
-            return RetailCreditAssessment().assess(payload)
+            body = await request.json()
         except Exception:
+            body = {}
+            
+        action = body.get('action')
+        payload = body.get('payload', body)
+        if isinstance(payload, dict) and 'action' in payload and not action:
+            action = payload.get('action')
+
+        if action in ['build_docx', 'build_memo', 'mb02a']:
+            builder = CreditMemoBuilder(output_dir=os.path.join(BASE_DIR, 'output_memos'))
+            return builder.build(payload)
+            
+        if action == 'analyze_statement':
+            txs = payload.get('transactions', [])
+            return StatementAnalyzer(transactions=txs).analyze()
+            
+        if action in ['evaluate_policy', 'policy']:
+            return PolicyEligibility().evaluate(payload)
+            
+        if action in ['rb_assess', 'retail', 'personal']:
+            return RetailCreditAssessment().assess(payload)
+            
+        if action in ['eb_assess', 'corporate', 'enterprise']:
             return CreditAssessment().assess(payload)
-    else:
-        return CreditAssessment().assess(payload)
+
+        is_rb = (
+            payload.get('segment') in ['RB', 'retail', 'personal', 'individual_business_owner'] or
+            'applicant' in payload or
+            ('customer' in payload and isinstance(payload['customer'], dict) and (
+                payload['customer'].get('segment') in ['individual', 'individual_business_owner'] or
+                'business_channel' in payload['customer'] or
+                'customer_id' in payload['customer']
+            )) or
+            ('income' in payload and isinstance(payload['income'], list)) or
+            'existing_debts' in payload or
+            'credit_cards' in payload
+        )
+
+        if is_rb:
+            try:
+                return RetailCreditAssessment().assess(payload)
+            except Exception:
+                return CreditAssessment().assess(payload)
+        else:
+            return CreditAssessment().assess(payload)
+    except Exception as e:
+        return {"status": "error", "message": f"Lỗi hệ thống AI (Graceful): {str(e)}"}
 
 @app.post('/api/upload')
 async def upload_document(file: UploadFile = File(...)):
@@ -703,7 +698,7 @@ def assess_credit(payload: dict):
     try:
         return CreditAssessment().assess(payload)
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        return {"status": "error", "message": f"Lỗi hệ thống: {str(e)}"}
 
 @app.post('/rb/assess')
 def assess_retail_credit(payload: dict):
@@ -711,7 +706,7 @@ def assess_retail_credit(payload: dict):
     try:
         return RetailCreditAssessment().assess(payload)
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        return {"status": "error", "message": f"Lỗi hệ thống: {str(e)}"}
 
 @app.post('/policy/evaluate')
 def evaluate_policy(payload: dict):
@@ -719,7 +714,7 @@ def evaluate_policy(payload: dict):
     try:
         return PolicyEligibility().evaluate(payload)
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        return {"status": "error", "message": f"Lỗi hệ thống: {str(e)}"}
 
 @app.post('/build-memo-docx')
 def build_memo_docx(payload: dict):
@@ -736,7 +731,7 @@ def build_memo_docx(payload: dict):
             )
         return res
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        return {"status": "error", "message": f"Lỗi hệ thống: {str(e)}"}
 
 @app.post('/api/chat')
 async def api_chat(request: Request):
