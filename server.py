@@ -198,14 +198,6 @@ def startup_event():
         except Exception as e:
             print(f"[SERVER] Failed to start Zalo Bot thread: {e}")
 
-@app.get('/', response_class=HTMLResponse)
-def web_portal():
-    tmpl_path = os.path.join(BASE_DIR, 'templates', 'index.html')
-    if os.path.exists(tmpl_path):
-        with open(tmpl_path, 'r', encoding='utf-8') as f:
-            return HTMLResponse(content=f.read())
-    return HTMLResponse(content="<h1>M-Credit 360 All-in-One Super Agent Live on GreenNode AgentBase</h1>")
-
 @app.get('/health')
 @app.get('/ping')
 def health_check():
