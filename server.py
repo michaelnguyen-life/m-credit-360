@@ -19,7 +19,7 @@ GREENNODE_MAAS_URL = os.environ.get(
     "https://maas-llm-aiplatform-hcm.api.vngcloud.vn/v1/chat/completions"
 )
 GREENNODE_API_KEY = os.environ.get("GREENNODE_API_KEY", "")
-GREENNODE_MODEL = "qwen/qwen3.6-flash"
+GREENNODE_MODEL = os.environ.get("GREENNODE_MODEL", "z-ai/glm-5.2-hackathon")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SAMPLE_ALPHA_PATH = os.path.join(BASE_DIR, "data_test", "1. CTY DAU TU GROUP (MOCK AN DANH)", "eb_credit_payload.json")
