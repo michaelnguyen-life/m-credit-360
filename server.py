@@ -27,7 +27,7 @@ SAMPLE_BETA_PATH = os.path.join(BASE_DIR, "data_test", "2. CTY SAN XUAT XNK BETA
 SAMPLE_RB_PATH = os.path.join(BASE_DIR, "data_test", "retail", "retail_tiktok_shop_sample.json")
 
 app = FastAPI(
-    title='M-Credit 360 All-in-One Super Agent',
+    title='M-Insight 360 All-in-One Super Agent',
     version='3.0-unified',
     description='Unified Credit Assessment Super Agent for MSB AI Hackathon 2026 (Team 22 - Hattrick)'
 )
@@ -203,7 +203,7 @@ def startup_event():
 def health_check():
     return {
         'status': 'healthy',
-        'service': 'M-Credit 360 All-in-One Super Agent',
+        'service': 'M-Insight 360 All-in-One Super Agent',
         'version': '3.0-unified',
         'team': 'Team 22 - Hattrick',
         'leader': 'Michael Nguyen (EB MSB)',
@@ -735,7 +735,7 @@ async def api_chat(request: Request):
             return {'reply': 'Xin chÃ o Team 22 Hackathon & Ban GiÃ¡m Kháº£o! TÃ´i lÃ  AI ChuyÃªn gia TÃ­n dá»¥ng MSB (Team 22). Báº¡n cÃ³ thá»ƒ há»i báº¥t ká»³ cÃ¢u há»i nÃ o vá» quy chuáº©n BCTC, tháº©m Ä‘á»‹nh rá»§i ro, phÃ¢n tÃ­ch dÃ²ng tiá»n Rule 5D, hoáº·c chÃ­nh sÃ¡ch bÃ¡n chÃ©o QÄ 039.'}
             
         system_prompt = (
-            "Báº¡n lÃ  M-CREDIT 360 AI - ChuyÃªn gia Tháº©m Ä‘á»‹nh TÃ­n dá»¥ng Cáº¥p cao cá»§a NgÃ¢n hÃ ng MSB (Team 22 Hattrick).\n"
+            "Báº¡n lÃ  M-INSIGHT 360 AI - ChuyÃªn gia Tháº©m Ä‘á»‹nh TÃ­n dá»¥ng Cáº¥p cao cá»§a NgÃ¢n hÃ ng MSB (Team 22 Hattrick).\n"
             "LÃ£nh Ä‘áº¡o: Michael NguyÃªn (GiÃ¡m Ä‘á»‘c KHDN EB MSB).\n"
             "QUY Táº®C:\n"
             "1. Tuyá»‡t Ä‘á»‘i KHÃ”NG viáº¿t táº¯t trÆ¡ trá»i cÃ¡c chá»‰ sá»‘ NWC, DSCR, ICR, WCR mÃ  pháº£i luÃ´n ghi rÃµ TÃŠN TIáº¾NG VIá»†T Äáº¦Y Äá»¦ kÃ¨m cÃ´ng thá»©c vÃ  Ã½ nghÄ©a tháº©m Ä‘á»‹nh MSB.\n"
