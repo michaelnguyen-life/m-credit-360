@@ -935,16 +935,12 @@
             </div>
 
             <p id="ai-insight-text" class="text-xs text-[#344054] leading-relaxed">
-              DSCR 0.39x thấp hơn đáng kể ngưỡng MSB 1.0x. Nguyên nhân chính đến từ nghĩa vụ nợ ngắn hạn cao so với dòng tiền tạo ra từ hoạt động kinh doanh.
+              Chạy thẩm định để xem phân tích AI tự động từ Red Flags.
             </p>
 
-            <div class="space-y-1 text-xs">
+            <div id="ai-insight-proposals" class="space-y-1 text-xs hidden">
               <span class="text-[11px] font-bold text-[#0B1739]">Đề xuất:</span>
-              <ul class="space-y-0.5 text-[#667085] text-[11px]">
-                <li>• Rà soát nguồn trả nợ</li>
-                <li>• Stress-test dòng tiền</li>
-                <li>• Xem xét giảm hạn mức</li>
-                <li>• Kiểm tra dòng tiền về MSB</li>
+              <ul id="ai-insight-proposal-list" class="space-y-0.5 text-[#667085] text-[11px]">
               </ul>
             </div>
 
@@ -1726,6 +1722,42 @@
         }
 
         lucide.createIcons();
+
+        // Dynamic AI Insight from Red Flags
+        const insightEl = document.getElementById('ai-insight-text');
+        const proposalsEl = document.getElementById('ai-insight-proposals');
+        const proposalList = document.getElementById('ai-insight-proposal-list');
+        const proposals = [];
+
+        if (trigFlags.length === 0) {
+          insightEl.textContent = 'Không phát hiện Red Flag. Hồ sơ đạt chuẩn an toàn tín dụng theo quy chuẩn MSB.';
+          proposalsEl.classList.add('hidden');
+        } else {
+          const parts = [];
+          trigFlags.forEach(f => {
+            parts.push(`${f.title}: ${f.evidence || 'đã kích hoạt'}`);
+          });
+          if (dscr && dscr < 1.0) {
+            parts.push(`DSCR ${dscr.toFixed(2)}x thấp hơn ngưỡng MSB 1.0x.`);
+            proposals.push('Rà soát nguồn trả nợ');
+            proposals.push('Stress-test dòng tiền');
+          }
+          if (icr && icr < 1.5) {
+            parts.push(`ICR ${icr.toFixed(2)}x thấp hơn ngưỡng MSB 1.5x.`);
+            proposals.push('Kiểm tra khả năng trả lãi');
+          }
+          trigFlags.forEach(f => {
+            if (f.code === 'RF01_CAPITAL_IMBALANCE') proposals.push('Xem xét giảm hạn mức');
+            if (f.code === 'RF02_NEGATIVE_CFO') proposals.push('Kiểm tra dòng tiền HĐKD');
+            if (f.code === 'RF03_SHORT_TERM_DEBT') proposals.push('Cơ cấu lại nợ ngắn hạn');
+            if (f.code === 'RF05_DEBT_SERVICE_CAPACITY') proposals.push('Kiểm tra dòng tiền về MSB');
+          });
+          if (proposals.length === 0) proposals.push('Rà soát hồ sơ chi tiết');
+          insightEl.textContent = parts.join(' ');
+          proposalList.innerHTML = proposals.map(p => `<li>• ${p}</li>`).join('');
+          proposalsEl.classList.remove('hidden');
+        }
+
       } catch (err) {
         console.error(err);
       } finally {
