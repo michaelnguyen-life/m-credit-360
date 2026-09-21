@@ -182,7 +182,7 @@ def extract_real_financials(text: str):
         "IS_NET_PROFIT": [r"lợi nhuận sau thuế", r"lãi sau thuế"],
         "IS_INTEREST_EXPENSE": [r"chi phí lãi vay"],
         "BS_INVENTORY": [r"hàng tồn kho"],
-        "BS_TRADE_RECEIVABLES": [r"phải thu của khách hàng", r"phải thu khách hàng", r"phải thu ngắn hạn"],
+        "BS_TRADE_RECEIVABLES": [r"phải thu.*khách hàng", r"phải thu khách hàng"],
         "BS_TRADE_PAYABLES": [r"phải trả người bán ngắn hạn", r"phải trả người bán"],
         "BS_SHORT_TERM_DEBT": [r"vay và nợ thuê tài chính", r"vay ngắn hạn"],
         "BS_TOTAL_LIABILITIES": [r"nợ phải trả"],
@@ -199,21 +199,25 @@ def extract_real_financials(text: str):
     
     financials = {}
     for code, patterns in keywords.items():
+        all_matches = []
         for pattern in patterns:
-            match = re.search(pattern + r'.*?(\d{1,3}(?:[.,]\d{3})+)', text)
-            if match:
-                num_str = match.group(1).replace('.', '').replace(',', '')
+            for m in re.finditer(pattern + r'.*?(?<![\d.])(\d{8,})', text):
                 try:
-                    financials[code] = int(num_str)
+                    all_matches.append(int(m.group(1)))
                 except:
                     pass
-                break
+        if all_matches:
+            if code.startswith('IS_'):
+                financials[code] = all_matches[-1]
+            else:
+                financials[code] = all_matches[0]
         if code not in financials:
             for pattern in patterns:
-                match = re.search(pattern + r'.*?(\d{7,})', text)
+                match = re.search(pattern + r'.*?(?<![\d.])(\d{1,3}(?:[.,]\d{3})+)', text)
                 if match:
+                    num_str = match.group(1).replace('.', '').replace(',', '')
                     try:
-                        financials[code] = int(match.group(1))
+                        financials[code] = int(num_str)
                     except:
                         pass
                     break
@@ -249,9 +253,16 @@ async def upload_file(file: UploadFile = File(...)):
         elif file.filename.lower().endswith(('.xlsx', '.xls', '.csv')):
             if file.filename.lower().endswith('.csv'):
                 df = pd.read_csv(file_path)
+                text = df.to_string()
             else:
-                df = pd.read_excel(file_path)
-            text = df.to_string()
+                all_sheets = pd.read_excel(file_path, sheet_name=None, header=None)
+                text_parts = []
+                for sn, df in all_sheets.items():
+                    for _, row in df.iterrows():
+                        vals = [str(v) for v in row if pd.notna(v) and str(v).strip()]
+                        if vals:
+                            text_parts.append(' '.join(vals))
+                text = '\n'.join(text_parts)
         else:
             # images etc., we just fake it for demo if OCR is not available
             text = "doanh thu thuần 150000000000\nphải thu ngắn hạn 20000000000\n"
