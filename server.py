@@ -424,8 +424,14 @@ async def api_chat(request: Request):
             "Content-Type": "application/json"
         }
         t0 = time.time()
-        r = requests.post(GREENNODE_MAAS_URL, json=body, headers=headers, timeout=30)
-        elapsed = time.time() - t0
+        try:
+            r = requests.post(GREENNODE_MAAS_URL, json=body, headers=headers, timeout=90)
+            elapsed = time.time() - t0
+        except requests.exceptions.Timeout:
+            return {'reply': 'Hệ thống AI đang xử lý khối lượng lớn (Timeout). Vui lòng thử lại sau.'}
+        except requests.exceptions.RequestException as e:
+            return {'reply': f'Lỗi kết nối AI MaaS Cloud: {str(e)}'}
+
         if r.status_code == 200:
             res_json = r.json()
             content = res_json["choices"][0]["message"]["content"]
