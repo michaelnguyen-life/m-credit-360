@@ -645,8 +645,18 @@
               </div>
               
               <!-- Khuyến nghị sơ bộ Warning -->
-              <div class="text-[8px] text-white/40 text-center uppercase tracking-widest font-bold mt-4">
+              <div class="text-[8px] text-white/40 text-center uppercase tracking-widest font-bold mt-4 mb-2">
                 Khuyến nghị sơ bộ từ dữ liệu BCTC - Cần PD theo quy trình MSB
+              </div>
+              
+              <!-- Action Buttons -->
+              <div class="flex items-center justify-between gap-2 mt-2 pt-3 border-t border-white/10">
+                <button onclick="openStressTestModal()" class="flex-1 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded text-[10px] font-bold transition flex items-center justify-center gap-1.5 border border-white/10">
+                  <i data-lucide="activity" class="w-3 h-3"></i> Kiểm tra sức chịu
+                </button>
+                <button class="flex-1 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded text-[10px] font-bold transition flex items-center justify-center gap-1.5 border border-white/10">
+                  <i data-lucide="file-text" class="w-3 h-3"></i> Soạn tờ trình
+                </button>
               </div>
             </div>
           </div>
@@ -2259,5 +2269,263 @@ window.runEBAssessment = async function() {
 };
 
 </script>
+
+<!-- MODAL: KIỂM TRA SỨC CHỊU DÒNG TIỀN -->
+<div id="stress-test-modal" class="fixed inset-0 z-[100] hidden">
+  <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeStressTestModal()"></div>
+  <div class="absolute inset-x-4 top-4 bottom-4 md:inset-x-12 md:top-8 md:bottom-8 bg-[#F5F7FA] rounded-xl shadow-2xl flex flex-col overflow-hidden border border-slate-300">
+    
+    <!-- Modal Header -->
+    <div class="bg-white px-6 py-4 border-b border-[#E6EAF0] flex items-center justify-between z-10 shadow-sm">
+      <div>
+        <h2 class="text-base font-bold text-[#0B1739] flex items-center gap-2">
+          <i data-lucide="activity" class="w-5 h-5 text-[#FF5A00]"></i> Kiểm tra sức chịu dòng tiền
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">Mô phỏng khả năng trả nợ khi hoạt động kinh doanh bất lợi.</p>
+      </div>
+      <button onclick="closeStressTestModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 transition">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Modal Content -->
+    <div class="flex-1 overflow-y-auto p-6">
+      
+      <!-- 1. Doanh nghiệp chịu được đến đâu -->
+      <div class="executive-card p-5 mb-5 border-l-4 border-green-500 bg-white" id="st-conclusion-card">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1 flex items-center gap-1.5">
+              <span id="st-company-name">Công ty...</span> • <span id="st-tax-id">MST...</span> • <span id="st-period">2025</span>
+            </div>
+            <h3 id="st-main-conclusion" class="text-xl font-bold text-[#0B1739] mt-1">Doanh nghiệp vẫn duy trì khả năng trả nợ.</h3>
+            <p class="text-xs text-slate-500 mt-1.5 italic">Kết quả dựa trên doanh thu, lợi nhuận, lãi vay và vốn lưu động trong BCTC.</p>
+          </div>
+          <div class="text-[9px] px-2 py-1 bg-orange-50 text-orange-600 border border-orange-100 rounded font-bold uppercase">
+            Mô phỏng theo giả định — Cần thẩm định
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+        <!-- Cột Trái: Chọn tình huống -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="executive-card p-4 bg-white">
+            <h3 class="text-xs font-bold text-[#0B1739] uppercase tracking-wide mb-3 flex items-center gap-1.5">
+              <i data-lucide="git-branch" class="w-4 h-4 text-slate-400"></i> Nếu tình hình xấu đi
+            </h3>
+            
+            <div class="space-y-2">
+              <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="radio" name="st-scenario" value="normal" checked onchange="runStressTest()" class="text-[#FF5A00] focus:ring-[#FF5A00]">
+                <span class="text-xs font-medium text-slate-700">Hoạt động bình thường</span>
+              </label>
+              
+              <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="radio" name="st-scenario" value="slow" onchange="runStressTest()" class="text-[#FF5A00] focus:ring-[#FF5A00]">
+                <span class="text-xs font-medium text-slate-700">Thị trường chậm lại</span>
+              </label>
+              
+              <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="radio" name="st-scenario" value="hard" onchange="runStressTest()" class="text-[#FF5A00] focus:ring-[#FF5A00]">
+                <span class="text-xs font-medium text-slate-700">Tình huống khó khăn</span>
+              </label>
+              
+              <label class="flex items-center gap-2 p-2.5 rounded-lg border border-[#FF5A00] bg-orange-50/30 cursor-pointer transition">
+                <input type="radio" name="st-scenario" value="custom" onchange="runStressTest()" class="text-[#FF5A00] focus:ring-[#FF5A00]">
+                <span class="text-xs font-bold text-[#FF5A00]">Tự điều chỉnh</span>
+              </label>
+            </div>
+            
+            <div id="st-custom-controls" class="mt-4 space-y-3 pt-4 border-t border-slate-100 hidden">
+              <div>
+                <label class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
+                  <span>Doanh thu biến động</span>
+                  <span id="val-in-rev" class="text-[#0B1739]">0%</span>
+                </label>
+                <input type="range" id="in-rev" min="-50" max="50" value="0" class="w-full accent-[#FF5A00]" oninput="updateStressLabels(); runStressTest()">
+              </div>
+              <div>
+                <label class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
+                  <span>EBIT biến động</span>
+                  <span id="val-in-ebit" class="text-[#0B1739]">0%</span>
+                </label>
+                <input type="range" id="in-ebit" min="-50" max="50" value="0" class="w-full accent-[#FF5A00]" oninput="updateStressLabels(); runStressTest()">
+              </div>
+              <div>
+                <label class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
+                  <span>Chi phí lãi vay biến động</span>
+                  <span id="val-in-interest" class="text-[#0B1739]">0%</span>
+                </label>
+                <input type="range" id="in-interest" min="-30" max="100" value="0" class="w-full accent-[#FF5A00]" oninput="updateStressLabels(); runStressTest()">
+              </div>
+              <div>
+                <label class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
+                  <span>Khách thanh toán chậm thêm (ngày)</span>
+                  <span id="val-in-ar-days" class="text-[#0B1739]">0</span>
+                </label>
+                <input type="range" id="in-ar-days" min="0" max="90" value="0" class="w-full accent-[#FF5A00]" oninput="updateStressLabels(); runStressTest()">
+              </div>
+            </div>
+            
+            <div class="mt-4 p-3 bg-slate-50 rounded border border-slate-100 text-[11px] text-slate-600 font-medium italic leading-relaxed" id="st-scenario-desc">
+              Đang giả định doanh thu, lợi nhuận và lãi vay giữ nguyên theo BCTC.
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cột Phải: Kết quả dòng tiền -->
+        <div class="lg:col-span-8 flex flex-col gap-5">
+          
+          <!-- 3. Tiền tạo ra bị ảnh hưởng -->
+          <div class="executive-card p-4 bg-white">
+            <h3 class="text-xs font-bold text-[#0B1739] uppercase tracking-wide mb-3 flex items-center gap-1.5">
+              <i data-lucide="trending-down" class="w-4 h-4 text-slate-400"></i> Tiền tạo ra bị ảnh hưởng thế nào?
+            </h3>
+            
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <div class="p-3 rounded-lg border border-slate-200 bg-slate-50 relative overflow-hidden">
+                <div class="text-[10px] font-bold text-slate-500 uppercase mb-1">Doanh thu</div>
+                <div class="text-xs text-slate-400 line-through mb-0.5" id="st-rev-old">---</div>
+                <div class="text-sm font-bold font-mono text-[#0B1739]" id="st-rev-new">---</div>
+                <div class="absolute right-0 bottom-0 top-0 w-1 bg-blue-400"></div>
+              </div>
+              <div class="p-3 rounded-lg border border-slate-200 bg-slate-50 relative overflow-hidden">
+                <div class="text-[10px] font-bold text-slate-500 uppercase mb-1">EBIT</div>
+                <div class="text-xs text-slate-400 line-through mb-0.5" id="st-ebit-old">---</div>
+                <div class="text-sm font-bold font-mono text-[#0B1739]" id="st-ebit-new">---</div>
+                <div class="absolute right-0 bottom-0 top-0 w-1 bg-indigo-400"></div>
+              </div>
+              <div class="p-3 rounded-lg border border-slate-200 bg-slate-50 relative overflow-hidden">
+                <div class="text-[10px] font-bold text-slate-500 uppercase mb-1">Chi phí lãi vay</div>
+                <div class="text-xs text-slate-400 line-through mb-0.5" id="st-int-old">---</div>
+                <div class="text-sm font-bold font-mono text-red-600" id="st-int-new">---</div>
+                <div class="absolute right-0 bottom-0 top-0 w-1 bg-red-400"></div>
+              </div>
+              <div class="p-3 rounded-lg border border-slate-200 bg-slate-50 relative overflow-hidden group cursor-help">
+                <div class="text-[10px] font-bold text-slate-500 uppercase mb-1">VLĐ Ròng (NWC)</div>
+                <div class="text-xs text-slate-400 line-through mb-0.5" id="st-nwc-old">---</div>
+                <div class="text-sm font-bold font-mono text-[#0B1739]" id="st-nwc-new">---</div>
+                <div class="absolute right-0 bottom-0 top-0 w-1 bg-emerald-400"></div>
+                <div class="hidden group-hover:block absolute right-0 top-full mt-1 w-48 p-2 bg-slate-800 text-white text-[9px] rounded shadow-lg z-50">Khi khách chậm thanh toán, dòng tiền bị chiếm dụng làm NWC giảm.</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 4. Còn đủ tiền trả nợ không? -->
+          <div class="executive-card p-4 bg-white border-2 border-slate-200 shadow-sm">
+            <h3 class="text-xs font-bold text-[#0B1739] uppercase tracking-wide mb-4 flex items-center gap-1.5">
+              <i data-lucide="scale" class="w-4 h-4 text-[#FF5A00]"></i> Còn đủ tiền trả nợ không?
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <!-- DSCR -->
+              <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[11px] font-bold text-[#0B1739] uppercase">Khả năng trả Gốc & Lãi (DSCR)</span>
+                  <span class="text-2xl font-mono font-bold" id="st-dscr-val">---</span>
+                </div>
+                <label class="flex items-center gap-1.5 mb-2 cursor-pointer group">
+                  <input type="checkbox" id="st-include-st-debt" class="rounded text-[#FF5A00] focus:ring-[#FF5A00] border-slate-300 w-3 h-3" onchange="runStressTest()">
+                  <span class="text-[9px] font-medium text-slate-500 group-hover:text-slate-700">Tính cả nghĩa vụ nợ ngắn hạn</span>
+                </label>
+                
+                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden mb-2 relative">
+                  <div id="st-dscr-bar" class="h-full bg-green-500 rounded-full transition-all duration-500" style="width: 100%"></div>
+                  <div class="absolute left-[33%] top-0 bottom-0 w-0.5 bg-black/20" title="Ngưỡng rủi ro 1.0x"></div>
+                </div>
+                
+                <div class="flex justify-between items-center text-[10px] mb-2">
+                  <span class="text-slate-500 font-medium">Hiện tại: <span id="st-dscr-base" class="font-mono">---</span></span>
+                  <span id="st-dscr-buffer" class="font-mono font-bold text-green-600 bg-green-50 px-1.5 rounded">Đệm: ---</span>
+                </div>
+                <p id="st-dscr-desc" class="text-[11px] text-slate-600 leading-relaxed font-medium bg-slate-50 p-2 rounded">
+                  ---
+                </p>
+                <div class="mt-2 text-[9px] text-slate-400 group relative inline-block cursor-help w-max">
+                  <i data-lucide="info" class="w-3 h-3 inline"></i> Xem cách tính
+                  <div class="hidden group-hover:block absolute left-0 top-full mt-1 w-64 p-2 bg-slate-800 text-white rounded shadow-lg z-50">
+                    DSCR = (Lợi nhuận sau thuế mô phỏng + Khấu hao + Chi phí lãi vay mô phỏng) / (Tổng nợ gốc đến hạn + Tổng chi phí lãi vay)
+                  </div>
+                </div>
+              </div>
+              
+              <!-- ICR -->
+              <div class="flex flex-col">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[11px] font-bold text-[#0B1739] uppercase">Khả năng trả Lãi (ICR)</span>
+                  <span class="text-2xl font-mono font-bold" id="st-icr-val">---</span>
+                </div>
+                
+                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden mb-2 relative">
+                  <div id="st-icr-bar" class="h-full bg-green-500 rounded-full transition-all duration-500" style="width: 100%"></div>
+                  <div class="absolute left-[50%] top-0 bottom-0 w-0.5 bg-black/20" title="Ngưỡng rủi ro 1.5x"></div>
+                </div>
+                
+                <div class="flex justify-between items-center text-[10px] mb-2">
+                  <span class="text-slate-500 font-medium">Hiện tại: <span id="st-icr-base" class="font-mono">---</span></span>
+                  <span id="st-icr-buffer" class="font-mono font-bold text-green-600 bg-green-50 px-1.5 rounded">Đệm: ---</span>
+                </div>
+                <p id="st-icr-desc" class="text-[11px] text-slate-600 leading-relaxed font-medium bg-slate-50 p-2 rounded">
+                  ---
+                </p>
+                <div class="mt-2 text-[9px] text-slate-400 group relative inline-block cursor-help w-max">
+                  <i data-lucide="info" class="w-3 h-3 inline"></i> Xem cách tính
+                  <div class="hidden group-hover:block absolute left-0 top-full mt-1 w-64 p-2 bg-slate-800 text-white rounded shadow-lg z-50">
+                    ICR = EBIT mô phỏng / Chi phí lãi vay mô phỏng
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- 5. AI Nhận định & Hành động -->
+          <div class="executive-card p-4 bg-[#F8FAFC] border border-blue-100">
+            <h3 class="text-xs font-bold text-[#1E40AF] uppercase tracking-wide mb-3 flex items-center gap-1.5">
+              <i data-lucide="bot" class="w-4 h-4"></i> AI Nhận định & Việc RM cần làm
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[11px]">
+              <div>
+                <h4 class="font-bold text-slate-600 mb-2">Nhận định Dòng tiền:</h4>
+                <ul class="space-y-2 text-slate-700" id="st-ai-insights">
+                  <li class="flex items-start gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-blue-500 shrink-0 mt-0.5"></i> <span>Chưa có dữ liệu</span></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-600 mb-2">Việc cần làm trước khi đề xuất:</h4>
+                <ul class="space-y-2 text-slate-700" id="st-rm-actions">
+                  <li class="flex items-start gap-1.5"><i data-lucide="check-square" class="w-3 h-3 text-orange-500 shrink-0 mt-0.5"></i> <span>Kiểm tra lịch trả nợ gốc/lãi chi tiết.</span></li>
+                  <li class="flex items-start gap-1.5"><i data-lucide="check-square" class="w-3 h-3 text-orange-500 shrink-0 mt-0.5"></i> <span>Đánh giá cơ chế kiểm soát dòng tiền về MSB.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Modal Footer -->
+    <div class="bg-slate-50 px-6 py-4 border-t border-[#E6EAF0] flex items-center justify-between rounded-b-xl">
+      <div class="text-[10px] text-slate-400 italic">Mô phỏng tại <span id="st-timestamp"></span></div>
+      <div class="flex gap-2">
+        <button onclick="closeStressTestModal()" class="px-4 py-2 rounded-lg bg-white border border-slate-300 text-slate-700 font-bold text-[11px] hover:bg-slate-50 transition">
+          Trở về hồ sơ
+        </button>
+        <button class="px-4 py-2 rounded-lg bg-blue-600 text-white font-bold text-[11px] hover:bg-blue-700 transition flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="save" class="w-3.5 h-3.5"></i> Đưa vào tờ trình
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- /MODAL: KIỂM TRA SỨC CHỊU DÒNG TIỀN -->
+
 </body>
 </html>
