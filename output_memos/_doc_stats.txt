@@ -1,0 +1,21 @@
+Paragraphs: 34
+Tables: 21
+
+Headings:
+  1. Đề xuất Hạn mức Tín dụng (B5)
+  2. Tài sản Bảo đảm (B7)
+  3. Điều kiện Tín dụng (B13)
+  1. Quan hệ tín dụng & CIC (B16)
+  2. Tổng hợp BCTC 3 năm (B32)
+  3. Chỉ số an toàn tài chính & Dòng tiền (B33)
+  4. Đối soát Digisale (DSP) & 5 Red Flags
+  5. Phân tích chuyên sâu sức khỏe tài chính
+  1. Top 5 Nhà cung cấp (Suppliers)
+  2. Top 5 Khách hàng (Buyers)
+  1. Tổng quan dòng tiền
+  2. Cờ báo động anomaly (5 flags)
+  1. Đề xuất phê duyệt & Điều kiện giải ngân (B43)
+  2. Credit Covenants (Conditions Precedent & Subsequent)
+  2a. Điều kiện tiền điều (Conditions Precedent)
+  2b. Điều kiện hậu điều (Conditions Subsequent)
+  3. Khung 4 Chữ ký Phê duyệt (B55)

@@ -1,0 +1,129 @@
+R 0: [0]: Sản phẩm tín dụng*	TSBĐ  Vay vốn	 Có	 Kh | [28]: Mục đích vay vốn*  Tiêu dùng gia đình/cá
+R 1: [0]: Hạn mức tín dụng đề nghị cấp:
+R 2: [0]: THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI D
+R 3: [0]: Họ tên:
+R 4: [0]: Giới tính:                Nam            | [31]: Ngày sinh: 	/	/		Quốc tịch:
+R 5: [0]: Số CCCD/Hộ chiếu: | [31]: Ngày cấp: 	/	/		Nơi cấp:
+R 6: [0]: Số CMTND cũ (nếu có): | [31]: Ngày cấp: 	/	/		Nơi cấp:
+R 7: [0]: Giấy phép lao động/Giấy phép tạm trú/thư | [31]: Ngày cấp: 	/	/		Nơi cấp:
+R 8: [5]: Số | [18]: Đường/Phố | [31]: Phường/Ấp | [45]: Quận/Huyện/Thị xã | [60]: Thành phố/Tỉnh
+R 9: [0]: Địa chỉ thường trú:
+R10: [0]: Địa chỉ tạm trú:
+R11: [0]: Địa chỉ liên lạc:
+R12: [0]: Điện thoại nhà riêng (nếu có): | [31]: Điện thoại di động:
+R13: [0]: Email:
+R14: [0]: Tình trạng hôn nhân hiện tại: | [9]: Độc thân | [26]: Có gia đình | [40]: Ly hôn | [53]: Góa
+R15: [0]: Trình độ học vấn: | [9]: PTTH | [26]: Trung cấp | [40]: Cao đẳng
+R16: [0]: Trình độ học vấn: | [9]: Đại học | [26]: Trên đại học | [40]: Khác (ghi rõ):
+R17: [0]: Hình thức sở hữu nhà: | [9]: Nhà riêng | [26]: Nhà thuê | [40]: Ở cùng bố mẹ | [53]: Ở nhà bạn bè, họ hàng
+R18: [0]: Hình thức sở hữu nhà: | [9]: Ở nhà tập thể, nhà công vụ | [40]: Khác (ghi rõ):
+R19: [0]: Loại phương tiện đi lại: | [9]: Ô tô | [26]: Xe gắn máy | [40]: Phương tiện giao thông công cộng
+R20: [0]: THÔNG TIN HOẠT ĐỘNG KINH DOANH  (áp dụng
+R21: [0]: Tên cơ sở kinh doanh*:
+R22: [0]: Ngành nghề kinh doanh*:
+R23: [0]: Đăng ký kinh doanh*:	 Có đăng ký kinh do
+R24: [0]: Số đăng ký kinh doanh (nếu có): | [31]: Ngày cấp: 	/	/		Nơi cấp:
+R25: [0]: Thời gian kinh doanh*:            năm    | [31]: Kinh nghiệm kinh doanh*:            năm 
+R26: [0]: Số lượng nhân viên: | [31]: Số lượng kho bãi, nhà xưởng, chi nhánh:
+R27: [0]: Diện tích địa điểm kinh doanh: | [31]: Diện tích kho bãi, nhà xưởng, chi nhánh:
+R28: [0]: Điện thoại: | [31]: Fax:
+R29: [0]: Địa điểm kinh doanh*:
+R30: [0]: Tình trạng sở hữu địa điểm kinh doanh:	 
+R31: [0]: Tình trạng ghi chép sổ sách thu chi:	 Qu
+R32: [0]: THÔNG TIN NGHỀ NGHIỆP (áp dụng với Khách
+R33: [0]: Tên đơn vị công tác hiện tại*:
+R34: [0]: Địa chỉ cơ quan:
+R35: [0]: Điện thoại cơ quan: | [32]: Fax:
+R36: [0]: Nghề nghiệp: | [32]: Chức vụ hiện tại*:
+R37: [0]: Thời gian đã làm việc tại cơ quan*:      | [32]: Kinh nghiệm công tác:            năm    
+R38: [0]: Loại hình công việc*: | [7]: Quản lý, điều hành | [21]: Cán bộ, chuyên viên | [36]: Lao động được đào tạo nghề | [58]: Lao động thời vụ
+R39: [0]: Hợp đồng lao động*: | [7]: Dưới 1 năm | [21]: Từ 1-3 năm | [36]: Không xác định thời hạn
+R40: [0]: Hình thức nhận lương*: | [7]: Tiền mặt | [21]: Chuyển khoản qua MSB
+R41: [0]: Hình thức nhận lương*: | [7]: Chuyển khoản qua Ngân hàng khác (vui lòn
+R42: [0]: THÔNG TIN NGƯỜI LIÊN QUAN (nếu có)
+R43: [0]: Thông tin người liên hệ*
+R44: [0]: Họ tên: | [32]: Điện thoại di động:
+R45: [0]: Cơ quan công tác/cơ sở kinh doanh: | [32]: Điện thoại cơ quan/cơ sở kinh doanh:
+R46: [0]: Mối quan hệ với Khách hàng:
+R47: [0]: Địa chỉ nơi ở hiện tại:
+R48: [0]: Trường hợp MSB không liên hệ được trực t
+R49: [0]: Thông tin vợ/chồng Khách hàng
+R50: [0]: Họ tên: | [32]: Điện thoại di động:
+R51: [0]: Số CCCD/Hộ chiếu: | [32]: Ngày cấp: 	/	/		Nơi cấp:
+R52: [0]: Số CMTND cũ (nếu có): | [32]: Ngày cấp: 	/	/		Nơi cấp:
+R53: [0]: Giấy phép lao động/Giấy phép tạm trú/thư | [32]: Ngày cấp: 	/	/		Nơi cấp:
+R54: [0]: Cơ quan công tác/cơ sở kinh doanh: | [32]: Điện thoại cơ quan/cơ sở kinh doanh:
+R55: [0]: Địa chỉ cơ quan/cơ sở kinh doanh:
+R56: [0]: Địa chỉ nơi ở hiện tại:
+R57: [0]: Thông tin Người bảo lãnh trả nợ (khác vợ
+R58: [0]: Họ tên: | [32]: Điện thoại di động:
+R59: [0]: Số CCCD/Hộ chiếu: | [32]: Ngày cấp: 	/	/		Nơi cấp:
+R60: [0]: Giấy phép lao động/Giấy phép tạm trú/thư | [32]: Ngày cấp: 	/	/		Nơi cấp:
+R61: [0]: Cơ quan công tác/cơ sở kinh doanh: | [32]: Điện thoại cơ quan/cơ sở kinh doanh:
+R62: [0]: Quan hệ với người vay:
+R63: [0]: Địa chỉ cơ quan/cơ sở kinh doanh:
+R64: [0]: Địa chỉ nơi ở hiện tại:
+R65: [0]: THÔNG TIN TÀI CHÍNH*
+R66: [0]: 1.  Thu nhập* | [32]: 2. Chi phí*
+R67: [0]: Khoản mục | [17]: Số tiền | [32]: Khoản mục | [56]: Số tiền
+R68: [0]: Thu nhập từ lương | [32]: Chí phí sinh hoạt, tiêu dùng
+R69: [0]: Thu nhập từ cho thuê tài sản | [32]: Nghĩa vụ trả nợ khác
+R70: [0]: Thu nhập từ kinh doanh | [32]: Nghĩa vụ khoản tín dụng lần này
+R71: [0]: Thu nhập của Người bảo lãnh trả nợ | [32]: Chi phí khác
+R72: [0]: TỔNG THU NHẬP (A) | [32]: TỔNG CHI PHÍ (B)
+R73: [0]: Thu nhập tích lũy hàng tháng* = (A) − (B | [32]: Tổng thu nhập của cá nhân khác trong gia
+R74: [0]: Số người phụ thuộc trong gia đình*: | [32]: Số người có thu nhập trong gia đình*:
+R75: [0]: 3. Tài sản và dư nợ
+R76: [0]: Tài sản hiện có | [32]: Khoản tín dụng hiện có
+R77: [0]: Loại tài sản | [17]: Giá trị | [32]: Khoản | [56]: Giá trị
+R81: [0]: TỔNG GIÁ TRỊ TÀI SẢN | [32]: TỔNG DƯ NỢ
+R82: [0]: THÔNG TIN KHOẢN VAY ĐỀ NGHỊ CẤP (áp dụng
+R83: [0]: 1. Chi tiết các khoản tía dụng đề nghị c
+R84: [0]: STT | [2]: Sản phẩm | [12]: Mục đích | [32]: Tổng nhu cầu vốn | [47]: Số tiền cấp tín dụng | [63]: Thời hạn
+R85: [0]: 1
+R86: [0]: 2
+R87: [0]: 3
+R88: [0]: 2. Phương thức trả nợ
+R89: [0]: Tự động trừ tài khoản 	Nộp tiền mặt hoặc | [32]: Số tài khoản:	 Chi nhánh:
+R90: [0]: THÔNG TIN HẠN MỨC ĐỀ NGHỊ CẤP (áp dụng k
+R91: [0]: 1. Chi tiết hạn mức tín dụng đề nghị cấp
+R92: [0]: Sản phẩm: | [15]: Chi tiết đề xuất về hạn mức khung
+R93: [0]: Mục đích: | [15]: Thế chấp 01 tài sản và nhận nợ linh hoạt
+R94: [0]: Tổng nhu cầu vốn: | [15]: Thế chấp nhiều tài sản và nhận nợ từng l
+R95: [0]: Số tiền đề nghị vay: | [15]: Hạn mức khung gồm các khoản vay, hạn mức
+R96: [0]: Thời hạn: | [15]: Hạn mức khung gồm các khoản vay, hạn mức
+R97: [0]: 2. Phương thức trả nợ
+R98: [0]: Tự động trừ tài khoản 	Nộp tiền mặt hoặc | [32]: Số tài khoản:	 Chi nhánh:
+R99: [0]: THÔNG TIN THẺ TÍN DỤNG ĐỀ NGHỊ CẤP (áp d
+R100: [0]: Thông tin thẻ chính Loại thẻ tín dụng:	 
+R101: [0]: Phí thường niên được thể hiện trên kỳ sa
+R102: [0]: Họ và tên trên thẻ
+R103: [0]: Tên trường tiểu học đầu tiên*:
+R104: [0]: 2. Thông tin các thẻ phụ kèm theo
+R105: [0]: Tôi đồng ý và đề nghị MSB phát hành thẻ 
+R106: [0]: Thẻ phụ thứ 1
+R107: [0]: Họ và tên trên thẻ
+R108: [0]: Ngày sinh:	Số CCCD/Hộ chiếu:	Ngày cấp:	N
+R109: [0]: Thẻ phụ thứ 2
+R110: [0]: Họ và tên trên thẻ
+R111: [0]: Ngày sinh:	Số CCCD/Hộ chiếu:	Ngày cấp:	N
+R112: [0]: Thẻ phụ thứ 3
+R113: [0]: Họ và tên trên thẻ
+R114: [0]: Ngày sinh:	Số CCCD/Hộ chiếu:	Ngày cấp:	N
+R115: [0]: 3. Hướng dẫn gửi thư
+R116: [0]: Tôi/Chúng tôi đồng ý nhận thẻ tín dụng t
+R117: [0]: 4. Nhận sao kê thẻ tín dụng
+R118: [0]: Tôi đồng ý nhận sao kê điện tử để bảo vệ
+R119: [0]: 5. Trích nợ tự động thanh toán dư nợ sao
+R120: [0]: Đề nghị Quý Ngân hàng tự động ghi nợ tài
+R121: [0]: Số tài khoản tại MSB:
+R122: [0]: THÔNG TIN TÀI SẢN BẢO ĐẢM (nếu có)
+R123: [0]: STT | [1]: Loại tài sản | [6]: Giấy chứng nhận | [25]: Tình trạng sở hữu | [39]: Mối quan hệ với Khách hàng | [52]: Số lượng đồng sở hữu | [62]: Giá trị ước tính
+R124: [0]: 1 | [6]: Có  Chưa có, đã hình thành  Chưa có, chư | [25]: Của Khách hàng  Của vợ/chồng  Của bên th
+R125: [0]: 2 | [6]: Có  Chưa có, đã hình thành  Chưa có, chư | [25]: Của Khách hàng  Của vợ/chồng  Của bên th
+R126: [0]: Ghi chú:
+R127: [0]: THÔNG TIN GIAO DỊCH TẠI NGÂN HÀNG
+R128: [0]: Quan hệ tín dụng với MSB*: | [25]: Chưa có | [41]: Đã/đang có khoản tín dụng tại MSB
+R129: [0]: Liệt kê quan hệ tín dụng với MSB và các 
+R130: [0]: Tên tổ chức tín dụng | [3]: Hình thức cấp tín dụng | [16]: Số tiền | [33]: Thời gian cấp tín dụng | [42]: Dư nợ còn lại | [57]: Số tiền phải trả  hàng tháng
+R133: [0]: Tôi/Chúng tôi cam kết: Những thông tin, 

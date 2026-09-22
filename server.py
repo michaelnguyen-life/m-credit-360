@@ -275,39 +275,49 @@ async def upload_file(file: UploadFile = File(...)):
     text_nfc = unicodedata.normalize('NFC', text)
     text_lower = text_nfc.lower()
     
-    mst = "0101234567"
+    mst = ""
     company_name = file.filename.split('.')[0].replace('_', ' ').upper()
     if not company_name.startswith("CÔNG TY") and not company_name.startswith("CTY"):
         company_name = "CTY " + company_name
         
-    company_match = re.search(r'(công ty\s+(?:tnhh|cp|cổ phần|trách nhiệm|tập đoàn)[a-zà-ỹ\s]{3,60})', text_lower)
+    company_match = re.search(r'(công ty\s+(?:tnhh|cp|cổ phần|trách nhiệm|tập đoàn)[^\n]{3,80})', text_lower)
     if company_match:
         company_name = company_match.group(1).upper().strip()
     else:
-        company_match = re.search(r'(công ty\s+[a-zà-ỹ]{3,60})', text_lower)
+        company_match = re.search(r'(công ty\s+[^\n]{3,80})', text_lower)
         if company_match:
             company_name = company_match.group(1).upper().strip()
             
+    # Clean up company name
     company_name = re.sub(r'[^A-ZĂÂĐÊÔƠƯÀẢÃÁẠẰẲẴẮẶẦẨẪẤẬÈẺẼÉẸỀỂỄẾỆÌỈĨÍỊÒỎÕÓỌỒỔỖỐỘỜỞỠỚỢÙỦŨÚỤỪỬỮỨỰỲỶỸÝỴ0-9 -]', '', company_name)
     company_name = re.sub(r'\s+', ' ', company_name).strip()
-    if len(company_name) > 60:
-        company_name = company_name[:60] + "..."
+    if len(company_name) > 80:
+        company_name = company_name[:80] + "..."
             
-    mst_match = re.search(r'(?:mã\s*số\s*thuế|mst|mã\s*số\s*doanh\s*nghiệp|tax\s*(?:code|id))[:\s\-]*?(0\d{9})', text_lower)
+    # MST extraction
+    mst_match = re.search(r'(?:mã\s*số\s*thuế|mst|mã\s*số\s*doanh\s*nghiệp|tax\s*(?:code|id))[:\s\-]*([0-9]{10,14})', text_lower)
     if mst_match:
         mst = mst_match.group(1)
     else:
-        mst_match = re.search(r'(?:mã\s*số\s*thuế|mst|mã\s*số\s*doanh\s*nghiệp)[:\s\-]*(\d{10})', text_lower)
+        mst_match = re.search(r'\b(0[0-9]{9})\b', text_lower)
         if mst_match:
             mst = mst_match.group(1)
+            
+    # Period extraction
+    period = "2025"
+    period_match = re.search(r'(?:năm|kỳ báo cáo|năm tài chính)[:\s-]*([12]\d{3})', text_lower)
+    if period_match:
+        period = period_match.group(1)
+    else:
+        # Fallback to year in filename
+        fname_year_match = re.search(r'([12]\d{3})', file.filename)
+        if fname_year_match:
+            period = fname_year_match.group(1)
         else:
-            mst_match = re.search(r'\b(0\d{9})\b', text_lower)
-            if mst_match:
-                mst = mst_match.group(1)
-            else:
-                mst_match = re.search(r'(?:mã số doanh nghiệp|mst)[:\s-]*(\d{10,14})', text.lower())
-                if mst_match:
-                    mst = mst_match.group(1)
+            # Fallback to first recent year found in text
+            text_year_match = re.search(r'\b(202[0-6])\b', text_lower)
+            if text_year_match:
+                period = text_year_match.group(1)
             
     # Check if text is completely empty (Scanned PDF)
     if len(text.strip()) < 50:
@@ -319,7 +329,8 @@ async def upload_file(file: UploadFile = File(...)):
         "status": "success",
         "company": {"name": company_name, "tax_id": mst},
         "financials": fin,
-        "filename": file.filename
+        "filename": file.filename,
+        "reporting_period": period
     }
 
 @app.post('/assess')

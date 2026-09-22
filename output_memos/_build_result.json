@@ -1,0 +1,10 @@
+{
+  "status": "completed_with_warnings",
+  "file_path": "output_memos\\TO_TRINH_TIN_DUNG_MB02a_0318999888_2025.docx",
+  "assessment_id": "EB-ALPHA-2025-001",
+  "preliminary_decision": "manual_review_required",
+  "product_039_decision": "ĐỦ ĐIỀU KIỆN SẢN PHẨM 039",
+  "warnings": [
+    "Missing or invalid financial_statement_date; BCTC freshness could not be fully verified."
+  ]
+}

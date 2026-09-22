@@ -1,0 +1,70 @@
+[ 0] openNewCustomerModal()
+     SNIPPET: ms-center space-x-2">           <button onclick="openNewCustomerModal()" class="px-3.5 py-2 rounded-lg bg-[#FF5A
+[ 1] openUploadDrawer()
+     SNIPPET:  </button>                      <button onclick="openUploadDrawer()" class="px-3.5 py-2 rounded-lg bg-white 
+[ 2] loadSampleEB('alpha')
+     SNIPPET: nh:           </span>           <button onclick="loadSampleEB('alpha')" class="px-3 py-1.5 rounded-lg bg-[#F8F9
+[ 3] loadSampleEB('beta')
+     SNIPPET: >           </button>           <button onclick="loadSampleEB('beta')" class="px-3 py-1.5 rounded-lg bg-[#F8F9
+[ 4] runEBAssessment()
+     SNIPPET: ms-center space-x-2">           <button onclick="runEBAssessment()" id="btn-run-eb" class="px-4 py-2 rounde
+[ 5] exportDocxMemo()
+     SNIPPET: >           </button>           <button onclick="exportDocxMemo()" id="btn-export-docx" class="px-3.5 py-2
+[ 6] openUploadDrawer()
+     SNIPPET: nter gap-2 pt-2">               <button onclick="openUploadDrawer()" class="px-4 py-2 rounded-lg bg-[#FF5A00
+[ 7] focusManualEntry()
+     SNIPPET:         </button>               <button onclick="focusManualEntry()" class="px-3.5 py-2 rounded-lg bg-white 
+[ 8] openUploadDrawer()
+     SNIPPET: pan>               <a href="#all-files" onclick="openUploadDrawer()" class="text-[11px] text-[#2563EB] hover
+[ 9] triggerAICopilot('Giải thích chi tiết các chỉ số tài chính yếu kém')
+     SNIPPET: order-[#E6EAF0]">               <button onclick="triggerAICopilot('Giải thích chi tiết các chỉ số tài chính yếu kém')" class="px-2 py-1.5 rounded-lg bg-slate-
+[10] triggerAICopilot('Chạy kịch bản Stress Test dòng tiền nếu doanh thu giảm 15%')
+     SNIPPET:         </button>               <button onclick="triggerAICopilot('Chạy kịch bản Stress Test dòng tiền nếu doanh thu giảm 15%')" class="px-2 py-1.5 rounded-lg bg-slate-
+[11] exportDocxMemo()
+     SNIPPET:         </button>               <button onclick="exportDocxMemo()" class="px-2 py-1.5 rounded-lg bg-slate-
+[12] triggerAICopilot('Phân tích sâu rủi ro đòn bẩy và kiểm soát dòng tiền Rule 5D')
+     SNIPPET:         </button>               <button onclick="triggerAICopilot('Phân tích sâu rủi ro đòn bẩy và kiểm soát dòng tiền Rule 5D')" class="px-2 py-1.5 rounded-lg bg-slate-
+[13] loadSampleRB('KH01')
+     SNIPPET: -center space-x-2">             <button onclick="loadSampleRB('KH01')" class="px-3.5 py-2 rounded-lg bg-[#FF5A
+[14] openUploadDrawer()
+     SNIPPET:           </button>             <button onclick="openUploadDrawer()" class="px-3.5 py-2 rounded-lg bg-white 
+[15] loadSampleRB('KH01')
+     SNIPPET:             </span>             <button onclick="loadSampleRB('KH01')" class="px-3 py-1.5 rounded-lg bg-[#F8F9
+[16] runRBAssessment()
+     SNIPPET: -center space-x-2">             <button onclick="runRBAssessment()" id="btn-run-rb" class="px-4 py-2 rounde
+[17] exportRBDocxMemo()
+     SNIPPET:           </button>             <button onclick="exportRBDocxMemo()" id="btn-export-rb-docx" class="px-3.5 p
+[18] exportRBDocxMemo()
+     SNIPPET:         </span>                 <button onclick="exportRBDocxMemo()" class="text-[11px] text-[#2563EB] hover
+[19] exportRBDocxMemo()
+     SNIPPET:              </p>               <button onclick="exportRBDocxMemo()" class="w-full py-2 rounded-lg bg-[#2563
+[20] switchTab('eb')
+     SNIPPET: x-1.5">         <button id="btn-tab-eb" onclick="switchTab('eb')" class="px-3 py-1.5 rounded-lg text-xs f
+[21] switchTab('rb')
+     SNIPPET: button>         <button id="btn-tab-rb" onclick="switchTab('rb')" class="px-3 py-1.5 rounded-lg text-xs f
+[22] switchTab('zalo')
+     SNIPPET: tton>         <button id="btn-tab-zalo" onclick="switchTab('zalo')" class="px-3 py-1.5 rounded-lg text-xs f
+[23] saveDraftNotification()
+     SNIPPET: </span>         </span>         <button onclick="saveDraftNotification()" class="px-3 py-1.5 rounded-lg bg-[#FF5A
+[24] closeNewCustomerModal()
+     SNIPPET: er-t border-[#E6EAF0]">         <button onclick="closeNewCustomerModal()" class="px-4 py-2 rounded-lg text-xs fon
+[25] confirmNewCustomerSession()
+     SNIPPET:   Hủy         </button>         <button onclick="confirmNewCustomerSession()" class="px-4 py-2 rounded-lg bg-[#FF5A00
+[26] closeUploadDrawer()
+     SNIPPET: oại.</p>         </div>         <button onclick="closeUploadDrawer()" class="p-1 rounded-lg hover:bg-slate-20
+[27] document.getElementById('file-input').click()
+     SNIPPET: op Zone -->         <div id="drop-zone" onclick="document.getElementById('file-input').click()" class="border-2 border-dashed border-[#
+[28] closeUploadDrawer()
+     SNIPPET: justify-end space-x-2">         <button onclick="closeUploadDrawer()" class="px-4 py-2 rounded-lg text-xs fon
+[29] openExtractionReview()
+     SNIPPET:  Đóng         </button>         <button onclick="openExtractionReview()" class="px-4 py-2 rounded-lg bg-[#FF5A00
+[30] closeExtractionReview()
+     SNIPPET: ịnh.</p>         </div>         <button onclick="closeExtractionReview()" class="p-1 rounded-lg hover:bg-slate-10
+[31] closeExtractionReview()
+     SNIPPET: er-t border-[#E6EAF0]">         <button onclick="closeExtractionReview()" class="px-4 py-2 rounded-lg text-xs fon
+[32] applyExtractedData()
+     SNIPPET: n tại         </button>         <button onclick="applyExtractedData()" class="px-4 py-2 rounded-lg bg-[#FF5A00
+[33] toggleChatDrawer()
+     SNIPPET:       </div>       </div>       <button onclick="toggleChatDrawer()" class="p-1 rounded-lg hover:bg-slate-20
+[34] toggleChatDrawer()
+     SNIPPET:  BUTTON TRIGGER WITH LOGO -->   <button onclick="toggleChatDrawer()" title="M-Insight 360 Copilot" class="fi

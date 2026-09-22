@@ -1,0 +1,18 @@
+Tables: 12, Paragraphs: 21
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB)
+Mã biểu mẫu: MB02a/QT.RR.037
+Số tờ trình: MSB/TTTD/2025/EB-ALPHA-2025-001  |  Ngày lập: 03/09/2026
+I. THÔNG TIN KHÁCH HÀNG & PHÁP LÝ
+II. ĐỀ XUẤT CẤP TÍN DỤNG & TÀI SẢN BẢO ĐẢM
+1. Đề xuất Hạn mức Tín dụng (B5)
+2. Tài sản Bảo đảm (B7)
+3. Điều kiện Tín dụng (B13)
+III. NỘI DUNG THẨM ĐỊNH & TÀI CHÍNH BCTC 3 KỲ
+1. Quan hệ tín dụng & CIC (B16)
+2. Tổng hợp BCTC 3 năm (B32)
+3. Chỉ số an toàn tài chính & Dòng tiền (B33)
+4. Đối soát Digisale (DSP) & 5 Red Flags
+IV. THẨM ĐỊNH ĐIỀU KIỆN SẢN PHẨM ĐẦU RA 039
+V. KẾt LUận, ĐIỀU KIỆN GIẢI NGÂN & PHÊ DUYỆT
+1. Đề xuất phê duyệt & Điều kiện giải ngân (B43)
+2. Khung 4 Chữ ký Phê duyệt (B55)

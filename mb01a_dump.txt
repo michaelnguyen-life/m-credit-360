@@ -1,0 +1,28 @@
+Paragraphs: 7
+Tables: 1
+
+[P2] GIẤY ĐỀ NGHỊ CẤP TÍN DỤNG
+[P3] Kính gửi: Ngân hàng TMCP Hàng Hải Việt Nam (MSB) – Trung tâm
+[P4] Tôi đề nghị được cấp tín dụng với các nội dung cụ thể như sau:
+
+--- Table 0 (134 rows x 69 cols) ---
+R0: Sản phẩm tín dụng*	TSBĐ  Vay vốn	 Có	 Không  Bảo lãnh	 Có	 Không  Hạn mức tín dụng	 Có	 Không  Hạn mức thấu chi		 Có	 Không  Thẻ tín dụng	 Có	 Không  Khác (ghi rõ):		 Có	 Không | Sản phẩm tín dụng*	TSBĐ  Vay vốn	 Có	 Không  Bảo lãnh	 Có	 Không  Hạn mức tín dụng	 Có	 Không  Hạn mức thấu chi		 Có	 Không  Thẻ tín dụng	 Có	 Không  Khác (ghi rõ):		 Có	 Không | Sản phẩm tín dụng*	TSBĐ  Vay vốn	 Có	 Không  Bảo lãnh	 Có	 Không  Hạn mức tín dụng	 Có	 Không  Hạn mức thấu chi		 Có	 Không  Thẻ tín dụng	 Có	 Không  Khác (ghi rõ):		 Có	 Không | Sản phẩm tín dụng*	TSBĐ  Vay vốn	 Có	 Không  Bảo lãnh	 Có	 Không  Hạn mức tín dụng	 Có	 Không  Hạn mức thấu chi		 Có	 Không  Thẻ tín dụng	 Có	 Không  Khác (ghi rõ):		 Có	 Không | Sản phẩm tín dụng*	TSBĐ  Vay vốn	 Có	 Không  Bảo lãnh	 Có	 Không  Hạn mức tín dụng	 Có	 Không  Hạn mức thấu chi		 Có	 Không  Thẻ tín dụng	 Có	 Không  Khác (ghi rõ):		 Có	 Không | Sản phẩm tín dụng*	TSBĐ  Vay vốn	 Có	 Không  Bảo lãnh	 Có	 Không  Hạn mức tín dụng	 Có	 Không  Hạn mức thấu chi		 Có	 Không  Thẻ tín dụng	 Có	 Không  Khác (ghi rõ):		 Có	 Không
+R1: Hạn mức tín dụng đề nghị cấp: | Hạn mức tín dụng đề nghị cấp: | Hạn mức tín dụng đề nghị cấp: | Hạn mức tín dụng đề nghị cấp: | Hạn mức tín dụng đề nghị cấp: | Hạn mức tín dụng đề nghị cấp:
+R2: THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI DIỆN* (sau đây gọi là “Khách hàng”) | THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI DIỆN* (sau đây gọi là “Khách hàng”) | THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI DIỆN* (sau đây gọi là “Khách hàng”) | THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI DIỆN* (sau đây gọi là “Khách hàng”) | THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI DIỆN* (sau đây gọi là “Khách hàng”) | THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI DIỆN* (sau đây gọi là “Khách hàng”)
+R3: Họ tên: | Họ tên: | Họ tên: | Họ tên: | Họ tên: | Họ tên:
+R4: Giới tính:                Nam                    Nữ | Giới tính:                Nam                    Nữ | Giới tính:                Nam                    Nữ | Giới tính:                Nam                    Nữ | Giới tính:                Nam                    Nữ | Giới tính:                Nam                    Nữ
+R5: Số CCCD/Hộ chiếu: | Số CCCD/Hộ chiếu: | Số CCCD/Hộ chiếu: | Số CCCD/Hộ chiếu: | Số CCCD/Hộ chiếu: | Số CCCD/Hộ chiếu:
+R6: Số CMTND cũ (nếu có): | Số CMTND cũ (nếu có): | Số CMTND cũ (nếu có): | Số CMTND cũ (nếu có): | Số CMTND cũ (nếu có): | Số CMTND cũ (nếu có):
+R7: Giấy phép lao động/Giấy phép tạm trú/thường trú (nếu có) | Giấy phép lao động/Giấy phép tạm trú/thường trú (nếu có) | Giấy phép lao động/Giấy phép tạm trú/thường trú (nếu có) | Giấy phép lao động/Giấy phép tạm trú/thường trú (nếu có) | Giấy phép lao động/Giấy phép tạm trú/thường trú (nếu có) | Giấy phép lao động/Giấy phép tạm trú/thường trú (nếu có)
+R8:  |  |  |  |  | Số
+R9: Địa chỉ thường trú: | Địa chỉ thường trú: | Địa chỉ thường trú: | Địa chỉ thường trú: | Địa chỉ thường trú: | 
+R10: Địa chỉ tạm trú: | Địa chỉ tạm trú: | Địa chỉ tạm trú: | Địa chỉ tạm trú: | Địa chỉ tạm trú: | 
+R11: Địa chỉ liên lạc: | Địa chỉ liên lạc: | Địa chỉ liên lạc: | Địa chỉ liên lạc: | Địa chỉ liên lạc: | 
+R12: Điện thoại nhà riêng (nếu có): | Điện thoại nhà riêng (nếu có): | Điện thoại nhà riêng (nếu có): | Điện thoại nhà riêng (nếu có): | Điện thoại nhà riêng (nếu có): | Điện thoại nhà riêng (nếu có):
+R13: Email: | Email: | Email: | Email: | Email: | Email:
+R14: Tình trạng hôn nhân hiện tại: | Tình trạng hôn nhân hiện tại: | Tình trạng hôn nhân hiện tại: | Tình trạng hôn nhân hiện tại: | Tình trạng hôn nhân hiện tại: | Tình trạng hôn nhân hiện tại:
+R15: Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn:
+R16: Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn: | Trình độ học vấn:
+R17: Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà:
+R18: Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà: | Hình thức sở hữu nhà:
+R19: Loại phương tiện đi lại: | Loại phương tiện đi lại: | Loại phương tiện đi lại: | Loại phương tiện đi lại: | Loại phương tiện đi lại: | Loại phương tiện đi lại:

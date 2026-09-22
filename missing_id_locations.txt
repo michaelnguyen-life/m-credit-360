@@ -1,0 +1,25 @@
+=== KEY: btn-save-eb ===
+  Pos 111488: saveEBProfile() {       const btn = document.getElementById('btn-save-eb');       const origText = btn.innerHTML;       btn.innerHTML = '<i data-lucide="loader-
+=== KEY: eb-fcf ===
+  Pos 112994: ).value),           CF003: parseVND(document.getElementById('eb-fcf').value)         }       };              try {         const response = await fetch('/api/sa
+  Pos 115526: data.financials.CF002);             document.getElementById('eb-fcf').value = formatVND(data.financials.CF003);           }         }       } catch (err) {     
+=== KEY: eb-gp ===
+  Pos 112582: ).value),           IS002: parseVND(document.getElementById('eb-gp').value),           IS003: parseVND(document.getElementById('eb-ebit').value),           IS00
+  Pos 114994: data.financials.IS001);             document.getElementById('eb-gp').value = formatVND(data.financials.IS002);             document.getElementById('eb-ebit').va
+=== KEY: eb-icf ===
+  Pos 112926: ).value),           CF002: parseVND(document.getElementById('eb-icf').value),           CF003: parseVND(document.getElementById('eb-fcf').value)         }      
+  Pos 115438: data.financials.CF001);             document.getElementById('eb-icf').value = formatVND(data.financials.CF002);             document.getElementById('eb-fcf').va
+=== KEY: eb-np ===
+  Pos 112791: ).value),           IS005: parseVND(document.getElementById('eb-np').value),           CF001: parseVND(document.getElementById('eb-ocf').value),           CF002
+  Pos 115263: data.financials.IS004);             document.getElementById('eb-np').value = formatVND(data.financials.IS005);             document.getElementById('eb-ocf').val
+=== KEY: eb-ocf ===
+  Pos 112858: ).value),           CF001: parseVND(document.getElementById('eb-ocf').value),           CF002: parseVND(document.getElementById('eb-icf').value),           CF00
+  Pos 115350: data.financials.IS005);             document.getElementById('eb-ocf').value = formatVND(data.financials.CF001);             document.getElementById('eb-icf').va
+=== KEY: eb-short-debt ===
+  Pos 81244: n.BS_CURRENT_ASSETS || 0;           document.getElementById('eb-short-debt').value = fin.BS_SHORT_TERM_DEBT || 0;                      // Re-format inputs      
+=== KEY: eb-std ===
+  Pos 112304: ).value),           BS006: parseVND(document.getElementById('eb-std').value),           BS007: parseVND(document.getElementById('eb-tl').value),           BS008
+  Pos 114636: data.financials.BS005);             document.getElementById('eb-std').value = formatVND(data.financials.BS006);             document.getElementById('eb-tl').val
+=== KEY: eb-tl ===
+  Pos 112372: ).value),           BS007: parseVND(document.getElementById('eb-tl').value),           BS008: parseVND(document.getElementById('eb-equity').value),           IS
+  Pos 114724: data.financials.BS006);             document.getElementById('eb-tl').value = formatVND(data.financials.BS007);             document.getElementById('eb-equity').

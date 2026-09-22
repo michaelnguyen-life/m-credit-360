@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0",
+  "assessment_id": "EB-ALPHA-2025-001",
+  "assessed_at": "2026-09-03T02:24:59.299599+00:00",
+  "status": "completed_with_warnings",
+  "company": {
+    "name": "CÔNG TY CỔ PHẦN TẬP ĐOÀN ĐẦU TƯ ALPHA (MOCK AN DANH)",
+    "tax_id": "0318999888",
+    "industry": "Đầu tư & Xây lắp Bất động sản / Thương mại",
+    "operating_years": 8,
+    "legal_rep": "NGUYỄN VĂN ALPHA"
+  },
+  "reporting_period": "FY2025",
+  "currency": "VND",
+  "source": {
+    "type": "json",
+    "codes_received": [
+      "BS_CURRENT_ASSETS",
+      "BS_CURRENT_LIABILITIES",
+      "BS_EQUITY",
+      "BS_INVENTORY",
+      "BS_SHORT_TERM_DEBT",
+      "BS_TOTAL_LIABILITIES",
+      "BS_TRADE_PAYABLES",
+      "BS_TRADE_RECEIVABLES",
+      "CF_FINANCING_CASH_FLOW",
+      "CF_INVESTING_CASH_FLOW",
+      "CF_OPERATING_CASH_FLOW",
+      "IS_EBIT",
+      "IS_GROSS_PROFIT",
+      "IS_INTEREST_EXPENSE",
+      "IS_NET_PROFIT",
+      "IS_REVENUE",
+      "PRINCIPAL_DUE"
+    ]
+  },
+  "normalized_financials": {
+    "BS_CURRENT_ASSETS": 293369838619.0,
+    "BS_CURRENT_LIABILITIES": 165307940854.0,
+    "BS_TRADE_RECEIVABLES": 1030523666.0,
+    "BS_INVENTORY": 13676836829.0,
+    "BS_TRADE_PAYABLES": 1440085191.0,
+    "BS_SHORT_TERM_DEBT": 78810636239.0,
+    "BS_TOTAL_LIABILITIES": 289109192531.0,
+    "BS_EQUITY": 580965107518.0,
+    "IS_REVENUE": 90105893754.0,
+    "IS_GROSS_PROFIT": 16764962136.0,
+    "IS_EBIT": 12405554008.0,
+    "IS_INTEREST_EXPENSE": 8579629925.0,
+    "IS_NET_PROFIT": 23267766.0,
+    "CF_OPERATING_CASH_FLOW": 8624346207.0,
+    "CF_INVESTING_CASH_FLOW": -3920000000.0,
+    "CF_FINANCING_CASH_FLOW": -4105345786.0,
+    "PRINCIPAL_DUE": 15000000000.0
+  },
+  "metrics": {
+    "current_assets": 293369838619.0,
+    "current_liabilities": 165307940854.0,
+    "trade_receivables": 1030523666.0,
+    "inventory": 13676836829.0,
+    "trade_payables": 1440085191.0,
+    "short_term_debt": 78810636239.0,
+    "total_liabilities": 289109192531.0,
+    "equity": 580965107518.0,
+    "ebit": 12405554008.0,
+    "interest_expense": 8579629925.0,
+    "revenue": 90105893754.0,
+    "operating_cash_flow": 8624346207.0,
+    "investing_cash_flow": -3920000000.0,
+    "financing_cash_flow": -4105345786.0,
+    "cash_available_for_debt_service": null,
+    "principal_due": 15000000000.0
+  },
+  "ratios": {
+    "nwc": 128061897765.0,
+    "wcr": 13267275304.0,
+    "dscr": 0.36575409514193213,
+    "icr": 1.44593113181394,
+    "net_cash_flow": 599000421.0
+  },
+  "calculation_notes": [
+    "DSCR uses operating_cash_flow as CFADS proxy."
+  ],
+  "red_flags": [
+    {
+      "code": "RF01_CAPITAL_IMBALANCE",
+      "title": "Mất cân đối vốn",
+      "triggered": false,
+      "severity": "none",
+      "observed_value": 128061897765.0,
+      "threshold": 0.0,
+      "evidence": "Equity <= 0 or NWC < 0."
+    },
+    {
+      "code": "RF02_NEGATIVE_CFO",
+      "title": "Dòng tiền HĐKD âm",
+      "triggered": false,
+      "severity": "none",
+      "observed_value": 8624346207.0,
+      "threshold": 0.0,
+      "evidence": "Operating cash flow is below zero."
+    },
+    {
+      "code": "RF03_SHORT_TERM_DEBT",
+      "title": "Nợ ngắn hạn vượt ngưỡng",
+      "triggered": false,
+      "severity": "none",
+      "observed_value": 0.2725981680106884,
+      "threshold": 0.5,
+      "evidence": "Short-term debt / total liabilities exceeds policy threshold."
+    },
+    {
+      "code": "RF04_DSP_MISMATCH",
+      "title": "Lệch số liệu Digisale (DSP)",
+      "triggered": false,
+      "severity": "none",
+      "observed_value": 0.018899453396929555,
+      "threshold": 0.05,
+      "evidence": "Largest relative variance for revenue or trade receivables."
+    },
+    {
+      "code": "RF05_DEBT_SERVICE_CAPACITY",
+      "title": "Khả năng trả nợ yếu",
+      "triggered": true,
+      "severity": "critical",
+      "observed_value": 0.36575409514193213,
+      "threshold": 1.0,
+      "evidence": "DSCR < minimum or ICR < minimum."
+    },
+    {
+      "code": "OUTDATED_DATA",
+      "title": "Dữ liệu BCTC quá hạn",
+      "triggered": false,
+      "severity": "none",
+      "observed_value": null,
+      "threshold": "12 months / valid-until",
+      "evidence": "Financial statement is within the 12-month policy window and has not expired."
+    }
+  ],
+  "product_039_evaluation": {
+    "product": "039",
+    "decision": "TỪ CHỐI / YÊU CẦU NGOẠI LỆ",
+    "rules": [
+      {
+        "code": "P039_R1_CUSTOMER",
+        "title": "Tư cách Khách hàng",
+        "status": "PASS",
+        "passed": true,
+        "evidence": "SoNamHoatDong=8.0; VCSH=580965107518.0; yêu cầu >=3 năm và VCSH > 0."
+      },
+      {
+        "code": "P039_R2_BUYER",
+        "title": "Tư cách Người mua",
+        "status": "RED FLAG",
+        "passed": false,
+        "evidence": "DT_BQ_2Nam=None; SoNamHoatDong_Buyer=5.0; yêu cầu DT_BQ >= 50 tỷ và >=3 năm."
+      },
+      {
+        "code": "P039_R3_FUNDING_RATIO",
+        "title": "Tỷ lệ tài trợ",
+        "status": "PASS",
+        "passed": true,
+        "evidence": "TyLeTaiTro=0.75; yêu cầu <= 0.80."
+      }
+    ],
+    "calculations": {
+      "buyer_revenue_year_1": null,
+      "buyer_revenue_year_2": null,
+      "buyer_average_revenue_2y": null,
+      "funding_ratio": 0.75,
+      "loan_request_amount": 15000000000.0,
+      "contract_value": 20000000000.0
+    },
+    "warnings": [
+      "Buyer eligibility requires buyer_revenue_year_1 and buyer_revenue_year_2; a pre-calculated average is not accepted as primary evidence."
+    ]
+  },
+  "thresholds": {
+    "max_short_term_debt_to_liabilities": 0.5,
+    "max_dsp_variance": 0.05,
+    "min_dscr": 1.0,
+    "min_icr": 1.5
+  },
+  "preliminary_decision": {
+    "outcome": "manual_review_required",
+    "is_automated_credit_decision": false,
+    "triggered_flag_count": 1,
+    "data_quality_warning_count": 2
+  },
+  "warnings": [
+    "Missing or invalid financial_statement_date; BCTC freshness could not be fully verified.",
+    "Buyer eligibility requires buyer_revenue_year_1 and buyer_revenue_year_2; a pre-calculated average is not accepted as primary evidence."
+  ],
+  "errors": [],
+  "split_screen_demo": {
+    "raw_documents": {
+      "financial_statement_excerpt": null,
+      "principle_contract_excerpt": null
+    },
+    "ai_extracted_insights": [
+      {
+        "type": "financial_ratio",
+        "label": "NWC",
+        "value": 128061897765.0
+      },
+      {
+        "type": "financial_ratio",
+        "label": "DSCR",
+        "value": 0.36575409514193213
+      },
+      {
+        "type": "financial_ratio",
+        "label": "ICR",
+        "value": 1.44593113181394
+      },
+      {
+        "type": "financial_red_flag",
+        "label": "Mất cân đối vốn",
+        "status": "PASS",
+        "evidence": "Equity <= 0 or NWC < 0."
+      },
+      {
+        "type": "financial_red_flag",
+        "label": "Dòng tiền HĐKD âm",
+        "status": "PASS",
+        "evidence": "Operating cash flow is below zero."
+      },
+      {
+        "type": "financial_red_flag",
+        "label": "Nợ ngắn hạn vượt ngưỡng",
+        "status": "PASS",
+        "evidence": "Short-term debt / total liabilities exceeds policy threshold."
+      },
+      {
+        "type": "financial_red_flag",
+        "label": "Lệch số liệu Digisale (DSP)",
+        "status": "PASS",
+        "evidence": "Largest relative variance for revenue or trade receivables."
+      },
+      {
+        "type": "financial_red_flag",
+        "label": "Khả năng trả nợ yếu",
+        "status": "RED FLAG",
+        "evidence": "DSCR < minimum or ICR < minimum."
+      },
+      {
+        "type": "financial_red_flag",
+        "label": "Dữ liệu BCTC quá hạn",
+        "status": "PASS",
+        "evidence": "Financial statement is within the 12-month policy window and has not expired."
+      },
+      {
+        "type": "product_039_rule",
+        "label": "Tư cách Khách hàng",
+        "status": "PASS",
+        "evidence": "SoNamHoatDong=8.0; VCSH=580965107518.0; yêu cầu >=3 năm và VCSH > 0."
+      },
+      {
+        "type": "product_039_rule",
+        "label": "Tư cách Người mua",
+        "status": "RED FLAG",
+        "evidence": "DT_BQ_2Nam=None; SoNamHoatDong_Buyer=5.0; yêu cầu DT_BQ >= 50 tỷ và >=3 năm."
+      },
+      {
+        "type": "product_039_rule",
+        "label": "Tỷ lệ tài trợ",
+        "status": "PASS",
+        "evidence": "TyLeTaiTro=0.75; yêu cầu <= 0.80."
+      },
+      {
+        "type": "product_039_decision",
+        "label": "Kết quả Sản phẩm 039",
+        "status": "TỪ CHỐI / YÊU CẦU NGOẠI LỆ"
+      }
+    ]
+  },
+  "one_page_credit_memo": "# One-Page Credit Memo\n**Doanh nghiệp:** CÔNG TY CỔ PHẦN TẬP ĐOÀN ĐẦU TƯ ALPHA (MOCK AN DANH)  \n**MST:** 0318999888  \n**Kỳ báo cáo:** FY2025  \n**Kết quả sơ bộ:** manual_review_required\n\n## 1. Sức khỏe Tài chính BCTC\n| NWC | WCR | DSCR | ICR | Dòng tiền thuần |\n|---:|---:|---:|---:|---:|\n| 128061897765.0 | 13267275304.0 | 0.36575409514193213 | 1.44593113181394 | 599000421.0 |\n\n### Red Flags\n- [CRITICAL] Khả năng trả nợ yếu: DSCR < minimum or ICR < minimum.\n\n## 2. Kết quả Thẩm định Sản phẩm Đầu ra 039\n- [PASS] Tư cách Khách hàng: SoNamHoatDong=8.0; VCSH=580965107518.0; yêu cầu >=3 năm và VCSH > 0.\n- [RED FLAG] Tư cách Người mua: DT_BQ_2Nam=None; SoNamHoatDong_Buyer=5.0; yêu cầu DT_BQ >= 50 tỷ và >=3 năm.\n- [PASS] Tỷ lệ tài trợ: TyLeTaiTro=0.75; yêu cầu <= 0.80.\n- **Quyết định 039:** TỪ CHỐI / YÊU CẦU NGOẠI LỆ\n\n## 3. Khuyến nghị cấp tín dụng\nKết quả chỉ hỗ trợ thẩm định. Chuyên viên tín dụng cần xác minh chứng từ gốc, dữ liệu DSP, điều kiện Product 039 và áp dụng chính sách MSB hiện hành trước khi phê duyệt.\n"
+}

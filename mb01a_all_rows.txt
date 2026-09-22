@@ -1,0 +1,129 @@
+Row   0: Mục đích vay vốn*  Tiêu dùng gia đình/cá nhân  Kinh doanh cá thể/hộ gia đình/hộ kinh doanh/Doanh nghiệp	  Khác Diễn giải
+Row   1: Hạn mức tín dụng đề nghị cấp:
+Row   2: THÔNG TIN KHÁCH HÀNG CÁ NHÂN/NGƯỜI ĐẠI DIỆN* (sau đây gọi là “Khách hàng”)
+Row   3: Họ tên:
+Row   4: Giới tính:                Nam                    Nữ Ngày sinh: 	/	/		Quốc tịch:
+Row   5: Số CCCD/Hộ chiếu: Ngày cấp: 	/	/		Nơi cấp:
+Row   6: Số CMTND cũ (nếu có): Ngày cấp: 	/	/		Nơi cấp:
+Row   7: Ngày cấp: 	/	/		Nơi cấp: Giấy phép lao động/Giấy phép tạm trú/thường trú (nếu có)
+Row   8: Số Quận/Huyện/Thị xã Phường/Ấp Đường/Phố Thành phố/Tỉnh
+Row   9: Địa chỉ thường trú:
+Row  10: Địa chỉ tạm trú:
+Row  11: Địa chỉ liên lạc:
+Row  12: Điện thoại di động: Điện thoại nhà riêng (nếu có):
+Row  13: Email:
+Row  14: Tình trạng hôn nhân hiện tại: Ly hôn Có gia đình Độc thân Góa
+Row  15: PTTH Trung cấp Trình độ học vấn: Cao đẳng
+Row  16: Đại học Trên đại học Khác (ghi rõ): Trình độ học vấn:
+Row  17: Ở nhà bạn bè, họ hàng Hình thức sở hữu nhà: Nhà riêng Ở cùng bố mẹ Nhà thuê
+Row  18: Ở nhà tập thể, nhà công vụ Hình thức sở hữu nhà: Khác (ghi rõ):
+Row  19: Ô tô Loại phương tiện đi lại: Phương tiện giao thông công cộng Xe gắn máy
+Row  20: THÔNG TIN HOẠT ĐỘNG KINH DOANH  (áp dụng với Khách hàng có nguồn thu từ hoạt động kinh doanh)
+Row  21: Tên cơ sở kinh doanh*:
+Row  22: Ngành nghề kinh doanh*:
+Row  23: Đăng ký kinh doanh*:	 Có đăng ký kinh doanh	 Không có đăng ký kinh doanh 	 Có xác nhận của CQĐP	 Không có xác nhận của C
+Row  24: Số đăng ký kinh doanh (nếu có): Ngày cấp: 	/	/		Nơi cấp:
+Row  25: Thời gian kinh doanh*:            năm           tháng Kinh nghiệm kinh doanh*:            năm            tháng
+Row  26: Số lượng kho bãi, nhà xưởng, chi nhánh: Số lượng nhân viên:
+Row  27: Diện tích kho bãi, nhà xưởng, chi nhánh: Diện tích địa điểm kinh doanh:
+Row  28: Fax: Điện thoại:
+Row  29: Địa điểm kinh doanh*:
+Row  30: Tình trạng sở hữu địa điểm kinh doanh:	 Của Khách hàng hoặc vợ/chồng	 Của người thân	Thuê/mượn
+Row  31: Tình trạng ghi chép sổ sách thu chi:	 Qua tài khoản ngân hàng	 Sử dụng phần mềm 	 Ghi chép sổ nhập/bán hàng/công nợ 	 Kh
+Row  32: THÔNG TIN NGHỀ NGHIỆP (áp dụng với Khách hàng có nguồn thu từ lương)
+Row  33: Tên đơn vị công tác hiện tại*:
+Row  34: Địa chỉ cơ quan:
+Row  35: Fax: Điện thoại cơ quan:
+Row  36: Nghề nghiệp: Chức vụ hiện tại*:
+Row  37: Kinh nghiệm công tác:            năm            tháng Thời gian đã làm việc tại cơ quan*:             năm            thá
+Row  38: Lao động thời vụ Quản lý, điều hành Cán bộ, chuyên viên Lao động được đào tạo nghề Loại hình công việc*:
+Row  39: Hợp đồng lao động*: Dưới 1 năm Từ 1-3 năm Không xác định thời hạn
+Row  40: Hình thức nhận lương*: Tiền mặt Chuyển khoản qua MSB
+Row  41: Chuyển khoản qua Ngân hàng khác (vui lòng ghi rõ): Hình thức nhận lương*:
+Row  42: THÔNG TIN NGƯỜI LIÊN QUAN (nếu có)
+Row  43: Thông tin người liên hệ*
+Row  44: Điện thoại di động: Họ tên:
+Row  45: Điện thoại cơ quan/cơ sở kinh doanh: Cơ quan công tác/cơ sở kinh doanh:
+Row  46: Mối quan hệ với Khách hàng:
+Row  47: Địa chỉ nơi ở hiện tại:
+Row  48: Trường hợp MSB không liên hệ được trực tiếp với tôi để thông báo các thông tin cần thiết, vui lòng liên hệ với người có 
+Row  49: Thông tin vợ/chồng Khách hàng
+Row  50: Điện thoại di động: Họ tên:
+Row  51: Số CCCD/Hộ chiếu: Ngày cấp: 	/	/		Nơi cấp:
+Row  52: Số CMTND cũ (nếu có): Ngày cấp: 	/	/		Nơi cấp:
+Row  53: Ngày cấp: 	/	/		Nơi cấp: Giấy phép lao động/Giấy phép tạm trú/thường trú
+Row  54: Điện thoại cơ quan/cơ sở kinh doanh: Cơ quan công tác/cơ sở kinh doanh:
+Row  55: Địa chỉ cơ quan/cơ sở kinh doanh:
+Row  56: Địa chỉ nơi ở hiện tại:
+Row  57: Thông tin Người bảo lãnh trả nợ (khác vợ/chồng Khách hàng)
+Row  58: Điện thoại di động: Họ tên:
+Row  59: Số CCCD/Hộ chiếu: Ngày cấp: 	/	/		Nơi cấp:
+Row  60: Ngày cấp: 	/	/		Nơi cấp: Giấy phép lao động/Giấy phép tạm trú/thường trú
+Row  61: Điện thoại cơ quan/cơ sở kinh doanh: Cơ quan công tác/cơ sở kinh doanh:
+Row  62: Quan hệ với người vay:
+Row  63: Địa chỉ cơ quan/cơ sở kinh doanh:
+Row  64: Địa chỉ nơi ở hiện tại:
+Row  65: THÔNG TIN TÀI CHÍNH*
+Row  66: 2. Chi phí* 1.  Thu nhập*
+Row  67: Số tiền Khoản mục
+Row  68: Thu nhập từ lương Chí phí sinh hoạt, tiêu dùng
+Row  69: Nghĩa vụ trả nợ khác Thu nhập từ cho thuê tài sản
+Row  70: Thu nhập từ kinh doanh Nghĩa vụ khoản tín dụng lần này
+Row  71: Chi phí khác Thu nhập của Người bảo lãnh trả nợ
+Row  72: TỔNG CHI PHÍ (B) TỔNG THU NHẬP (A)
+Row  73: Thu nhập tích lũy hàng tháng* = (A) − (B) = Tổng thu nhập của cá nhân khác trong gia đình:
+Row  74: Số người phụ thuộc trong gia đình*: Số người có thu nhập trong gia đình*:
+Row  75: 3. Tài sản và dư nợ
+Row  76: Khoản tín dụng hiện có Tài sản hiện có
+Row  77: Khoản Giá trị Loại tài sản
+Row  81: TỔNG GIÁ TRỊ TÀI SẢN TỔNG DƯ NỢ
+Row  82: THÔNG TIN KHOẢN VAY ĐỀ NGHỊ CẤP (áp dụng khi Khách hàng có nhu cầu vay vốn)
+Row  83: 1. Chi tiết các khoản tía dụng đề nghị cấp
+Row  84: STT Mục đích Thời hạn Sản phẩm Số tiền cấp tín dụng Tổng nhu cầu vốn
+Row  85: 1
+Row  86: 2
+Row  87: 3
+Row  88: 2. Phương thức trả nợ
+Row  89: Số tài khoản:	 Chi nhánh: Tự động trừ tài khoản 	Nộp tiền mặt hoặc chuyển khoản
+Row  90: THÔNG TIN HẠN MỨC ĐỀ NGHỊ CẤP (áp dụng khi Khách hàng có nhu cầu cấp hạn mức khung)
+Row  91: 1. Chi tiết hạn mức tín dụng đề nghị cấp
+Row  92: Sản phẩm: Chi tiết đề xuất về hạn mức khung
+Row  93: Thế chấp 01 tài sản và nhận nợ linh hoạt trong thời hạn cho phép Mục đích:
+Row  94: Thế chấp nhiều tài sản và nhận nợ từng lần theo giá trị tài sản khi có nhu cầu Tổng nhu cầu vốn:
+Row  95: Số tiền đề nghị vay: Hạn mức khung gồm các khoản vay, hạn mức thành phần 	Cụ thể: (trình bày rõ nhu cầu trong hạn mức kh
+Row  96: Thời hạn: Hạn mức khung gồm các khoản vay, hạn mức thành phần 	Cụ thể: (trình bày rõ nhu cầu trong hạn mức khung theo số
+Row  97: 2. Phương thức trả nợ
+Row  98: Số tài khoản:	 Chi nhánh: Tự động trừ tài khoản 	Nộp tiền mặt hoặc chuyển khoản
+Row  99: THÔNG TIN THẺ TÍN DỤNG ĐỀ NGHỊ CẤP (áp dụng khi Khách hàng có nhu cầu cấp thẻ/cấp thẻ kèm khoản vay)
+Row 100: Thông tin thẻ chính Loại thẻ tín dụng:	 Visa Travel	 Visa Signature Dinning	 Visa Online	 Master Card Super Free 	 Visa 
+Row 101: Phí thường niên được thể hiện trên kỳ sao kê tháng đầu tiên ngay sau ngày phát hành thẻ tín dụng. Trong trường hợp Quý k
+Row 102: Họ và tên trên thẻ
+Row 103: Tên trường tiểu học đầu tiên*:
+Row 104: 2. Thông tin các thẻ phụ kèm theo
+Row 105: Tôi đồng ý và đề nghị MSB phát hành thẻ tín dụng phụ (theo điều kiện và điều khoản sử dụng thẻ tín dụng của MSB) cho cá 
+Row 106: Thẻ phụ thứ 1
+Row 107: Họ và tên trên thẻ
+Row 108: Ngày sinh:	Số CCCD/Hộ chiếu:	Ngày cấp:	Nơi cấp:	 Di động:	Email:	Quan hệ với chủ thẻ chính:	 Hiện ở cùng chủ thẻ chính?	
+Row 109: Thẻ phụ thứ 2
+Row 110: Họ và tên trên thẻ
+Row 111: Ngày sinh:	Số CCCD/Hộ chiếu:	Ngày cấp:	Nơi cấp:	 Di động:	Email:	Quan hệ với chủ thẻ chính:	 Hiện ở cùng chủ thẻ chính?	
+Row 112: Thẻ phụ thứ 3
+Row 113: Họ và tên trên thẻ
+Row 114: Ngày sinh:	Số CCCD/Hộ chiếu:	Ngày cấp:	Nơi cấp:	 Di động:	Email:	Quan hệ với chủ thẻ chính:	 Hiện ở cùng chủ thẻ chính?	
+Row 115: 3. Hướng dẫn gửi thư
+Row 116: Tôi/Chúng tôi đồng ý nhận thẻ tín dụng tại địa chỉ công ty và mã số cá nhân (PIN) dùng cho máy ATM gần nơi cư trú hiện t
+Row 117: 4. Nhận sao kê thẻ tín dụng
+Row 118: Tôi đồng ý nhận sao kê điện tử để bảo vệ môi trường.
+Row 119: 5. Trích nợ tự động thanh toán dư nợ sao kê
+Row 120: Đề nghị Quý Ngân hàng tự động ghi nợ tài khoản của tôi tại Quý Ngân hàng để thanh toán dư nợ sao kê trước ngày đến hạn h
+Row 121: Số tài khoản tại MSB:
+Row 122: THÔNG TIN TÀI SẢN BẢO ĐẢM (nếu có)
+Row 123: STT Số lượng đồng sở hữu Giá trị ước tính Tình trạng sở hữu Loại tài sản Giấy chứng nhận Mối quan hệ với Khách hàng
+Row 124: Có  Chưa có, đã hình thành  Chưa có, chưa hình thành Của Khách hàng  Của vợ/chồng  Của bên thứ 3 1
+Row 125: Có  Chưa có, đã hình thành  Chưa có, chưa hình thành Của Khách hàng  Của vợ/chồng  Của bên thứ 3 2
+Row 126: Ghi chú:
+Row 127: THÔNG TIN GIAO DỊCH TẠI NGÂN HÀNG
+Row 128: Chưa có Quan hệ tín dụng với MSB*: Đã/đang có khoản tín dụng tại MSB
+Row 129: Liệt kê quan hệ tín dụng với MSB và các tổ chức tín dụng khác (nếu có):
+Row 130: Dư nợ còn lại Hình thức cấp tín dụng Tên tổ chức tín dụng Số tiền phải trả  hàng tháng Số tiền Thời gian cấp tín dụng
+Row 133: Tôi/Chúng tôi cam kết: Những thông tin, số liệu kê khai trên là hoàn toàn đúng sự thật và tôi/chúng tôi hoàn toàn chịu t

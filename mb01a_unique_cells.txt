@@ -1,0 +1,70 @@
+=== ROW 0 ===
+  Col  0: 'Sản phẩm tín dụng*\tTSBĐ\n Vay vốn\t Có\t Không\n Bảo lãnh\t Có\t Không\n Hạn mức tín dụng\t Có\t Không\n Hạn mức thấu chi\t\t Có\t Không\n Thẻ tín dụng\t Có\t Không\n Khác (ghi rõ):\t\t Có\t Không'
+  Col 28: 'Mục đích vay vốn*\n Tiêu dùng gia đình/cá nhân\n Kinh doanh cá thể/hộ gia đình/hộ kinh doanh/Doanh nghiệp\t\n Khác\nDiễn giải chi tiết mục đích cấp tín dụng*'
+=== ROW 1 ===
+  Col  0: 'Hạn mức tín dụng đề nghị cấp:'
+=== ROW 3 ===
+  Col  0: 'Họ tên:'
+=== ROW 4 ===
+  Col  0: 'Giới tính:                Nam                    Nữ'
+  Col 31: 'Ngày sinh: \t/\t/\t\tQuốc tịch:'
+=== ROW 5 ===
+  Col  0: 'Số CCCD/Hộ chiếu:'
+  Col 11: ''
+  Col 31: 'Ngày cấp: \t/\t/\t\tNơi cấp:'
+=== ROW 9 ===
+  Col  0: 'Địa chỉ thường trú:'
+  Col  5: ''
+  Col 18: ''
+  Col 31: ''
+  Col 45: ''
+  Col 60: ''
+=== ROW 12 ===
+  Col  0: 'Điện thoại nhà riêng (nếu có):'
+  Col 31: 'Điện thoại di động:'
+=== ROW 13 ===
+  Col  0: 'Email:'
+=== ROW 21 ===
+  Col  0: 'Tên cơ sở kinh doanh*:'
+=== ROW 22 ===
+  Col  0: 'Ngành nghề kinh doanh*:'
+=== ROW 68 ===
+  Col  0: 'Thu nhập từ lương'
+  Col 17: ''
+  Col 32: 'Chí phí sinh hoạt, tiêu dùng'
+  Col 56: ''
+=== ROW 70 ===
+  Col  0: 'Thu nhập từ kinh doanh'
+  Col 17: ''
+  Col 32: 'Nghĩa vụ khoản tín dụng lần này'
+  Col 56: ''
+=== ROW 72 ===
+  Col  0: 'TỔNG THU NHẬP (A)'
+  Col 17: ''
+  Col 32: 'TỔNG CHI PHÍ (B)'
+  Col 56: ''
+=== ROW 73 ===
+  Col  0: 'Thu nhập tích lũy hàng tháng* = (A) − (B) ='
+  Col 32: 'Tổng thu nhập của cá nhân khác trong gia đình:'
+=== ROW 84 ===
+  Col  0: 'STT'
+  Col  2: 'Sản phẩm'
+  Col 12: 'Mục đích'
+  Col 32: 'Tổng nhu cầu vốn'
+  Col 47: 'Số tiền cấp tín dụng'
+  Col 63: 'Thời hạn'
+=== ROW 85 ===
+  Col  0: '1'
+  Col  2: ''
+  Col 12: ''
+  Col 32: ''
+  Col 47: ''
+  Col 63: ''
+=== ROW 95 ===
+  Col  0: 'Số tiền đề nghị vay:'
+  Col  4: ''
+  Col 15: 'Hạn mức khung gồm các khoản vay, hạn mức thành phần\n\tCụ thể: (trình bày rõ nhu cầu trong hạn mức khung theo số tiền hoặc theo % hạn mức)'
+=== ROW 96 ===
+  Col  0: 'Thời hạn:'
+  Col  4: ''
+  Col 15: 'Hạn mức khung gồm các khoản vay, hạn mức thành phần\n\tCụ thể: (trình bày rõ nhu cầu trong hạn mức khung theo số tiền hoặc theo % hạn mức)'

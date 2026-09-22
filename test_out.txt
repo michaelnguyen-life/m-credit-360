@@ -1,0 +1,31 @@
+TEXT SNIPPET:
+Mẫu số: B01-DN
+CÔNG TY CỔ PHẦN ĐẦU TƯ ALPHA GROUP
+(Ban hành theo Thông tư số 200/2014/TT-BTC
+Ngày 22/12/2014 của Bộ Tài chính)
+Tầng 12, Tòa nhà Landmark Office, TP. Hồ Chí Minh
+BẢNG CÂN ĐỐI KẾ TOÁN
+Tại ngày 31 tháng 12 năm 2025
+(Áp dụng cho doanh nghiệp đáp ứng giả định hoạt động liên tục)
+ Đơn vị tính: VND
+Chỉ tiêu Mã số Thuyết minh Số cuối năm Số đầu năm
+1 2 3 4 5
+A. TÀI SẢN NGẮN HẠN 100 293369838619 211204710746
+I. Tiền và các khoản tương đương tiền 110 624458391 25457970
+1. Tiền 111 VI.01 624458391 25457970
+2. Các khoản tương đương tiền 112 0 0
+II. Đầu tư tài chính ngắn hạn 120 169910860881 178790708531
+1. Chứng khoán kinh doanh 121 169910860881 178790708531
+2. Dự phòng giảm giá chứng khoán kinh doanh (*) 122 0 0
+3. Đầu tư nắm giữ đến ngày đáo hạn 123 0 0
+III. Các khoản phải thu ngắn hạn 130 98070887088 7912281042
+1. Phải thu ngắn hạn của khách hàng 131 VI.03.a 1030523666 6970818056
+2. Trả trước cho người bán ngắn hạn 132 163273228 162962836
+3. Phải thu nội bộ ngắn hạn 133 0 0
+4. P
+
+--- MATCHING ---
+Company: công ty cổ phần đầu tư alpha group
+
+MST: None
+Period: 2025
