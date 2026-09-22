@@ -263,6 +263,22 @@ async def upload_file(file: UploadFile = File(...)):
                         if vals:
                             text_parts.append(' '.join(vals))
                 text = '\n'.join(text_parts)
+        elif file.filename.lower().endswith('.xml'):
+            with open(file_path, 'r', encoding='utf-8-sig') as f:
+                xml_content = f.read()
+            
+            # Smart extraction for Vietnamese Tax XML
+            ten_match = re.search(r'<[^>]*tenNNT[^>]*>([^<]+)</', xml_content, re.IGNORECASE)
+            mst_match_xml = re.search(r'<[^>]*mst[^>]*>([^<]+)</', xml_content, re.IGNORECASE)
+            
+            text = re.sub(r'<[^>]+>', '\n', xml_content)
+            text = re.sub(r'\n\s*\n', '\n', text)
+            
+            # Prepend to guarantee regex catches them
+            if ten_match:
+                text = ten_match.group(1) + "\n" + text
+            if mst_match_xml:
+                text = "MST: " + mst_match_xml.group(1) + "\n" + text
         else:
             # images etc., we just fake it for demo if OCR is not available
             text = "doanh thu thuần 150000000000\nphải thu ngắn hạn 20000000000\n"
