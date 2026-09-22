@@ -304,10 +304,10 @@ async def upload_file(file: UploadFile = File(...)):
             mst_match = re.search(r'\b(0\d{9})\b', text_lower)
             if mst_match:
                 mst = mst_match.group(1)
-    else:
-        mst_match = re.search(r'(?:mã số doanh nghiệp|mst)[:\s-]*(\d{10,14})', text.lower())
-        if mst_match:
-            mst = mst_match.group(1)
+            else:
+                mst_match = re.search(r'(?:mã số doanh nghiệp|mst)[:\s-]*(\d{10,14})', text.lower())
+                if mst_match:
+                    mst = mst_match.group(1)
             
     # Check if text is completely empty (Scanned PDF)
     if len(text.strip()) < 50:
