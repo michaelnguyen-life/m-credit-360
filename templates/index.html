@@ -2016,14 +2016,14 @@ window.applyExtractedData = function() {
     
     if (realExtractedData) {
         // Tên KH & MST
-        document.getElementById('eb-tax-id').value = realExtractedData.company?.tax_id || "Cha xAc <nh";
-        document.getElementById('eb-company-name').value = realExtractedData.company?.name || "Cha xAc <nh t h" s";
+        document.getElementById('eb-tax-id').value = realExtractedData.company?.tax_id || "Chưa xác định";
+        document.getElementById('eb-company-name').value = realExtractedData.company?.name || "Chưa xác định từ hồ sơ";
         if (realExtractedData.reporting_period) {
             document.getElementById('eb-period').value = realExtractedData.reporting_period;
         }
         
         // Status tags
-        document.getElementById('eb-ai-badge').innerHTML = '<i data-lucide="check" class="w-2.5 h-2.5 inline"></i> AI A? trA-ch xut';
+        document.getElementById('eb-ai-badge').innerHTML = '<i data-lucide="check" class="w-2.5 h-2.5 inline"></i> AI đã trích xuất';
         document.getElementById('eb-ai-badge').className = 'text-[9px] px-1.5 py-0.5 rounded bg-green-100 text-green-700 border border-green-200 font-semibold';
         document.getElementById('eb-source-file').innerText = "BCTC " + (realExtractedData.reporting_period || "2025");
         
@@ -2090,7 +2090,7 @@ window.runEBAssessment = async function() {
     const btn = document.getElementById('btn-run-eb');
     if(btn) {
         btn.disabled = true;
-        btn.innerHTML = '<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i><span>?ANG PHA,N TA?CH...</span>';
+        btn.innerHTML = '<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i><span>ĐANG PHÂN TÍCH...</span>';
     }
     
     // Simulate loading
@@ -2127,12 +2127,10 @@ window.runEBAssessment = async function() {
         const nwc = ca - cl;
         document.getElementById('val-nwc').innerText = formatVNDShort(nwc);
         if(nwc > 0) {
-            document.getElementById('desc-nwc').innerText = "Doanh nghip cA ph n m v
- lu Tng d*ng.";
+            document.getElementById('desc-nwc').innerText = "Doanh nghiệp có nguồn vốn lưu động dương.";
             document.getElementById('val-nwc').className = "text-lg font-mono font-bold text-green-600 mb-1";
         } else {
-            document.getElementById('desc-nwc').innerText = "V
- lu Tng rAng A?m, c n ki?m tra Ap lc thanh toAn.";
+            document.getElementById('desc-nwc').innerText = "Vốn lưu động ròng âm, cần kiểm tra áp lực thanh toán.";
             document.getElementById('val-nwc').className = "text-lg font-mono font-bold text-red-600 mb-1";
         }
         
@@ -2140,11 +2138,10 @@ window.runEBAssessment = async function() {
         const liqBal = rev > 0 ? (nwc / rev) * 100 : 0;
         document.getElementById('val-liq').innerText = liqBal.toFixed(1) + "%";
         if (liqBal > 0) {
-            document.getElementById('desc-liq').innerText = "DAng v
- lu Tng to vAng m t	.";
+            document.getElementById('desc-liq').innerText = "Dòng vốn lưu động tương đối tốt.";
             document.getElementById('val-liq').className = "text-lg font-mono font-bold text-green-600 mb-1";
         } else {
-            document.getElementById('desc-liq').innerText = "Cha ?c nA?ng  b i VL? rAng.";
+            document.getElementById('desc-liq').innerText = "Chưa được nâng đỡ bởi VLĐ ròng.";
             document.getElementById('val-liq').className = "text-lg font-mono font-bold text-red-600 mb-1";
         }
         
@@ -2155,13 +2152,13 @@ window.runEBAssessment = async function() {
         
         if (dscr < 1.0) {
             document.getElementById('val-dscr').className = "text-lg font-mono font-bold text-red-600 mb-1";
-            document.getElementById('desc-dscr').innerText = "KhAng  dAng ti?n tr y  gc lA?i.";
+            document.getElementById('desc-dscr').innerText = "Không đủ dòng tiền trả nợ gốc lãi.";
         } else if (dscr < 1.2) {
             document.getElementById('val-dscr').className = "text-lg font-mono font-bold text-yellow-600 mb-1";
-            document.getElementById('desc-dscr').innerText = "? tr n nhng biAn an toAn mng.";
+            document.getElementById('desc-dscr').innerText = "Trả nợ được nhưng biên an toàn mỏng.";
         } else {
             document.getElementById('val-dscr').className = "text-lg font-mono font-bold text-green-600 mb-1";
-            document.getElementById('desc-dscr').innerText = "Kh nA?ng tr n t	, dAng ti?n kho.";
+            document.getElementById('desc-dscr').innerText = "Khả năng trả nợ tốt, dòng tiền khỏe.";
         }
         
         // 4. ICR
@@ -2169,10 +2166,10 @@ window.runEBAssessment = async function() {
         document.getElementById('val-icr').innerText = icr === 999 ? "N/A" : icr.toFixed(2) + "x";
         if (icr < 1.5) {
             document.getElementById('val-icr').className = "text-lg font-mono font-bold text-red-600 mb-1";
-            document.getElementById('desc-icr').innerText = "Li nhun vn hAnh cha  bA? _p.";
+            document.getElementById('desc-icr').innerText = "Lợi nhuận vận hành chưa đủ bù đắp.";
         } else {
             document.getElementById('val-icr').className = "text-lg font-mono font-bold text-green-600 mb-1";
-            document.getElementById('desc-icr').innerText = "Kh nA?ng bA? _p lA?i vay 	 chun.";
+            document.getElementById('desc-icr').innerText = "Khả năng bù đắp lãi vay đạt chuẩn.";
         }
         
         // Financial Balance
@@ -2181,11 +2178,10 @@ window.runEBAssessment = async function() {
         document.getElementById('bal-right').innerText = formatVNDShort(ltNet);
         
         if (nwc >= 0 && ltNet >= 0) {
-            document.getElementById('bal-desc').innerText = "CAn b ng: TS dAi hn ?c tAi tr hoAn toAn b ng ngu"n v
- dAi hn.";
+            document.getElementById('bal-desc').innerText = "Cân bằng: TS dài hạn được tài trợ hoàn toàn bằng nguồn vốn dài hạn.";
             document.getElementById('bal-eq').innerText = "≈";
         } else {
-            document.getElementById('bal-desc').innerText = "Mt cAn b ng: TS dAi hn ng ?c tAi tr b_ng n ng_n hn.";
+            document.getElementById('bal-desc').innerText = "Mất cân bằng: TS dài hạn đang được tài trợ bằng nợ ngắn hạn.";
             document.getElementById('bal-eq').innerText = "≠";
         }
         
@@ -2196,76 +2192,279 @@ window.runEBAssessment = async function() {
         
         // Red flags
         let flags = [];
-        if (nwc < 0) flags.push("V
- lu Tng rAng A?m, Ap lc thanh kho n ng_n hn cao.");
-        if (dscr < 1.0) flags.push("DSCR di 1.0x, r i ro dAng ti?n tr n khAng .");
-        if (icr < 1.5) flags.push("ICR di 1.5x, vn hAnh cha to ?c l i nhun an toAn.");
-        if (ca > 0 && cl > ca) flags.push("N ng_n hn v?t quA tAi sn ng_n hn (mt cAn `i v
-).");
+        if (nwc < 0) flags.push("Vốn lưu động ròng âm, áp lực thanh khoản ngắn hạn cao.");
+        if (dscr < 1.0) flags.push("DSCR dưới 1.0x, rủi ro dòng tiền trả nợ không đủ.");
+        if (icr < 1.5) flags.push("ICR dưới 1.5x, vận hành chưa tạo được lợi nhuận an toàn.");
+        if (ca > 0 && cl > ca) flags.push("Nợ ngắn hạn vượt quá tài sản ngắn hạn (mất cân đối vốn).");
         
         const rfContainer = document.getElementById('red-flags-container');
         if (flags.length === 0) {
-            rfContainer.innerHTML = '<div class="p-3 rounded-lg bg-green-50 border border-green-100 text-green-700 font-medium text-center">KhAng phAt hin cnh bAo r i ro (Clean).</div>';
+            rfContainer.innerHTML = '<div class="p-3 rounded-lg bg-green-50 border border-green-100 text-green-700 font-medium text-center">Không phát hiện cảnh báo rủi ro (Clean).</div>';
         } else {
-            rfContainer.innerHTML = flags.map(f => <div class="p-2.5 rounded bg-red-50 border border-red-100 text-red-700 font-medium text-xs flex gap-2 items-start"><i data-lucide="alert-circle" class="w-4 h-4 shrink-0 mt-0.5"></i> </div>).join('');
+            rfContainer.innerHTML = flags.map(f => `<div class="p-2.5 rounded bg-red-50 border border-red-100 text-red-700 font-medium text-xs flex gap-2 items-start"><i data-lucide="alert-circle" class="w-4 h-4 shrink-0 mt-0.5"></i> ${f}</div>`).join('');
         }
         
         // Banner Update
         let decisionClass = flags.length > 0 ? "bg-red-50 border-red-200" : "bg-green-50 border-green-200";
         let iconClass = flags.length > 0 ? "bg-red-100 text-red-600" : "bg-green-100 text-green-600";
-        let statusText = flags.length > 0 ? "Cc n rA soAt r i ro" : "CA th? chuy?n thcm <nh th cAng";
-        let summaryText = flags.length > 0 ? "PhAt hin cAc cnh bAo  trong BCTC c n ?c RM gii trA?nh tr>c khi trA?nh duy?t." : "D_ liu s bT 	 chun MSB, dAng ti?n Am bo nA?ng lc tr n.";
+        let statusText = flags.length > 0 ? "Cần rà soát rủi ro" : "Có thể chuyển thẩm định thi công";
+        let summaryText = flags.length > 0 ? "Phát hiện các cảnh báo đỏ trong BCTC cần được RM giải trình trước khi trình duyệt." : "Dữ liệu sơ bộ đạt chuẩn MSB, dòng tiền đảm bảo năng lực trả nợ.";
         
         const banner = document.getElementById('decision-banner');
-        if(banner) banner.className = executive-card p-4 flex flex-col gap-2 relative overflow-hidden border ;
-        document.getElementById('decision-status-icon').className = w-7 h-7 rounded-full flex items-center justify-center ;
+        if(banner) banner.className = `executive-card p-4 flex flex-col gap-2 relative overflow-hidden border ${decisionClass}`;
+        document.getElementById('decision-status-icon').className = `w-7 h-7 rounded-full flex items-center justify-center ${iconClass}`;
         document.getElementById('decision-status-icon').innerHTML = '<i data-lucide="' + (flags.length > 0 ? 'alert-triangle' : 'check') + '" class="w-4 h-4"></i>';
         document.getElementById('decision-status-text').innerText = statusText;
         document.getElementById('decision-summary').innerText = summaryText;
         
         // Update M-Insight AI
         document.getElementById('ai-strengths').innerHTML = flags.length === 0 ? 
-            '<li>BiAn l i nhun an toAn, ICR > 1.5x</li><li>VL? rAng d*ng</li>' : 
-            '<li class="italic text-slate-500">Cha cA i?m mt tn tin...</li>';
+            '<li>Biên lợi nhuận an toàn, ICR > 1.5x</li><li>VLĐ Ròng dương</li>' : 
+            '<li class="italic text-slate-500">Chưa có điểm mạnh tự tin...</li>';
         document.getElementById('ai-weaknesses').innerHTML = flags.length > 0 ? 
-            flags.map(f => <li></li>).join('') : 
-            '<li class="italic text-slate-500">Cha phAt hin r i ro</li>';
+            flags.map(f => `<li>${f}</li>`).join('') : 
+            '<li class="italic text-slate-500">Chưa phát hiện rủi ro</li>';
             
-        document.getElementById('ai-rationale').innerText = KhAch hAng cA TSNH  vA Doanh thu . ;
+        document.getElementById('ai-rationale').innerText = `Khách hàng có TSNH ${formatVNDShort(ca)} và Doanh thu ${formatVNDShort(rev)}. ${summaryText}`;
         
         // Cross-sell
         if (ar > 0) {
-            document.getElementById('cross-sell-container').innerHTML = 
+            document.getElementById('cross-sell-container').innerHTML = `
                 <div class="p-3 rounded-lg bg-orange-50 border border-orange-200">
                     <div class="flex justify-between items-center mb-1">
-                        <span class="font-bold text-orange-700 text-xs">TAi tr phi thu Q? 039</span>
+                        <span class="font-bold text-orange-700 text-xs">Tài trợ phải thu QĐ 039</span>
                         <span class="bg-orange-100 text-orange-700 text-[9px] px-1.5 py-0.5 rounded font-bold">P1</span>
                     </div>
-                    <p class="text-[10px] text-slate-600 mb-2">Hn mcc ti : <span class="font-bold text-orange-600"></span></p>
-                    <button class="w-full text-center py-1.5 bg-orange-600 text-white text-[10px] font-bold rounded shadow-sm hover:bg-orange-700">Xem Khuyn ngh<</button>
+                    <p class="text-[10px] text-slate-600 mb-2">Hạn mức tối đa: <span class="font-bold text-orange-600">${formatVNDShort(ar * 0.8)}</span></p>
+                    <button class="w-full text-center py-1.5 bg-orange-600 text-white text-[10px] font-bold rounded shadow-sm hover:bg-orange-700">Xem Khuyến nghị</button>
                 </div>
-            ;
+            `;
         } else {
-            document.getElementById('cross-sell-container').innerHTML = 
+            document.getElementById('cross-sell-container').innerHTML = `
                 <div class="p-4 rounded-lg bg-slate-50 border border-slate-100 text-center flex flex-col items-center justify-center">
                   <i data-lucide="minus-circle" class="w-5 h-5 text-slate-400 mb-2"></i>
-                  <p class="text-[11px] text-slate-500 font-medium">KhAng cA khon phi thu.<br/>Cha cA khuyn ngh< bAn chAo.</p>
+                  <p class="text-[11px] text-slate-500 font-medium">Không có khoản phải thu.<br/>Chưa có khuyến nghị bán chéo.</p>
                 </div>
-            ;
+            `;
         }
 
     } catch (e) {
         console.error("Run EB Assessment Error:", e);
-        document.getElementById('decision-status-text').innerText = "C n b sung h" s";
+        document.getElementById('decision-status-text').innerText = "Cần bổ sung hồ sơ";
         document.getElementById('decision-status-icon').innerHTML = '<i data-lucide="minus" class="w-4 h-4"></i>';
         document.getElementById('decision-status-icon').className = 'w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-slate-600';
     } finally {
         if(btn) {
             btn.disabled = false;
-            btn.innerHTML = '<i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i><span>CHY TH.M ?FNH AI 360A?</span>';
+            btn.innerHTML = '<i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i><span>CHẠY THẨM ĐỊNH AI 360°</span>';
         }
         if(typeof lucide !== "undefined") lucide.createIcons();
     }
+};
+
+// ==========================================
+// STRESS TEST MODULE (KIỂM TRA SỨC CHỊU)
+// ==========================================
+window.openStressTestModal = function() {
+    document.getElementById('stress-test-modal').classList.remove('hidden');
+    document.getElementById('st-company-name').innerText = document.getElementById('eb-company-name').value;
+    document.getElementById('st-tax-id').innerText = document.getElementById('eb-tax-id').value;
+    document.getElementById('st-period').innerText = document.getElementById('eb-period').value;
+    
+    const now = new Date();
+    document.getElementById('st-timestamp').innerText = now.toLocaleTimeString() + ' ' + now.toLocaleDateString();
+    
+    // Auto run with normal scenario first
+    runStressTest();
+};
+
+window.closeStressTestModal = function() {
+    document.getElementById('stress-test-modal').classList.add('hidden');
+};
+
+window.updateStressLabels = function() {
+    document.getElementById('val-in-rev').innerText = document.getElementById('in-rev').value + '%';
+    document.getElementById('val-in-ebit').innerText = document.getElementById('in-ebit').value + '%';
+    document.getElementById('val-in-interest').innerText = document.getElementById('in-interest').value + '%';
+    document.getElementById('val-in-ar-days').innerText = document.getElementById('in-ar-days').value;
+};
+
+window.runStressTest = function() {
+    // 1. Get Base Values from UI
+    const revBase = parseVND(document.getElementById('eb-revenue').value);
+    const ebitBase = parseVND(document.getElementById('eb-ebit').value);
+    const intBase = parseVND(document.getElementById('eb-interest').value);
+    const deprBase = parseVND(document.getElementById('eb-depreciation').value);
+    const patBase = parseVND(document.getElementById('eb-pat').value);
+    const caBase = parseVND(document.getElementById('eb-current-assets').value);
+    const clBase = parseVND(document.getElementById('eb-current-liabilities').value);
+    const nwcBase = caBase - clBase;
+    const principalDue = parseVND(document.getElementById('eb-lt-debt-due').value) || (parseVND(document.getElementById('eb-total-borrow').value) * 0.2); // Fallback
+    
+    // 2. Read Scenario
+    const scenario = document.querySelector('input[name="st-scenario"]:checked').value;
+    const customControls = document.getElementById('st-custom-controls');
+    
+    let dRev = 0, dEbit = 0, dInt = 0, dArDays = 0;
+    let desc = "Đang giả định doanh thu, lợi nhuận và lãi vay giữ nguyên theo BCTC.";
+    
+    if (scenario === 'normal') {
+        customControls.classList.add('hidden');
+    } else if (scenario === 'slow') {
+        customControls.classList.add('hidden');
+        dRev = -10; dEbit = -15; dInt = 15; dArDays = 15;
+        desc = "Thị trường chậm lại: Doanh thu giảm 10%, EBIT giảm 15%, lãi vay tăng 15%, thu tiền chậm thêm 15 ngày.";
+    } else if (scenario === 'hard') {
+        customControls.classList.add('hidden');
+        dRev = -20; dEbit = -30; dInt = 30; dArDays = 30;
+        desc = "Tình huống khó khăn: Doanh thu giảm 20%, EBIT giảm 30%, lãi vay tăng 30%, thu tiền chậm thêm 30 ngày.";
+    } else if (scenario === 'custom') {
+        customControls.classList.remove('hidden');
+        dRev = parseInt(document.getElementById('in-rev').value);
+        dEbit = parseInt(document.getElementById('in-ebit').value);
+        dInt = parseInt(document.getElementById('in-interest').value);
+        dArDays = parseInt(document.getElementById('in-ar-days').value);
+        desc = `Đang giả định doanh thu biến động ${dRev}%, EBIT ${dEbit}%, lãi vay ${dInt}% và KH trả chậm thêm ${dArDays} ngày.`;
+    }
+    
+    document.getElementById('st-scenario-desc').innerText = desc;
+    
+    // 3. Calculate New Values
+    const revNew = revBase * (1 + dRev/100);
+    const ebitNew = ebitBase * (1 + dEbit/100);
+    const intNew = intBase * (1 + dInt/100);
+    
+    // NWC Impact
+    const extraAr = revBase > 0 ? (revBase / 365) * dArDays : 0;
+    const nwcNew = nwcBase - extraAr; 
+    
+    const pbtNew = ebitNew - intNew;
+    const patNew = pbtNew > 0 ? pbtNew * 0.8 : pbtNew;
+    
+    // 4. Update Cards
+    document.getElementById('st-rev-old').innerText = formatVNDShort(revBase);
+    document.getElementById('st-rev-new').innerText = formatVNDShort(revNew);
+    
+    document.getElementById('st-ebit-old').innerText = formatVNDShort(ebitBase);
+    document.getElementById('st-ebit-new').innerText = formatVNDShort(ebitNew);
+    
+    document.getElementById('st-int-old').innerText = formatVNDShort(intBase);
+    document.getElementById('st-int-new').innerText = formatVNDShort(intNew);
+    
+    if (caBase === 0 && clBase === 0) {
+        document.getElementById('st-nwc-old').innerText = "Cần BCTC";
+        document.getElementById('st-nwc-new').innerText = "Cần BCTC";
+    } else {
+        document.getElementById('st-nwc-old').innerText = formatVNDShort(nwcBase);
+        document.getElementById('st-nwc-new').innerText = formatVNDShort(nwcNew);
+    }
+    
+    // 5. Calculate DSCR & ICR
+    const includeStDebt = document.getElementById('st-include-st-debt') ? document.getElementById('st-include-st-debt').checked : false;
+    const stDebtOld = includeStDebt ? (parseVND(document.getElementById('eb-current-liabilities').value) * 0.5) : 0;
+    const debtObligationOld = principalDue + intBase + stDebtOld;
+    const dscrOld = debtObligationOld > 0 ? (patBase + deprBase + intBase) / debtObligationOld : 999;
+    const icrOld = intBase > 0 ? ebitBase / intBase : 999;
+    
+    const stDebtNew = includeStDebt ? (parseVND(document.getElementById('eb-current-liabilities').value) * 0.5) : 0;
+    const debtObligationNew = principalDue + intNew + stDebtNew;
+    const dscrNew = debtObligationNew > 0 ? (patNew + deprBase + intNew) / debtObligationNew : 999;
+    const icrNew = intNew > 0 ? ebitNew / intNew : 999;
+    
+    document.getElementById('st-dscr-base').innerText = dscrOld === 999 ? "N/A" : dscrOld.toFixed(2) + "x";
+    document.getElementById('st-dscr-val').innerText = dscrNew === 999 ? "N/A" : dscrNew.toFixed(2) + "x";
+    
+    let dscrPct = Math.min(100, Math.max(0, (dscrNew / 3) * 100));
+    document.getElementById('st-dscr-bar').style.width = dscrPct + "%";
+    
+    if (dscrNew < 1.0) {
+        document.getElementById('st-dscr-val').className = "text-2xl font-mono font-bold text-red-600";
+        document.getElementById('st-dscr-bar').className = "h-full bg-red-500 rounded-full transition-all duration-500";
+        document.getElementById('st-dscr-desc').innerText = "Tiền doanh nghiệp tạo ra theo mô phỏng không đủ để trả toàn bộ gốc và lãi.";
+        document.getElementById('st-dscr-buffer').innerText = "Thiếu: " + (1.0 - dscrNew).toFixed(2) + "x";
+        document.getElementById('st-dscr-buffer').className = "font-mono font-bold text-red-600 bg-red-50 px-1.5 rounded";
+    } else if (dscrNew < 1.2) {
+        document.getElementById('st-dscr-val').className = "text-2xl font-mono font-bold text-yellow-600";
+        document.getElementById('st-dscr-bar').className = "h-full bg-yellow-500 rounded-full transition-all duration-500";
+        document.getElementById('st-dscr-desc').innerText = "Có thể trả nợ, nhưng biên an toàn mỏng.";
+        document.getElementById('st-dscr-buffer').innerText = "Đệm: " + (dscrNew - 1.0).toFixed(2) + "x";
+        document.getElementById('st-dscr-buffer').className = "font-mono font-bold text-yellow-600 bg-yellow-50 px-1.5 rounded";
+    } else {
+        document.getElementById('st-dscr-val').className = "text-2xl font-mono font-bold text-green-600";
+        document.getElementById('st-dscr-bar').className = "h-full bg-green-500 rounded-full transition-all duration-500";
+        document.getElementById('st-dscr-desc').innerText = "Khả năng trả nợ còn vùng đệm tốt.";
+        document.getElementById('st-dscr-buffer').innerText = "Đệm: " + (dscrNew - 1.0).toFixed(2) + "x";
+        document.getElementById('st-dscr-buffer').className = "font-mono font-bold text-green-600 bg-green-50 px-1.5 rounded";
+    }
+    
+    document.getElementById('st-icr-base').innerText = icrOld === 999 ? "N/A" : icrOld.toFixed(2) + "x";
+    document.getElementById('st-icr-val').innerText = icrNew === 999 ? "N/A" : icrNew.toFixed(2) + "x";
+    
+    let icrPct = Math.min(100, Math.max(0, (icrNew / 5) * 100));
+    document.getElementById('st-icr-bar').style.width = icrPct + "%";
+    
+    if (icrNew < 1.5) {
+        document.getElementById('st-icr-val').className = "text-2xl font-mono font-bold text-red-600";
+        document.getElementById('st-icr-bar').className = "h-full bg-red-500 rounded-full transition-all duration-500";
+        document.getElementById('st-icr-desc').innerText = "Lợi nhuận từ hoạt động kinh doanh chưa tạo vùng đệm đủ an toàn để trả lãi.";
+        document.getElementById('st-icr-buffer').innerText = "Thiếu: " + (1.5 - icrNew).toFixed(2) + "x";
+        document.getElementById('st-icr-buffer').className = "font-mono font-bold text-red-600 bg-red-50 px-1.5 rounded";
+    } else {
+        document.getElementById('st-icr-val').className = "text-2xl font-mono font-bold text-green-600";
+        document.getElementById('st-icr-bar').className = "h-full bg-green-500 rounded-full transition-all duration-500";
+        document.getElementById('st-icr-desc').innerText = "Khả năng trả lãi vẫn đạt mức tham chiếu.";
+        document.getElementById('st-icr-buffer').innerText = "Đệm: " + (icrNew - 1.5).toFixed(2) + "x";
+        document.getElementById('st-icr-buffer').className = "font-mono font-bold text-green-600 bg-green-50 px-1.5 rounded";
+    }
+    
+    // 6. Conclusion Banner
+    const cc = document.getElementById('st-conclusion-card');
+    const ct = document.getElementById('st-main-conclusion');
+    if (dscrNew < 1.0 || icrNew < 1.0) {
+        cc.className = "executive-card p-5 mb-5 border-l-4 border-red-500 bg-red-50";
+        ct.innerText = "Doanh nghiệp có nguy cơ thiếu nguồn trả nợ khi điều kiện kinh doanh xấu đi.";
+        ct.className = "text-xl font-bold text-red-700 mt-1";
+    } else if (dscrNew < 1.2 || icrNew < 1.5) {
+        cc.className = "executive-card p-5 mb-5 border-l-4 border-yellow-500 bg-yellow-50";
+        ct.innerText = "Doanh nghiệp vẫn trả được nợ nhưng vùng đệm mỏng.";
+        ct.className = "text-xl font-bold text-yellow-700 mt-1";
+    } else {
+        cc.className = "executive-card p-5 mb-5 border-l-4 border-green-500 bg-green-50";
+        ct.innerText = "Doanh nghiệp vẫn duy trì khả năng trả nợ.";
+        ct.className = "text-xl font-bold text-green-700 mt-1";
+    }
+    
+    // 7. AI Insights
+    let insights = [];
+    if (dRev < 0) {
+        insights.push(`<li class="flex items-start gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-blue-500 shrink-0 mt-0.5"></i> <span>Khi doanh thu giảm ${Math.abs(dRev)}%, DSCR thay đổi từ ${dscrOld.toFixed(2)}x xuống ${dscrNew.toFixed(2)}x.</span></li>`);
+    }
+    if (dInt > 0) {
+        insights.push(`<li class="flex items-start gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-blue-500 shrink-0 mt-0.5"></i> <span>Chi phí lãi vay tăng ${dInt}% làm ICR giảm xuống ${icrNew.toFixed(2)}x.</span></li>`);
+    }
+    if (dArDays > 0) {
+        insights.push(`<li class="flex items-start gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-blue-500 shrink-0 mt-0.5"></i> <span>Khoản phải thu kéo dài thêm ${dArDays} ngày có thể làm dòng tiền bị chiếm dụng ước tính ${formatVNDShort(extraAr)}. Cần kiểm tra bảng tuổi nợ.</span></li>`);
+    }
+    
+    if (insights.length === 0) {
+        insights.push(`<li class="flex items-start gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-blue-500 shrink-0 mt-0.5"></i> <span>Mô phỏng đang chạy với số liệu cơ sở.</span></li>`);
+    }
+    document.getElementById('st-ai-insights').innerHTML = insights.join('');
+    
+    // 8. RM Actions
+    let actions = [];
+    if (dArDays > 0 || (nwcNew < nwcBase && nwcNew < 0)) {
+        actions.push(`<li class="flex items-start gap-1.5"><i data-lucide="check-square" class="w-3 h-3 text-orange-500 shrink-0 mt-0.5"></i> <span>Yêu cầu bảng tuổi nợ phải thu và danh sách khách hàng mua hàng lớn.</span></li>`);
+    }
+    if (dscrNew < 1.0) {
+        actions.push(`<li class="flex items-start gap-1.5"><i data-lucide="check-square" class="w-3 h-3 text-orange-500 shrink-0 mt-0.5"></i> <span>Đánh giá cơ chế kiểm soát dòng tiền về MSB và kiểm tra lịch trả nợ.</span></li>`);
+        actions.push(`<li class="flex items-start gap-1.5"><i data-lucide="check-square" class="w-3 h-3 text-orange-500 shrink-0 mt-0.5"></i> <span>Xem xét kỳ hạn, điều kiện giải ngân phù hợp để tránh kẹt thanh khoản.</span></li>`);
+    } else {
+        actions.push(`<li class="flex items-start gap-1.5"><i data-lucide="check-square" class="w-3 h-3 text-green-500 shrink-0 mt-0.5"></i> <span>Hồ sơ dòng tiền khả quan, tiếp tục thẩm định theo quy trình chuẩn.</span></li>`);
+    }
+    document.getElementById('st-rm-actions').innerHTML = actions.join('');
+    
+    if(typeof lucide !== "undefined") lucide.createIcons();
 };
 
 </script>
