@@ -1,4 +1,5 @@
 {
+  "$schema": "https://opencode.ai/config.json",
   "model": "greennode/z-ai/glm-5.2-hackathon",
   "provider": {
     "greennode": {

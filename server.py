@@ -176,44 +176,53 @@ import re
 
 def extract_real_financials(text: str):
     import unicodedata
-    text = unicodedata.normalize('NFC', text)
-    keywords = {
-        "IS_REVENUE": [r"doanh thu thuần", r"doanh thu bán hàng"],
-        "IS_NET_PROFIT": [r"lợi nhuận sau thuế", r"lãi sau thuế"],
-        "IS_INTEREST_EXPENSE": [r"chi phí lãi vay"],
-        "BS_INVENTORY": [r"hàng tồn kho"],
-        "BS_TRADE_RECEIVABLES": [r"phải thu.*khách hàng", r"phải thu khách hàng"],
-        "BS_TRADE_PAYABLES": [r"phải trả người bán ngắn hạn", r"phải trả người bán"],
-        "BS_SHORT_TERM_DEBT": [r"vay và nợ thuê tài chính", r"vay ngắn hạn"],
-        "BS_TOTAL_LIABILITIES": [r"nợ phải trả"],
-        "BS_EQUITY": [r"vốn chủ sở hữu"],
-        "CF_OPERATING_CASH_FLOW": [r"lưu chuyển tiền thuần từ hoạt động kinh doanh"],
-        "BS_CURRENT_ASSETS": [r"tài sản ngắn hạn"],
-        "BS_CURRENT_LIABILITIES": [r"nợ ngắn hạn"]
-    }
+    import re
     
-    for ch in range(1, 32):
-        if ch != 10:
-            text = text.replace(chr(ch), ' ')
-    text = text.lower()
+    def remove_accents(input_str):
+        nfkd_form = unicodedata.normalize('NFKD', input_str)
+        return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
+    text = remove_accents(text).lower()
+    
+    keywords = {
+        "IS_REVENUE": [r"is_revenue", r"doanh thu thuan", r"doanh thu ban hang", r"doanh thu"],
+        "IS_NET_PROFIT": [r"is_net_profit", r"loi nhuan sau thue", r"lai sau thue"],
+        "IS_INTEREST_EXPENSE": [r"is_interest_expense", r"chi phi lai vay", r"chi phi tai chinh"],
+        "BS_INVENTORY": [r"bs_inventory", r"hang ton kho"],
+        "BS_TRADE_RECEIVABLES": [r"bs_trade_receivables", r"phai thu.*khach hang", r"phai thu khach hang"],
+        "BS_TRADE_PAYABLES": [r"bs_trade_payables", r"phai tra nguoi ban ngan han", r"phai tra nguoi ban"],
+        "BS_SHORT_TERM_DEBT": [r"bs_short_term_debt", r"vay va no thue tai chinh ngan han", r"vay ngan han"],
+        "BS_TOTAL_LIABILITIES": [r"bs_total_liabilities", r"no phai tra"],
+        "BS_EQUITY": [r"bs_equity", r"von chu so huu", r"von gop cua chu so huu"],
+        "CF_OPERATING_CASH_FLOW": [r"cf_operating_cash_flow", r"luu chuyen tien thuan tu hoat dong kinh doanh", r"luu chuyen tien hoat dong kinh doanh", r"luu chuyen tien thuan"],
+        "BS_CURRENT_ASSETS": [r"bs_current_assets", r"tai san ngan han"],
+        "BS_CURRENT_LIABILITIES": [r"bs_current_liabilities", r"no ngan han"]
+    }
     
     financials = {}
     for code, patterns in keywords.items():
         all_matches = []
         for pattern in patterns:
-            for m in re.finditer(pattern + r'.*?(?<![\d.])(\d{8,})', text):
+            # Match pattern followed by spaces/chars and then digits
+            # Using basic \d to prevent escape issues in python scripts
+            import re
+            rgx1 = pattern + r'.*?(?<![\d.])(\d{8,})'
+            for m in re.finditer(rgx1, text):
                 try:
                     all_matches.append(int(m.group(1)))
                 except:
                     pass
         if all_matches:
-            if code.startswith('IS_'):
-                financials[code] = all_matches[-1]
+            if code.startswith('IS_') or code.startswith('CF_'):
+                financials[code] = all_matches[-1] # take the last one (this year)
             else:
-                financials[code] = all_matches[0]
+                financials[code] = all_matches[0]  # take the first one (this year)
+        
         if code not in financials:
             for pattern in patterns:
-                match = re.search(pattern + r'.*?(?<![\d.])(\d{1,3}(?:[.,]\d{3})+)', text)
+                # Match numbers with dots/commas
+                rgx2 = pattern + r'.*?(?<![\d.])(\d{1,3}(?:[.,]\d{3})+)'
+                match = re.search(rgx2, text)
                 if match:
                     num_str = match.group(1).replace('.', '').replace(',', '')
                     try:
@@ -232,7 +241,6 @@ def extract_real_financials(text: str):
     for k, v in defaults.items():
         if k not in financials:
             financials[k] = v
-            
     return financials
 
 @app.post("/api/upload")
